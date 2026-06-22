@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grade 12 History Live Quizzes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div>
+        <p class="eyebrow">GRADE 12 HISTORY</p>
+        <h1>Live Quiz Hub</h1>
+        <p class="hero-copy">Add one new quiz HTML file in future. The hub and results dashboard update from Supabase.</p>
+      </div>
+      <nav class="top-nav">
+        <a href="results.html">View Results</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro-panel">
+      <div class="status-bar">
+        <span id="modeBadge" class="badge">Checking registry…</span>
+        <button id="refreshHubButton" class="secondary-button compact" type="button">Refresh quiz list</button>
+      </div>
+      <h2>Choose a quiz</h2>
+      <p>Each quiz selects <strong>30 random questions</strong> from its question bank. Every attempt feeds into the same live results dashboard. Learners select their name from your Supabase student list.</p>
+    </section>
+
+    <section class="panel notice-panel">
+      <strong>Future workflow:</strong> Upload the new quiz HTML file, open that quiz once, and it will register itself so the hub/results dropdown can find it automatically. Learner names come from Supabase, so new quizzes do not need a student list inside the HTML.
+    </section>
+
+    <section class="quiz-grid" id="quizGrid"></section>
+    <section id="hubMessage" class="panel hub-message hidden">Loading quizzes…</section>
+  </main>
+
+  <footer>
+    <div class="container">History practice quizzes • Supabase live results</div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="hub.js"></script>
+</body>
+</html>

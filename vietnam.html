@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>History Live Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div>
+        <p class="eyebrow" id="quizSubject">GRADE 12 HISTORY</p>
+        <h1 id="quizTitle">Loading quiz…</h1>
+        <p class="hero-copy" id="quizDescription">30 random questions each attempt • Self-marking • Live saved results</p>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html">Quiz Hub</a>
+        <a href="results.html">View Results</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="status-bar">
+      <span id="modeBadge" class="badge">Checking storage…</span>
+      <span id="questionCountBadge" class="badge soft">Loading questions…</span>
+    </section>
+
+    <form id="quizForm" novalidate>
+      <section class="panel learner-panel">
+        <h2>Learner details</h2>
+        <div class="form-grid">
+          <label>Select learner name
+            <select id="learnerName" required>
+              <option value="">Loading learner names…</option>
+            </select>
+          </label>
+          <label>Learner code
+            <input id="learnerCode" type="text" maxlength="30" placeholder="Example: G12-014" required />
+          </label>
+        </div>
+        <p class="small-note">Select your official name and enter the private learner code given by the teacher.</p>
+      </section>
+
+      <section class="panel quiz-progress-panel">
+        <div>
+          <strong id="progressText">0 answered</strong>
+          <p class="small-note">Answer all questions, then click submit at the bottom.</p>
+        </div>
+        <div class="progress-track" aria-hidden="true"><div id="progressBar" class="progress-bar"></div></div>
+      </section>
+
+      <div id="questionsContainer"></div>
+
+      <section class="panel submit-panel">
+        <p id="formMessage" class="form-message" role="alert"></p>
+        <button id="submitButton" class="primary-button" type="submit">Mark and save result</button>
+      </section>
+    </form>
+
+    <section id="resultPanel" class="panel result-panel hidden" aria-live="polite">
+      <h2>Your result</h2>
+      <div class="score-circle">
+        <strong id="scoreNumber">0/30</strong>
+        <span id="scorePercent">0%</span>
+      </div>
+      <p id="resultComment"></p>
+      <div class="result-actions">
+        <button id="tryAgainButton" class="secondary-button" type="button">New random quiz</button>
+        <a class="primary-button button-link" href="results.html">Open shared results</a>
+      </div>
+      <div id="answerReview"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Correct answers are shown only after submission.</div>
+  </footer>
+
+  <script type="application/json" id="quiz-app-data">
+{
+  "id": "grade12-history-vietnam",
+  "title": "Grade 12 History: Vietnam Essay Quiz",
+  "shortTitle": "Vietnam",
+  "description": "Vietnam essay preparation questions: USA involvement, tactics, Viet Cong tactics, public opinion and withdrawal.",
+  "file": "vietnam.html",
+  "group": "history-live-quizzes",
+  "subject": "GRADE 12 HISTORY",
+  "questionsPerAttempt": 30,
+  "questions": [
+    {
+      "id": 1,
+      "type": "mcq",
+      "category": "Background",
+      "question": "Vietnam was mainly a Cold War conflict between which two sides?",
+      "options": [
+        "USA and Britain",
+        "USA-backed South Vietnam and communist North Vietnam",
+        "France and Germany",
+        "China and Japan"
+      ],
+      "answer": "USA-backed South Vietnam and communist North Vietnam",
+      "explanation": "Vietnam became part of the wider Cold War struggle between capitalism and communism.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 2,
+      "type": "mcq",
+      "category": "Background",
+      "question": "Who was the communist leader of North Vietnam?",
+      "options": [
+        "Ngo Dinh Diem",
+        "Ho Chi Minh",
+        "Richard Nixon",
+        "Lyndon Johnson"
+      ],
+      "answer": "Ho Chi Minh",
+      "explanation": "Ho Chi Minh led communist North Vietnam.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 3,
+      "type": "mcq",
+      "category": "Background",
+      "question": "What was the Viet Cong?",
+      "options": [
+        "American soldiers",
+        "South Vietnamese government troops",
+        "Communist guerrilla fighters in South Vietnam",
+        "French colonial soldiers"
+      ],
+      "answer": "Communist guerrilla fighters in South Vietnam",
+      "explanation": "The Viet Cong were communist-trained rebels fighting in South Vietnam.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 4,
+      "type": "mcq",
+      "category": "USA Involvement",
+      "question": "Why did the USA become involved in Vietnam?",
+      "options": [
+        "To gain oil",
+        "To stop the spread of communism",
+        "To help France colonise China",
+        "To invade the USSR"
+      ],
+      "answer": "To stop the spread of communism",
+      "explanation": "The USA followed containment and feared the Domino Theory.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 5,
+      "type": "mcq",
+      "category": "USA Involvement",
+      "question": "What was the Domino Theory?",
+      "options": [
+        "If one country became communist, nearby countries might also become communist",
+        "A military bombing plan",
+        "A peace agreement",
+        "A Vietnamese religion"
+      ],
+      "answer": "If one country became communist, nearby countries might also become communist",
+      "explanation": "The USA feared communism would spread through Asia.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 6,
+      "type": "mcq",
+      "category": "USA Involvement",
+      "question": "Which event gave President Johnson an excuse to escalate the war?",
+      "options": [
+        "My Lai Massacre",
+        "Gulf of Tonkin Incident",
+        "Fall of Saigon",
+        "Paris Peace Accords"
+      ],
+      "answer": "Gulf of Tonkin Incident",
+      "explanation": "The Gulf of Tonkin Resolution allowed Johnson to increase USA involvement.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 7,
+      "type": "mcq",
+      "category": "USA Tactics",
+      "question": "Operation Rolling Thunder was mainly a policy of...",
+      "options": [
+        "Peace talks",
+        "Bombing North Vietnam",
+        "Withdrawing troops",
+        "Training teachers"
+      ],
+      "answer": "Bombing North Vietnam",
+      "explanation": "Operation Rolling Thunder was a major USA bombing campaign.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 8,
+      "type": "mcq",
+      "category": "USA Tactics",
+      "question": "Operation Ranch Hand involved the use of...",
+      "options": [
+        "Chemical defoliants",
+        "Peace negotiations",
+        "Naval blockades",
+        "Student protests"
+      ],
+      "answer": "Chemical defoliants",
+      "explanation": "The USA used chemicals like Agent Orange to destroy forests.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 9,
+      "type": "mcq",
+      "category": "USA Tactics",
+      "question": "Agent Orange was used to...",
+      "options": [
+        "Destroy forests and remove Viet Cong cover",
+        "Feed civilians",
+        "Build tunnels",
+        "Protect rice crops"
+      ],
+      "answer": "Destroy forests and remove Viet Cong cover",
+      "explanation": "Agent Orange damaged the environment and made the USA unpopular.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 10,
+      "type": "mcq",
+      "category": "USA Tactics",
+      "question": "Napalm made the USA unpopular because it...",
+      "options": [
+        "Was used in peace talks",
+        "Caused terrible destruction and civilian suffering",
+        "Helped rebuild villages",
+        "Stopped protests"
+      ],
+      "answer": "Caused terrible destruction and civilian suffering",
+      "explanation": "Chemical weapons damaged the USA's image internationally.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 11,
+      "type": "mcq",
+      "category": "Viet Cong Tactics",
+      "question": "Which tactic was commonly used by the Viet Cong?",
+      "options": [
+        "Guerrilla warfare",
+        "Open battlefield fighting only",
+        "Nuclear weapons",
+        "Naval invasion"
+      ],
+      "answer": "Guerrilla warfare",
+      "explanation": "The Viet Cong used ambushes, tunnels, booby traps and hit-and-run attacks.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 12,
+      "type": "mcq",
+      "category": "Viet Cong Tactics",
+      "question": "Why was guerrilla warfare effective against the USA?",
+      "options": [
+        "It avoided direct battles and used surprise attacks",
+        "It used bigger bombs than the USA",
+        "It depended only on tanks",
+        "It was fought in Europe"
+      ],
+      "answer": "It avoided direct battles and used surprise attacks",
+      "explanation": "Guerrilla warfare reduced the advantage of American technology.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 13,
+      "type": "mcq",
+      "category": "Viet Cong Tactics",
+      "question": "Why were underground tunnels important?",
+      "options": [
+        "They allowed Viet Cong fighters to hide, move and attack secretly",
+        "They were used as tourist sites",
+        "They stored American planes",
+        "They replaced farms"
+      ],
+      "answer": "They allowed Viet Cong fighters to hide, move and attack secretly",
+      "explanation": "The tunnel system made it difficult for USA soldiers to find the enemy.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 14,
+      "type": "mcq",
+      "category": "Viet Cong Tactics",
+      "question": "Why did the jungle environment favour the Viet Cong?",
+      "options": [
+        "They knew the terrain better than USA soldiers",
+        "It helped USA tanks move faster",
+        "It had no civilians",
+        "It stopped all fighting"
+      ],
+      "answer": "They knew the terrain better than USA soldiers",
+      "explanation": "The Viet Cong used the jungle for cover and surprise attacks.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 15,
+      "type": "mcq",
+      "category": "Turning Point",
+      "question": "The Tet Offensive happened in...",
+      "options": [
+        "1954",
+        "1964",
+        "1968",
+        "1975"
+      ],
+      "answer": "1968",
+      "explanation": "The Tet Offensive was a major turning point in 1968.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 16,
+      "type": "mcq",
+      "category": "Turning Point",
+      "question": "Why was the Tet Offensive important?",
+      "options": [
+        "It showed the USA was not close to winning",
+        "It ended French rule",
+        "It created NATO",
+        "It started World War II"
+      ],
+      "answer": "It showed the USA was not close to winning",
+      "explanation": "Although the Viet Cong suffered losses, Tet damaged American confidence.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 17,
+      "type": "mcq",
+      "category": "Public Opinion",
+      "question": "Why did many Americans begin opposing the war?",
+      "options": [
+        "High casualties and media coverage",
+        "The war was too short",
+        "The USA won too easily",
+        "Vietnam had no civilians"
+      ],
+      "answer": "High casualties and media coverage",
+      "explanation": "Television and newspapers showed the brutality of the war.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 18,
+      "type": "mcq",
+      "category": "Public Opinion",
+      "question": "The My Lai Massacre damaged the USA because...",
+      "options": [
+        "It showed American soldiers killing civilians",
+        "It was a peace treaty",
+        "It was a communist victory parade",
+        "It lowered taxes"
+      ],
+      "answer": "It showed American soldiers killing civilians",
+      "explanation": "My Lai turned public opinion further against the war.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 19,
+      "type": "mcq",
+      "category": "Withdrawal",
+      "question": "Which president introduced Vietnamisation?",
+      "options": [
+        "Kennedy",
+        "Johnson",
+        "Nixon",
+        "Truman"
+      ],
+      "answer": "Nixon",
+      "explanation": "Nixon introduced Vietnamisation to reduce USA involvement.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 20,
+      "type": "mcq",
+      "category": "Withdrawal",
+      "question": "Vietnamisation meant...",
+      "options": [
+        "USA troops would withdraw while South Vietnam took over fighting",
+        "USA would send more French soldiers",
+        "North Vietnam would surrender",
+        "Vietnam would join NATO"
+      ],
+      "answer": "USA troops would withdraw while South Vietnam took over fighting",
+      "explanation": "Vietnamisation was a policy of gradual USA withdrawal.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 21,
+      "type": "mcq",
+      "category": "Withdrawal",
+      "question": "The Paris Peace Accords were signed in...",
+      "options": [
+        "1965",
+        "1968",
+        "1973",
+        "1975"
+      ],
+      "answer": "1973",
+      "explanation": "The Paris Peace Accords ended direct USA involvement in Vietnam.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 22,
+      "type": "mcq",
+      "category": "Withdrawal",
+      "question": "What happened in Saigon in 1975?",
+      "options": [
+        "Communist forces captured it",
+        "USA won the war",
+        "France returned to power",
+        "Vietnam was divided permanently"
+      ],
+      "answer": "Communist forces captured it",
+      "explanation": "The fall of Saigon marked communist victory and reunification of Vietnam.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 23,
+      "type": "truefalse",
+      "category": "Essay Argument",
+      "question": "The USA's superior weapons guaranteed victory in Vietnam.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "Superior weapons did not defeat guerrilla tactics and local resistance.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 24,
+      "type": "truefalse",
+      "category": "Essay Argument",
+      "question": "The Viet Cong used the environment to their advantage.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "The jungle, villages and tunnels helped the Viet Cong.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 25,
+      "type": "truefalse",
+      "category": "Essay Argument",
+      "question": "The Tet Offensive increased doubts about American success.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "Tet showed that the enemy could still launch major attacks.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 26,
+      "type": "fillblank",
+      "category": "Key Terms",
+      "question": "The USA policy of stopping the spread of communism was called ________.",
+      "options": [],
+      "answer": "containment",
+      "explanation": "Containment was central to USA Cold War policy.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 27,
+      "type": "fillblank",
+      "category": "Key Terms",
+      "question": "The communist guerrilla fighters in South Vietnam were called the ________.",
+      "options": [],
+      "answer": "Viet Cong",
+      "explanation": "The Viet Cong fought against South Vietnam and the USA.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 28,
+      "type": "fillblank",
+      "category": "Key Terms",
+      "question": "The 1968 surprise attack by the Viet Cong was called the ________ Offensive.",
+      "options": [],
+      "answer": "Tet",
+      "explanation": "The Tet Offensive was a turning point.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 29,
+      "type": "fillblank",
+      "category": "Key Terms",
+      "question": "Nixon's withdrawal policy was called ________.",
+      "options": [],
+      "answer": "Vietnamisation",
+      "explanation": "Vietnamisation aimed to shift fighting to South Vietnamese forces.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 30,
+      "type": "fillblank",
+      "category": "Key Terms",
+      "question": "The peace agreement signed in 1973 was called the ________ Peace Accords.",
+      "options": [],
+      "answer": "Paris",
+      "explanation": "The Paris Peace Accords ended USA military involvement.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 31,
+      "type": "mcq",
+      "category": "Background",
+      "question": "Vietnam had previously been a colony of which European country?",
+      "options": [
+        "Britain",
+        "France",
+        "Germany",
+        "Portugal"
+      ],
+      "answer": "France",
+      "explanation": "Vietnam was part of French Indochina before the French were defeated.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 32,
+      "type": "mcq",
+      "category": "Background",
+      "question": "Which battle marked the defeat of the French in Vietnam in 1954?",
+      "options": [
+        "Dien Bien Phu",
+        "Tet",
+        "Saigon",
+        "My Lai"
+      ],
+      "answer": "Dien Bien Phu",
+      "explanation": "The Viet Minh defeated the French at Dien Bien Phu in 1954.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 33,
+      "type": "mcq",
+      "category": "Background",
+      "question": "What agreement divided Vietnam into North and South Vietnam?",
+      "options": [
+        "Paris Peace Accords",
+        "Geneva Accords",
+        "Treaty of Versailles",
+        "NATO Agreement"
+      ],
+      "answer": "Geneva Accords",
+      "explanation": "The Geneva Accords divided Vietnam temporarily at the 17th parallel.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 34,
+      "type": "mcq",
+      "category": "Background",
+      "question": "North Vietnam followed which political ideology?",
+      "options": [
+        "Capitalism",
+        "Communism",
+        "Fascism",
+        "Apartheid"
+      ],
+      "answer": "Communism",
+      "explanation": "North Vietnam was communist and led by Ho Chi Minh.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 35,
+      "type": "mcq",
+      "category": "Background",
+      "question": "South Vietnam was supported mainly by which country?",
+      "options": [
+        "USA",
+        "China",
+        "USSR",
+        "Cuba"
+      ],
+      "answer": "USA",
+      "explanation": "The USA supported South Vietnam as part of its containment policy.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 36,
+      "type": "mcq",
+      "category": "USA Involvement",
+      "question": "The USA supported South Vietnam mainly because it feared...",
+      "options": [
+        "The spread of communism",
+        "The spread of French culture",
+        "A Japanese invasion",
+        "A British attack"
+      ],
+      "answer": "The spread of communism",
+      "explanation": "The USA feared that if Vietnam became communist, other Asian countries might follow.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 37,
+      "type": "mcq",
+      "category": "USA Involvement",
+      "question": "The USA's Cold War policy of stopping communism from spreading was called...",
+      "options": [
+        "Containment",
+        "Vietnamisation",
+        "Colonisation",
+        "Appeasement"
+      ],
+      "answer": "Containment",
+      "explanation": "Containment was the policy of preventing communism from spreading.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 38,
+      "type": "mcq",
+      "category": "USA Involvement",
+      "question": "Ngo Dinh Diem was the leader of...",
+      "options": [
+        "North Vietnam",
+        "South Vietnam",
+        "China",
+        "The USSR"
+      ],
+      "answer": "South Vietnam",
+      "explanation": "Ngo Dinh Diem led South Vietnam and was supported by the USA.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 39,
+      "type": "mcq",
+      "category": "USA Involvement",
+      "question": "Why did many South Vietnamese people dislike Ngo Dinh Diem?",
+      "options": [
+        "He was oppressive and unpopular",
+        "He supported communism",
+        "He ended the war quickly",
+        "He was leader of North Vietnam"
+      ],
+      "answer": "He was oppressive and unpopular",
+      "explanation": "Diem's harsh rule increased support for the Viet Cong.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 40,
+      "type": "mcq",
+      "category": "USA Involvement",
+      "question": "Before sending large numbers of troops, the USA first sent...",
+      "options": [
+        "Military advisors and weapons",
+        "Only doctors",
+        "Only journalists",
+        "Only teachers"
+      ],
+      "answer": "Military advisors and weapons",
+      "explanation": "The USA first supported South Vietnam with advisors, money and weapons.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 41,
+      "type": "mcq",
+      "category": "USA Involvement",
+      "question": "Which USA president escalated the war after the Gulf of Tonkin incident?",
+      "options": [
+        "Truman",
+        "Kennedy",
+        "Johnson",
+        "Nixon"
+      ],
+      "answer": "Johnson",
+      "explanation": "President Lyndon Johnson escalated USA involvement in Vietnam.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 42,
+      "type": "mcq",
+      "category": "USA Involvement",
+      "question": "The Gulf of Tonkin Resolution allowed the USA president to...",
+      "options": [
+        "Increase military action in Vietnam",
+        "Withdraw all troops immediately",
+        "Give Vietnam independence",
+        "End the Cold War"
+      ],
+      "answer": "Increase military action in Vietnam",
+      "explanation": "The resolution gave Johnson power to escalate the war.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 43,
+      "type": "mcq",
+      "category": "USA Tactics",
+      "question": "Which USA tactic involved bombing North Vietnam over a long period?",
+      "options": [
+        "Operation Rolling Thunder",
+        "Vietnamisation",
+        "Tet Offensive",
+        "Geneva Accords"
+      ],
+      "answer": "Operation Rolling Thunder",
+      "explanation": "Operation Rolling Thunder was a sustained USA bombing campaign.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 44,
+      "type": "mcq",
+      "category": "USA Tactics",
+      "question": "Why did Operation Rolling Thunder fail to defeat the Viet Cong?",
+      "options": [
+        "The Viet Cong used guerrilla tactics and were difficult to target",
+        "The USA had no aircraft",
+        "North Vietnam surrendered quickly",
+        "It was a peace agreement"
+      ],
+      "answer": "The Viet Cong used guerrilla tactics and were difficult to target",
+      "explanation": "Bombing was less effective against a mobile guerrilla force.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 45,
+      "type": "mcq",
+      "category": "USA Tactics",
+      "question": "Search and Destroy missions aimed to...",
+      "options": [
+        "Find and destroy Viet Cong bases and villages suspected of helping them",
+        "Build schools",
+        "Negotiate peace",
+        "Withdraw troops"
+      ],
+      "answer": "Find and destroy Viet Cong bases and villages suspected of helping them",
+      "explanation": "These missions often caused civilian deaths and increased anger against the USA.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 46,
+      "type": "mcq",
+      "category": "USA Tactics",
+      "question": "Why did Search and Destroy missions often backfire?",
+      "options": [
+        "They killed civilians and increased support for the Viet Cong",
+        "They gave land to peasants",
+        "They stopped all fighting",
+        "They made the USA more popular"
+      ],
+      "answer": "They killed civilians and increased support for the Viet Cong",
+      "explanation": "Civilian casualties turned many Vietnamese people against the USA.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 47,
+      "type": "mcq",
+      "category": "USA Tactics",
+      "question": "The Strategic Hamlet Programme tried to...",
+      "options": [
+        "Separate villagers from the Viet Cong",
+        "Bomb North Vietnam",
+        "Create communist villages",
+        "Withdraw American soldiers"
+      ],
+      "answer": "Separate villagers from the Viet Cong",
+      "explanation": "The programme tried to move villagers into controlled areas to isolate guerrillas.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 48,
+      "type": "mcq",
+      "category": "USA Tactics",
+      "question": "Why did the Strategic Hamlet Programme fail?",
+      "options": [
+        "Many villagers resented being moved and the Viet Cong still operated among civilians",
+        "It gave too much power to North Vietnam",
+        "It ended the war immediately",
+        "It was supported by all Vietnamese people"
+      ],
+      "answer": "Many villagers resented being moved and the Viet Cong still operated among civilians",
+      "explanation": "The programme alienated villagers and failed to remove Viet Cong influence.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 49,
+      "type": "mcq",
+      "category": "USA Tactics",
+      "question": "Agent Blue was mainly used to...",
+      "options": [
+        "Destroy crops and food supplies",
+        "Build tunnels",
+        "Treat wounded soldiers",
+        "Sign peace agreements"
+      ],
+      "answer": "Destroy crops and food supplies",
+      "explanation": "Agent Blue was used to destroy crops and weaken Viet Cong food supplies.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 50,
+      "type": "mcq",
+      "category": "USA Tactics",
+      "question": "The USA's use of chemical weapons damaged its reputation because...",
+      "options": [
+        "It caused suffering and environmental destruction",
+        "It helped civilians",
+        "It ended the war peacefully",
+        "It protected villages"
+      ],
+      "answer": "It caused suffering and environmental destruction",
+      "explanation": "Chemical warfare harmed civilians, land and forests, causing international criticism.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 51,
+      "type": "mcq",
+      "category": "Viet Cong Tactics",
+      "question": "The Viet Cong preferred guerrilla warfare because...",
+      "options": [
+        "They could avoid direct battles with the stronger USA army",
+        "They had more aircraft than the USA",
+        "They wanted to fight only at sea",
+        "They had nuclear weapons"
+      ],
+      "answer": "They could avoid direct battles with the stronger USA army",
+      "explanation": "Guerrilla warfare allowed the Viet Cong to weaken the USA without fighting conventional battles.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 52,
+      "type": "mcq",
+      "category": "Viet Cong Tactics",
+      "question": "Which of the following is an example of guerrilla warfare?",
+      "options": [
+        "Hit-and-run attacks",
+        "Formal surrender",
+        "Open battlefield marching only",
+        "Peace conferences"
+      ],
+      "answer": "Hit-and-run attacks",
+      "explanation": "Hit-and-run attacks were a key Viet Cong guerrilla tactic.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 53,
+      "type": "mcq",
+      "category": "Viet Cong Tactics",
+      "question": "Booby traps were effective because they...",
+      "options": [
+        "Created fear and casualties among USA soldiers",
+        "Fed the population",
+        "Destroyed only aircraft",
+        "Ended protests"
+      ],
+      "answer": "Created fear and casualties among USA soldiers",
+      "explanation": "Booby traps made movement dangerous and lowered USA morale.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 54,
+      "type": "mcq",
+      "category": "Viet Cong Tactics",
+      "question": "The Ho Chi Minh Trail was important because it...",
+      "options": [
+        "Allowed supplies and fighters to move from North to South Vietnam",
+        "Was a USA bombing base",
+        "Was a peace treaty",
+        "Separated Europe from Asia"
+      ],
+      "answer": "Allowed supplies and fighters to move from North to South Vietnam",
+      "explanation": "The trail helped North Vietnam support the Viet Cong in the South.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 55,
+      "type": "mcq",
+      "category": "Viet Cong Tactics",
+      "question": "Why was it difficult for USA soldiers to identify the enemy?",
+      "options": [
+        "The Viet Cong often blended in with villagers",
+        "The Viet Cong wore USA uniforms",
+        "There were no villages",
+        "The war was fought only at sea"
+      ],
+      "answer": "The Viet Cong often blended in with villagers",
+      "explanation": "The Viet Cong moved among ordinary villagers, making them hard to identify.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 56,
+      "type": "mcq",
+      "category": "Viet Cong Tactics",
+      "question": "Why did the Viet Cong gain support from many peasants?",
+      "options": [
+        "USA tactics caused civilian suffering and resentment",
+        "The USA gave all peasants land",
+        "The Viet Cong stopped all fighting",
+        "South Vietnam was very popular"
+      ],
+      "answer": "USA tactics caused civilian suffering and resentment",
+      "explanation": "Bombing, chemicals and Search and Destroy missions increased support for the Viet Cong.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 57,
+      "type": "mcq",
+      "category": "Viet Cong Tactics",
+      "question": "The Viet Cong's tunnel systems helped them to...",
+      "options": [
+        "Hide, store supplies and launch surprise attacks",
+        "Launch aircraft",
+        "Sign treaties",
+        "Control American media"
+      ],
+      "answer": "Hide, store supplies and launch surprise attacks",
+      "explanation": "Tunnels were a major advantage for the Viet Cong.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 58,
+      "type": "mcq",
+      "category": "Viet Cong Tactics",
+      "question": "Why were USA soldiers disadvantaged in the jungle?",
+      "options": [
+        "They were unfamiliar with the terrain",
+        "They had no weapons",
+        "They were supported by the Viet Cong",
+        "They fought in Europe"
+      ],
+      "answer": "They were unfamiliar with the terrain",
+      "explanation": "USA soldiers struggled in dense jungle conditions that favoured the Viet Cong.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 59,
+      "type": "mcq",
+      "category": "Turning Point",
+      "question": "The Tet Offensive was launched by...",
+      "options": [
+        "The Viet Cong and North Vietnamese forces",
+        "The French army",
+        "The United Nations",
+        "South African forces"
+      ],
+      "answer": "The Viet Cong and North Vietnamese forces",
+      "explanation": "The Tet Offensive was a major communist attack in 1968.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 60,
+      "type": "mcq",
+      "category": "Turning Point",
+      "question": "The Tet Offensive attacked many...",
+      "options": [
+        "Cities and towns in South Vietnam",
+        "European capitals",
+        "American farms",
+        "Soviet factories"
+      ],
+      "answer": "Cities and towns in South Vietnam",
+      "explanation": "The offensive involved surprise attacks on many urban areas.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 61,
+      "type": "mcq",
+      "category": "Turning Point",
+      "question": "Militarily, the Tet Offensive caused heavy losses for...",
+      "options": [
+        "Both sides",
+        "Only the USA",
+        "Only France",
+        "Only Britain"
+      ],
+      "answer": "Both sides",
+      "explanation": "Both sides suffered losses, but the political impact was worse for the USA.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 62,
+      "type": "mcq",
+      "category": "Turning Point",
+      "question": "Why was the Tet Offensive a psychological victory for the Viet Cong?",
+      "options": [
+        "It showed the USA was not close to victory",
+        "It ended communism",
+        "It made the USA more popular",
+        "It destroyed China"
+      ],
+      "answer": "It showed the USA was not close to victory",
+      "explanation": "Tet shocked the American public and weakened confidence in USA claims of progress.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 63,
+      "type": "mcq",
+      "category": "Turning Point",
+      "question": "After the Tet Offensive, many Americans believed...",
+      "options": [
+        "The war could not easily be won",
+        "Vietnam had surrendered",
+        "The USA had no enemies",
+        "The war was over in Europe"
+      ],
+      "answer": "The war could not easily be won",
+      "explanation": "Tet increased doubt about USA victory.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 64,
+      "type": "mcq",
+      "category": "Public Opinion",
+      "question": "Television coverage of the Vietnam War was important because...",
+      "options": [
+        "It showed the brutality of the war to the American public",
+        "It hid all violence",
+        "It only showed cartoons",
+        "It stopped all protests"
+      ],
+      "answer": "It showed the brutality of the war to the American public",
+      "explanation": "Media coverage helped turn public opinion against the war.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 65,
+      "type": "mcq",
+      "category": "Public Opinion",
+      "question": "Anti-war protests grew in the USA mainly because of...",
+      "options": [
+        "High casualties, media coverage and civilian suffering",
+        "A shortage of television sets",
+        "Victory in Vietnam",
+        "The end of the Cold War"
+      ],
+      "answer": "High casualties, media coverage and civilian suffering",
+      "explanation": "Many Americans opposed the human cost of the war.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 66,
+      "type": "mcq",
+      "category": "Public Opinion",
+      "question": "The My Lai Massacre happened in...",
+      "options": [
+        "1968",
+        "1954",
+        "1973",
+        "1975"
+      ],
+      "answer": "1968",
+      "explanation": "The My Lai Massacre took place in March 1968.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 67,
+      "type": "mcq",
+      "category": "Public Opinion",
+      "question": "The My Lai Massacre strengthened the argument that...",
+      "options": [
+        "USA tactics were causing civilian suffering",
+        "The USA had already won",
+        "The Viet Cong had surrendered",
+        "The war had no civilians"
+      ],
+      "answer": "USA tactics were causing civilian suffering",
+      "explanation": "My Lai exposed the brutality of the war and damaged USA support.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 68,
+      "type": "mcq",
+      "category": "Public Opinion",
+      "question": "Why did young American soldiers often struggle in Vietnam?",
+      "options": [
+        "They were inexperienced and faced unfamiliar guerrilla warfare",
+        "They had no commanders",
+        "They were trained only as pilots",
+        "They fought in Europe"
+      ],
+      "answer": "They were inexperienced and faced unfamiliar guerrilla warfare",
+      "explanation": "Many young soldiers were not prepared for jungle guerrilla warfare.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 69,
+      "type": "mcq",
+      "category": "Public Opinion",
+      "question": "Anti-war protests put pressure on the USA government to...",
+      "options": [
+        "Withdraw from Vietnam",
+        "Invade Britain",
+        "End democracy",
+        "Support North Vietnam openly"
+      ],
+      "answer": "Withdraw from Vietnam",
+      "explanation": "Domestic opposition made it harder for the USA to continue the war.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 70,
+      "type": "mcq",
+      "category": "Withdrawal",
+      "question": "Vietnamisation was introduced because...",
+      "options": [
+        "The USA wanted to reduce its direct role in the war",
+        "The USA wanted to colonise Vietnam",
+        "France asked the USA to return",
+        "North Vietnam surrendered"
+      ],
+      "answer": "The USA wanted to reduce its direct role in the war",
+      "explanation": "Vietnamisation aimed to shift fighting responsibility to South Vietnam.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 71,
+      "type": "mcq",
+      "category": "Withdrawal",
+      "question": "Vietnamisation was also linked to Nixon's aim to...",
+      "options": [
+        "End USA involvement in Vietnam",
+        "Increase French power",
+        "Divide Germany",
+        "Create NATO"
+      ],
+      "answer": "End USA involvement in Vietnam",
+      "explanation": "Nixon wanted to withdraw USA troops while avoiding the appearance of defeat.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 72,
+      "type": "mcq",
+      "category": "Withdrawal",
+      "question": "The Paris Peace Accords ended...",
+      "options": [
+        "Direct USA military involvement in Vietnam",
+        "Communism in Asia",
+        "French rule in Europe",
+        "World War II"
+      ],
+      "answer": "Direct USA military involvement in Vietnam",
+      "explanation": "The 1973 Paris Peace Accords ended USA military involvement.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 73,
+      "type": "mcq",
+      "category": "Withdrawal",
+      "question": "After the USA withdrew, South Vietnam...",
+      "options": [
+        "Was eventually defeated by North Vietnam",
+        "Defeated China",
+        "Became a USA state",
+        "Joined France"
+      ],
+      "answer": "Was eventually defeated by North Vietnam",
+      "explanation": "South Vietnam collapsed after the USA withdrew.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 74,
+      "type": "mcq",
+      "category": "Withdrawal",
+      "question": "The fall of Saigon happened in...",
+      "options": [
+        "1975",
+        "1973",
+        "1968",
+        "1965"
+      ],
+      "answer": "1975",
+      "explanation": "Saigon fell to communist forces in 1975.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 75,
+      "type": "mcq",
+      "category": "Withdrawal",
+      "question": "The fall of Saigon meant that Vietnam was...",
+      "options": [
+        "United under communist control",
+        "Divided forever",
+        "Colonised by France again",
+        "Controlled by the USA"
+      ],
+      "answer": "United under communist control",
+      "explanation": "Vietnam was reunified under communist rule after 1975.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 76,
+      "type": "mcq",
+      "category": "Essay Argument",
+      "question": "Which is the strongest argument for why the USA lost in Vietnam?",
+      "options": [
+        "The USA used conventional tactics against guerrilla warfare",
+        "The USA had no weapons",
+        "Vietnam was in Europe",
+        "The war lasted only one week"
+      ],
+      "answer": "The USA used conventional tactics against guerrilla warfare",
+      "explanation": "The USA's military power was weakened by the Viet Cong's unconventional tactics.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 77,
+      "type": "mcq",
+      "category": "Essay Argument",
+      "question": "Which statement best supports the essay argument?",
+      "options": [
+        "Superior weapons alone could not defeat guerrilla tactics",
+        "The USA won easily",
+        "The Viet Cong had no support",
+        "The environment helped the USA more than the Viet Cong"
+      ],
+      "answer": "Superior weapons alone could not defeat guerrilla tactics",
+      "explanation": "This directly answers the essay question.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 78,
+      "type": "mcq",
+      "category": "Essay Argument",
+      "question": "Which evidence best proves that USA bombing failed?",
+      "options": [
+        "Operation Rolling Thunder did not destroy Viet Cong resistance",
+        "The Geneva Accords were signed",
+        "France colonised Vietnam",
+        "NATO was created"
+      ],
+      "answer": "Operation Rolling Thunder did not destroy Viet Cong resistance",
+      "explanation": "This evidence shows the limits of conventional bombing.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 79,
+      "type": "mcq",
+      "category": "Essay Argument",
+      "question": "Which event best shows that public opinion turned against the war?",
+      "options": [
+        "Anti-war protests in the USA",
+        "The founding of NATO",
+        "The Berlin Blockade",
+        "The end of World War II"
+      ],
+      "answer": "Anti-war protests in the USA",
+      "explanation": "Anti-war protests show growing opposition at home.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 80,
+      "type": "mcq",
+      "category": "Essay Argument",
+      "question": "Which evidence best shows the failure of USA policy?",
+      "options": [
+        "Vietnam was united under communist control in 1975",
+        "The USA sent advisors",
+        "France once controlled Vietnam",
+        "Vietnam had jungles"
+      ],
+      "answer": "Vietnam was united under communist control in 1975",
+      "explanation": "The USA failed to stop Vietnam becoming communist.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 81,
+      "type": "truefalse",
+      "category": "Background",
+      "question": "The USA supported North Vietnam during the Vietnam War.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "The USA supported South Vietnam.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 82,
+      "type": "truefalse",
+      "category": "Background",
+      "question": "Ho Chi Minh was linked to communist North Vietnam.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "Ho Chi Minh was the communist leader of North Vietnam.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 83,
+      "type": "truefalse",
+      "category": "USA Tactics",
+      "question": "Operation Ranch Hand used chemicals to destroy forests and crops.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "Operation Ranch Hand used chemicals such as Agent Orange and Agent Blue.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 84,
+      "type": "truefalse",
+      "category": "USA Tactics",
+      "question": "Operation Rolling Thunder was a USA withdrawal plan.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "Operation Rolling Thunder was a bombing campaign.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 85,
+      "type": "truefalse",
+      "category": "Viet Cong Tactics",
+      "question": "The Viet Cong used tunnels, booby traps and ambushes.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "These were common guerrilla tactics.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 86,
+      "type": "truefalse",
+      "category": "Viet Cong Tactics",
+      "question": "The Viet Cong only used conventional battlefield tactics.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "The Viet Cong mainly used guerrilla warfare.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 87,
+      "type": "truefalse",
+      "category": "Turning Point",
+      "question": "The Tet Offensive damaged American confidence in victory.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "Tet showed that the USA was not close to winning.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 88,
+      "type": "truefalse",
+      "category": "Public Opinion",
+      "question": "The My Lai Massacre helped improve the USA's reputation.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "My Lai damaged the USA's reputation and increased opposition to the war.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 89,
+      "type": "truefalse",
+      "category": "Withdrawal",
+      "question": "The Paris Peace Accords were signed in 1973.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "The Paris Peace Accords were signed in 1973.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 90,
+      "type": "truefalse",
+      "category": "Withdrawal",
+      "question": "Saigon fell to communist forces in 1975.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "The fall of Saigon marked the communist victory.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 91,
+      "type": "fillblank",
+      "category": "Key Terms",
+      "question": "The USA bombing campaign against North Vietnam was called Operation ________ Thunder.",
+      "options": [],
+      "answer": "Rolling",
+      "explanation": "Operation Rolling Thunder was the USA bombing campaign.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 92,
+      "type": "fillblank",
+      "category": "Key Terms",
+      "question": "Operation ________ Hand involved the use of chemical defoliants.",
+      "options": [],
+      "answer": "Ranch",
+      "explanation": "Operation Ranch Hand used chemicals like Agent Orange.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 93,
+      "type": "fillblank",
+      "category": "Key Terms",
+      "question": "Agent ________ was used to destroy forests in Vietnam.",
+      "options": [],
+      "answer": "Orange",
+      "explanation": "Agent Orange destroyed forests and removed Viet Cong cover.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 94,
+      "type": "fillblank",
+      "category": "Key Terms",
+      "question": "The massacre of Vietnamese civilians by USA soldiers in 1968 was the ________ Massacre.",
+      "options": [],
+      "answer": "My Lai",
+      "explanation": "The My Lai Massacre damaged public support for the war.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 95,
+      "type": "fillblank",
+      "category": "Key Terms",
+      "question": "The supply route used by North Vietnam to support the Viet Cong was the Ho Chi Minh ________.",
+      "options": [],
+      "answer": "Trail",
+      "explanation": "The Ho Chi Minh Trail moved supplies and fighters to the South.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 96,
+      "type": "fillblank",
+      "category": "Key Terms",
+      "question": "The USA policy of gradual withdrawal under Nixon was called ________.",
+      "options": [],
+      "answer": "Vietnamisation",
+      "explanation": "Vietnamisation reduced direct USA involvement.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 97,
+      "type": "fillblank",
+      "category": "Key Terms",
+      "question": "The ________ Peace Accords ended direct USA military involvement in Vietnam.",
+      "options": [],
+      "answer": "Paris",
+      "explanation": "The Paris Peace Accords were signed in 1973.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 98,
+      "type": "fillblank",
+      "category": "Key Terms",
+      "question": "The city of ________ fell to communist forces in 1975.",
+      "options": [],
+      "answer": "Saigon",
+      "explanation": "The fall of Saigon marked the end of the war.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 99,
+      "type": "fillblank",
+      "category": "Essay Argument",
+      "question": "The Viet Cong's ________ warfare helped defeat the USA's conventional military strategy.",
+      "options": [],
+      "answer": "guerrilla",
+      "explanation": "Guerrilla warfare was central to the Viet Cong's success.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    },
+    {
+      "id": 100,
+      "type": "fillblank",
+      "category": "Essay Argument",
+      "question": "By 1975, Vietnam was united under ________ control.",
+      "options": [],
+      "answer": "communist",
+      "explanation": "The USA failed to stop Vietnam becoming communist.",
+      "skill": "",
+      "sourceId": "",
+      "sourceType": "",
+      "sourceText": ""
+    }
+  ]
+}
+  </script>
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="quiz-engine.js"></script>
+</body>
+</html>

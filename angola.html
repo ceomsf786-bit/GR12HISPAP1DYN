@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>History Live Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div>
+        <p class="eyebrow" id="quizSubject">GRADE 12 HISTORY</p>
+        <h1 id="quizTitle">Loading quiz…</h1>
+        <p class="hero-copy" id="quizDescription">30 random questions each attempt • Self-marking • Live saved results</p>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html">Quiz Hub</a>
+        <a href="results.html">View Results</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="status-bar">
+      <span id="modeBadge" class="badge">Checking storage…</span>
+      <span id="questionCountBadge" class="badge soft">Loading questions…</span>
+    </section>
+
+    <form id="quizForm" novalidate>
+      <section class="panel learner-panel">
+        <h2>Learner details</h2>
+        <div class="form-grid">
+          <label>Select learner name
+            <select id="learnerName" required>
+              <option value="">Loading learner names…</option>
+            </select>
+          </label>
+          <label>Learner code
+            <input id="learnerCode" type="text" maxlength="30" placeholder="Example: G12-014" required />
+          </label>
+        </div>
+        <p class="small-note">Select your official name and enter the private learner code given by the teacher.</p>
+      </section>
+
+      <section class="panel quiz-progress-panel">
+        <div>
+          <strong id="progressText">0 answered</strong>
+          <p class="small-note">Answer all questions, then click submit at the bottom.</p>
+        </div>
+        <div class="progress-track" aria-hidden="true"><div id="progressBar" class="progress-bar"></div></div>
+      </section>
+
+      <div id="questionsContainer"></div>
+
+      <section class="panel submit-panel">
+        <p id="formMessage" class="form-message" role="alert"></p>
+        <button id="submitButton" class="primary-button" type="submit">Mark and save result</button>
+      </section>
+    </form>
+
+    <section id="resultPanel" class="panel result-panel hidden" aria-live="polite">
+      <h2>Your result</h2>
+      <div class="score-circle">
+        <strong id="scoreNumber">0/30</strong>
+        <span id="scorePercent">0%</span>
+      </div>
+      <p id="resultComment"></p>
+      <div class="result-actions">
+        <button id="tryAgainButton" class="secondary-button" type="button">New random quiz</button>
+        <a class="primary-button button-link" href="results.html">Open shared results</a>
+      </div>
+      <div id="answerReview"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Correct answers are shown only after submission.</div>
+  </footer>
+
+  <script type="application/json" id="quiz-app-data">
+{
+  "id": "grade12-history-angola",
+  "title": "Grade 12 History: Angola Source-Based Quiz",
+  "shortTitle": "Angola",
+  "description": "Angola source-based questions: colonialism, nationalist movements, foreign intervention, Cuito Cuanavale and New York Accords.",
+  "file": "angola.html",
+  "group": "history-live-quizzes",
+  "subject": "GRADE 12 HISTORY",
+  "questionsPerAttempt": 30,
+  "questions": [
+    {
+      "id": 1,
+      "type": "mcq",
+      "category": "Background and Concepts",
+      "skill": "Explain concept",
+      "sourceId": "ANG-CONCEPTS",
+      "sourceType": "extract",
+      "sourceText": "Colonialism means a state sets up colonies in other territories for political and economic benefit. A superpower is a state with strong global influence. A civil war is a violent conflict within a country between organised groups seeking power.",
+      "question": "What is colonialism?",
+      "options": [
+        "A system where one country controls another territory for political and economic benefit",
+        "A peace agreement between equal states",
+        "A military alliance formed after 1988",
+        "A type of guerrilla tactic"
+      ],
+      "answer": "A system where one country controls another territory for political and economic benefit",
+      "explanation": "The source defines colonialism as control of territories for political and economic benefit."
+    },
+    {
+      "id": 2,
+      "type": "mcq",
+      "category": "Background and Concepts",
+      "skill": "Explain concept",
+      "sourceId": "ANG-CONCEPTS",
+      "sourceType": "extract",
+      "sourceText": "Colonialism means a state sets up colonies in other territories for political and economic benefit. A superpower is a state with strong global influence. A civil war is a violent conflict within a country between organised groups seeking power.",
+      "question": "What is a superpower?",
+      "options": [
+        "A state with global influence and power",
+        "A small colony ruled by Portugal",
+        "A local guerrilla movement",
+        "A United Nations observer"
+      ],
+      "answer": "A state with global influence and power",
+      "explanation": "The Cold War superpowers were able to influence events globally."
+    },
+    {
+      "id": 3,
+      "type": "mcq",
+      "category": "Background and Concepts",
+      "skill": "Explain concept",
+      "sourceId": "ANG-CONCEPTS",
+      "sourceType": "extract",
+      "sourceText": "Colonialism means a state sets up colonies in other territories for political and economic benefit. A superpower is a state with strong global influence. A civil war is a violent conflict within a country between organised groups seeking power.",
+      "question": "What is a civil war?",
+      "options": [
+        "A conflict within a country between organised groups seeking power",
+        "A war between two continents",
+        "A peaceful election process",
+        "A war fought only by foreign armies"
+      ],
+      "answer": "A conflict within a country between organised groups seeking power",
+      "explanation": "Angola's civil war was fought inside Angola between rival Angolan movements, with foreign support."
+    },
+    {
+      "id": 4,
+      "type": "mcq",
+      "category": "Background and Concepts",
+      "skill": "Extract information",
+      "sourceId": "ANG-INTRO",
+      "sourceType": "extract",
+      "sourceText": "African states became independent during the 1950s and 1960s. The Cold War was at its height and superpowers hoped to recruit new allies by providing aid and weapons. Foreign involvement had a negative effect on Africa.",
+      "question": "Why were the superpowers interested in newly independent African states?",
+      "options": [
+        "They wanted to recruit new allies by giving aid and weapons",
+        "They wanted to end all military alliances",
+        "They wanted to stop all decolonisation",
+        "They wanted to return Africa to Portugal"
+      ],
+      "answer": "They wanted to recruit new allies by giving aid and weapons",
+      "explanation": "The source states that superpowers hoped to recruit new allies through aid and weapons."
+    },
+    {
+      "id": 5,
+      "type": "truefalse",
+      "category": "Background and Concepts",
+      "skill": "Extract information",
+      "sourceId": "ANG-INTRO",
+      "sourceType": "extract",
+      "sourceText": "African states became independent during the 1950s and 1960s. The Cold War was at its height and superpowers hoped to recruit new allies by providing aid and weapons. Foreign involvement had a negative effect on Africa.",
+      "question": "Foreign involvement in Angola had a negative effect on Africa.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "The source directly states that Cold War involvement had a negative effect on Africa."
+    },
+    {
+      "id": 6,
+      "type": "mcq",
+      "category": "Background and Concepts",
+      "skill": "Interpret source",
+      "sourceId": "ANG-MINDMAP",
+      "sourceType": "mind map",
+      "sourceText": "A summary mind map links Angola to Portuguese colonialism, the MPLA, FNLA and UNITA, Cold War foreign intervention, the destruction of Angola's economy and the Battle of Cuito Cuanavale as a turning point.",
+      "question": "Which larger conflict shaped foreign involvement in Angola?",
+      "options": [
+        "The Cold War",
+        "World War I",
+        "The Korean War only",
+        "The French Revolution"
+      ],
+      "answer": "The Cold War",
+      "explanation": "Angola became a Cold War battlefield because foreign powers supported different Angolan movements."
+    },
+    {
+      "id": 7,
+      "type": "mcq",
+      "category": "Background and Concepts",
+      "skill": "Extract information",
+      "sourceId": "ANG-MINDMAP",
+      "sourceType": "mind map",
+      "sourceText": "A summary mind map links Angola to Portuguese colonialism, the MPLA, FNLA and UNITA, Cold War foreign intervention, the destruction of Angola's economy and the Battle of Cuito Cuanavale as a turning point.",
+      "question": "Which country colonised Angola before independence?",
+      "options": [
+        "Portugal",
+        "Britain",
+        "Belgium",
+        "France"
+      ],
+      "answer": "Portugal",
+      "explanation": "The source and topic notes identify Portugal as the colonial power in Angola."
+    },
+    {
+      "id": 8,
+      "type": "fillblank",
+      "category": "Background and Concepts",
+      "skill": "Recall key term",
+      "sourceId": "ANG-MINDMAP",
+      "sourceType": "mind map",
+      "sourceText": "A summary mind map links Angola to Portuguese colonialism, the MPLA, FNLA and UNITA, Cold War foreign intervention, the destruction of Angola's economy and the Battle of Cuito Cuanavale as a turning point.",
+      "question": "Angola gained independence after the collapse of Portuguese colonial rule. The colonial power was ________.",
+      "options": [],
+      "answer": "Portugal",
+      "explanation": "Portugal ruled Angola before independence."
+    },
+    {
+      "id": 9,
+      "type": "mcq",
+      "category": "Background and Concepts",
+      "skill": "Interpret source",
+      "sourceId": "ANG-INTRO",
+      "sourceType": "extract",
+      "sourceText": "African states became independent during the 1950s and 1960s. The Cold War was at its height and superpowers hoped to recruit new allies by providing aid and weapons. Foreign involvement had a negative effect on Africa.",
+      "question": "Why did Angola become vulnerable to foreign interference after independence?",
+      "options": [
+        "Independence occurred during the height of the Cold War",
+        "Angola had no natural resources",
+        "The OAU wanted European rule to continue",
+        "All Angolan movements agreed politically"
+      ],
+      "answer": "Independence occurred during the height of the Cold War",
+      "explanation": "Cold War rivalry made new states such as Angola targets for superpower influence."
+    },
+    {
+      "id": 10,
+      "type": "mcq",
+      "category": "Background and Concepts",
+      "skill": "Explain concept",
+      "sourceId": "ANG-CONCEPTS",
+      "sourceType": "extract",
+      "sourceText": "Colonialism means a state sets up colonies in other territories for political and economic benefit. A superpower is a state with strong global influence. A civil war is a violent conflict within a country between organised groups seeking power.",
+      "question": "Which answer best explains the Organization of African Unity (OAU)?",
+      "options": [
+        "An African organisation that encouraged cooperation among African states",
+        "A Portuguese army unit",
+        "A Cuban political party",
+        "A South African defence alliance"
+      ],
+      "answer": "An African organisation that encouraged cooperation among African states",
+      "explanation": "The OAU was an African organisation created in 1963 and became involved in attempts to settle Angola's leadership issue."
+    },
+    {
+      "id": 11,
+      "type": "mcq",
+      "category": "Background and Concepts",
+      "skill": "Source skill",
+      "sourceId": "ANG-SKILLS",
+      "sourceType": "instruction",
+      "sourceText": "Source-based questions require learners to extract information, interpret sources, explain concepts, analyse perspectives, compare sources, and comment on usefulness, reliability and limitations.",
+      "question": "Which question is a typical Level 1 source-based question?",
+      "options": [
+        "Identify TWO countries mentioned in the source",
+        "Explain whether the source is biased",
+        "Compare Source A and Source B",
+        "Evaluate the usefulness of the source"
+      ],
+      "answer": "Identify TWO countries mentioned in the source",
+      "explanation": "Level 1 questions usually ask students to extract or identify information directly from the source."
+    },
+    {
+      "id": 12,
+      "type": "mcq",
+      "category": "Background and Concepts",
+      "skill": "Source skill",
+      "sourceId": "ANG-SKILLS",
+      "sourceType": "instruction",
+      "sourceText": "Source-based questions require learners to extract information, interpret sources, explain concepts, analyse perspectives, compare sources, and comment on usefulness, reliability and limitations.",
+      "question": "Which question is a typical Level 3 source-based question?",
+      "options": [
+        "How useful is this source to a historian?",
+        "Name the leader of MPLA",
+        "Quote one word from the source",
+        "When was the agreement signed?"
+      ],
+      "answer": "How useful is this source to a historian?",
+      "explanation": "Level 3 questions usually ask about usefulness, reliability, bias, comparison and judgement."
+    },
+    {
+      "id": 13,
+      "type": "truefalse",
+      "category": "Background and Concepts",
+      "skill": "Source skill",
+      "sourceId": "ANG-SKILLS",
+      "sourceType": "instruction",
+      "sourceText": "Source-based questions require learners to extract information, interpret sources, explain concepts, analyse perspectives, compare sources, and comment on usefulness, reliability and limitations.",
+      "question": "Source-based answers should use both the source and own knowledge where required.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "Exam questions often say 'using the source and your own knowledge', so both are needed."
+    },
+    {
+      "id": 14,
+      "type": "mcq",
+      "category": "Background and Concepts",
+      "skill": "Interpret source",
+      "sourceId": "ANG-INTRO",
+      "sourceType": "extract",
+      "sourceText": "African states became independent during the 1950s and 1960s. The Cold War was at its height and superpowers hoped to recruit new allies by providing aid and weapons. Foreign involvement had a negative effect on Africa.",
+      "question": "The phrase 'Cold War was at its height' suggests that Angola became involved in...",
+      "options": [
+        "a global ideological struggle between capitalism and communism",
+        "a local sports competition",
+        "a religious dispute only",
+        "a trade disagreement with Portugal only"
+      ],
+      "answer": "a global ideological struggle between capitalism and communism",
+      "explanation": "The Cold War was an ideological and political struggle between the USA and USSR and their allies."
+    },
+    {
+      "id": 15,
+      "type": "fillblank",
+      "category": "Background and Concepts",
+      "skill": "Recall key term",
+      "sourceId": "ANG-CONCEPTS",
+      "sourceType": "extract",
+      "sourceText": "Colonialism means a state sets up colonies in other territories for political and economic benefit. A superpower is a state with strong global influence. A civil war is a violent conflict within a country between organised groups seeking power.",
+      "question": "A violent conflict within one country between organised groups is called a ________ war.",
+      "options": [],
+      "answer": "civil",
+      "explanation": "The Angola conflict after 1974 became a civil war."
+    },
+    {
+      "id": 16,
+      "type": "mcq",
+      "category": "Nationalist Movements",
+      "skill": "Extract information",
+      "sourceId": "ANG-ALVOR",
+      "sourceType": "extract",
+      "sourceText": "Under pressure from the OAU, the three nationalist leaders - Holden Roberto, Agostinho Neto and Jonas Savimbi - were brought together in January 1975, where they agreed to create a transitional government and prepare for independence.",
+      "question": "Which THREE leaders were brought together under pressure from the OAU?",
+      "options": [
+        "Holden Roberto, Agostinho Neto and Jonas Savimbi",
+        "Fidel Castro, BJ Vorster and Henry Kissinger",
+        "Kennedy, Khrushchev and Castro",
+        "Malan, Botha and Shultz"
+      ],
+      "answer": "Holden Roberto, Agostinho Neto and Jonas Savimbi",
+      "explanation": "The source identifies the three Angolan nationalist leaders."
+    },
+    {
+      "id": 17,
+      "type": "mcq",
+      "category": "Nationalist Movements",
+      "skill": "Recall key detail",
+      "sourceId": "ANG-ALVOR",
+      "sourceType": "extract",
+      "sourceText": "Under pressure from the OAU, the three nationalist leaders - Holden Roberto, Agostinho Neto and Jonas Savimbi - were brought together in January 1975, where they agreed to create a transitional government and prepare for independence.",
+      "question": "Agostinho Neto was linked to which movement?",
+      "options": [
+        "MPLA",
+        "FNLA",
+        "UNITA",
+        "SADF"
+      ],
+      "answer": "MPLA",
+      "explanation": "Neto was the leader of the MPLA."
+    },
+    {
+      "id": 18,
+      "type": "mcq",
+      "category": "Nationalist Movements",
+      "skill": "Recall key detail",
+      "sourceId": "ANG-ALVOR",
+      "sourceType": "extract",
+      "sourceText": "Under pressure from the OAU, the three nationalist leaders - Holden Roberto, Agostinho Neto and Jonas Savimbi - were brought together in January 1975, where they agreed to create a transitional government and prepare for independence.",
+      "question": "Holden Roberto was linked to which movement?",
+      "options": [
+        "FNLA",
+        "MPLA",
+        "UNITA",
+        "FAPLA"
+      ],
+      "answer": "FNLA",
+      "explanation": "Roberto led the FNLA."
+    },
+    {
+      "id": 19,
+      "type": "mcq",
+      "category": "Nationalist Movements",
+      "skill": "Recall key detail",
+      "sourceId": "ANG-ALVOR",
+      "sourceType": "extract",
+      "sourceText": "Under pressure from the OAU, the three nationalist leaders - Holden Roberto, Agostinho Neto and Jonas Savimbi - were brought together in January 1975, where they agreed to create a transitional government and prepare for independence.",
+      "question": "Jonas Savimbi was linked to which movement?",
+      "options": [
+        "UNITA",
+        "MPLA",
+        "FNLA",
+        "OAU"
+      ],
+      "answer": "UNITA",
+      "explanation": "Savimbi led UNITA."
+    },
+    {
+      "id": 20,
+      "type": "mcq",
+      "category": "Nationalist Movements",
+      "skill": "Interpret source",
+      "sourceId": "ANG-ALVOR",
+      "sourceType": "extract",
+      "sourceText": "Under pressure from the OAU, the three nationalist leaders - Holden Roberto, Agostinho Neto and Jonas Savimbi - were brought together in January 1975, where they agreed to create a transitional government and prepare for independence.",
+      "question": "What was one purpose of bringing the three nationalist leaders together in January 1975?",
+      "options": [
+        "To form a transitional government and prepare for independence",
+        "To invite Portugal to rule permanently",
+        "To create NATO in Angola",
+        "To end all African independence movements"
+      ],
+      "answer": "To form a transitional government and prepare for independence",
+      "explanation": "The Alvor process aimed to manage the transition to independence."
+    },
+    {
+      "id": 21,
+      "type": "mcq",
+      "category": "Nationalist Movements",
+      "skill": "Extract information",
+      "sourceId": "ANG-ALVOR",
+      "sourceType": "extract",
+      "sourceText": "Under pressure from the OAU, the three nationalist leaders - Holden Roberto, Agostinho Neto and Jonas Savimbi - were brought together in January 1975, where they agreed to create a transitional government and prepare for independence.",
+      "question": "Which organisation pressured the Angolan leaders to cooperate?",
+      "options": [
+        "OAU",
+        "NATO",
+        "Warsaw Pact",
+        "CIA"
+      ],
+      "answer": "OAU",
+      "explanation": "The source says the OAU pressured the leaders."
+    },
+    {
+      "id": 22,
+      "type": "truefalse",
+      "category": "Nationalist Movements",
+      "skill": "Interpret source",
+      "sourceId": "ANG-ALVOR",
+      "sourceType": "extract",
+      "sourceText": "Under pressure from the OAU, the three nationalist leaders - Holden Roberto, Agostinho Neto and Jonas Savimbi - were brought together in January 1975, where they agreed to create a transitional government and prepare for independence.",
+      "question": "The Alvor Agreement was intended to introduce a more democratic transition in Angola.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "It aimed to create a transitional government before independence."
+    },
+    {
+      "id": 23,
+      "type": "mcq",
+      "category": "Nationalist Movements",
+      "skill": "Interpret source",
+      "sourceId": "ANG-1A",
+      "sourceType": "extract",
+      "sourceText": "Guimaraes argued that the MPLA, FNLA and UNITA had weak fighting machines in 1974, but foreign intervention caused a rapid arms race. The CIA supported the FNLA, the Soviet Union sent arms to the MPLA, Cuban advisers assisted the MPLA, and South Africa supported FNLA and UNITA.",
+      "question": "Why did the liberation war become a bitter power struggle?",
+      "options": [
+        "The movements competed for control after Portuguese withdrawal",
+        "Portugal gave Angola immediately to one movement without conflict",
+        "All foreign powers stayed neutral",
+        "The OAU banned all elections"
+      ],
+      "answer": "The movements competed for control after Portuguese withdrawal",
+      "explanation": "The sources show that anti-colonial unity changed into rivalry among MPLA, FNLA and UNITA."
+    },
+    {
+      "id": 24,
+      "type": "mcq",
+      "category": "Nationalist Movements",
+      "skill": "Explain concept",
+      "sourceId": "ANG-CONCEPTS",
+      "sourceType": "extract",
+      "sourceText": "Colonialism means a state sets up colonies in other territories for political and economic benefit. A superpower is a state with strong global influence. A civil war is a violent conflict within a country between organised groups seeking power.",
+      "question": "Why is Angola after 1974 described as a civil war rather than only an anti-colonial war?",
+      "options": [
+        "Angolan movements fought each other for power inside Angola",
+        "Only Portugal fought against Angola",
+        "The war was only between USA and USSR troops",
+        "There was no fighting inside Angola"
+      ],
+      "answer": "Angolan movements fought each other for power inside Angola",
+      "explanation": "A civil war involves organised groups within the same country fighting for power."
+    },
+    {
+      "id": 25,
+      "type": "mcq",
+      "category": "Nationalist Movements",
+      "skill": "Recall key detail",
+      "sourceId": "ANG-MINDMAP",
+      "sourceType": "mind map",
+      "sourceText": "A summary mind map links Angola to Portuguese colonialism, the MPLA, FNLA and UNITA, Cold War foreign intervention, the destruction of Angola's economy and the Battle of Cuito Cuanavale as a turning point.",
+      "question": "Which movement controlled Luanda and later declared the People's Republic of Angola?",
+      "options": [
+        "MPLA",
+        "FNLA",
+        "UNITA",
+        "SADF"
+      ],
+      "answer": "MPLA",
+      "explanation": "The MPLA held Luanda and became the governing movement after independence."
+    },
+    {
+      "id": 26,
+      "type": "mcq",
+      "category": "Nationalist Movements",
+      "skill": "Interpret source",
+      "sourceId": "ANG-MINDMAP",
+      "sourceType": "mind map",
+      "sourceText": "A summary mind map links Angola to Portuguese colonialism, the MPLA, FNLA and UNITA, Cold War foreign intervention, the destruction of Angola's economy and the Battle of Cuito Cuanavale as a turning point.",
+      "question": "Which factor strengthened the MPLA financially?",
+      "options": [
+        "Control of oil revenues",
+        "Control of NATO funds only",
+        "Control of Portuguese monarchy",
+        "No access to resources"
+      ],
+      "answer": "Control of oil revenues",
+      "explanation": "The sources note the MPLA benefited from oil revenues."
+    },
+    {
+      "id": 27,
+      "type": "mcq",
+      "category": "Nationalist Movements",
+      "skill": "Interpret source",
+      "sourceId": "ANG-MINDMAP",
+      "sourceType": "mind map",
+      "sourceText": "A summary mind map links Angola to Portuguese colonialism, the MPLA, FNLA and UNITA, Cold War foreign intervention, the destruction of Angola's economy and the Battle of Cuito Cuanavale as a turning point.",
+      "question": "UNITA drew strong support mainly from which group/region according to the summary?",
+      "options": [
+        "Ovimbundu and central highlands/southern Angola",
+        "Portuguese settlers only",
+        "East German workers",
+        "French oil companies only"
+      ],
+      "answer": "Ovimbundu and central highlands/southern Angola",
+      "explanation": "UNITA's support base was linked to the Ovimbundu people and parts of central/southern Angola."
+    },
+    {
+      "id": 28,
+      "type": "mcq",
+      "category": "Nationalist Movements",
+      "skill": "Interpret source",
+      "sourceId": "ANG-MINDMAP",
+      "sourceType": "mind map",
+      "sourceText": "A summary mind map links Angola to Portuguese colonialism, the MPLA, FNLA and UNITA, Cold War foreign intervention, the destruction of Angola's economy and the Battle of Cuito Cuanavale as a turning point.",
+      "question": "The FNLA was connected to which external African supporter?",
+      "options": [
+        "Zaire/Mobutu Sese Seko",
+        "Cuba/Castro",
+        "Portugal/Salisbury",
+        "Namibia/SWAPO only"
+      ],
+      "answer": "Zaire/Mobutu Sese Seko",
+      "explanation": "The FNLA received support from Zaire under Mobutu."
+    },
+    {
+      "id": 29,
+      "type": "fillblank",
+      "category": "Nationalist Movements",
+      "skill": "Recall key term",
+      "sourceId": "ANG-MINDMAP",
+      "sourceType": "mind map",
+      "sourceText": "A summary mind map links Angola to Portuguese colonialism, the MPLA, FNLA and UNITA, Cold War foreign intervention, the destruction of Angola's economy and the Battle of Cuito Cuanavale as a turning point.",
+      "question": "The three main Angolan movements were MPLA, FNLA and ________.",
+      "options": [],
+      "answer": "UNITA",
+      "explanation": "UNITA was led by Jonas Savimbi."
+    },
+    {
+      "id": 30,
+      "type": "mcq",
+      "category": "Nationalist Movements",
+      "skill": "Interpret source",
+      "sourceId": "ANG-ALVOR",
+      "sourceType": "extract",
+      "sourceText": "Under pressure from the OAU, the three nationalist leaders - Holden Roberto, Agostinho Neto and Jonas Savimbi - were brought together in January 1975, where they agreed to create a transitional government and prepare for independence.",
+      "question": "Why would the nationalist leaders agree to freeze military positions?",
+      "options": [
+        "To reduce conflict during the transition and prevent one movement from gaining unfair military advantage",
+        "To prepare for Portuguese recolonisation",
+        "To help South Africa invade Luanda",
+        "To abolish independence"
+      ],
+      "answer": "To reduce conflict during the transition and prevent one movement from gaining unfair military advantage",
+      "explanation": "A freeze would help stabilise the transition, although the agreement failed."
+    },
+    {
+      "id": 31,
+      "type": "mcq",
+      "category": "Foreign Intervention 1975-1976",
+      "skill": "Extract information",
+      "sourceId": "ANG-1A",
+      "sourceType": "extract",
+      "sourceText": "Guimaraes argued that the MPLA, FNLA and UNITA had weak fighting machines in 1974, but foreign intervention caused a rapid arms race. The CIA supported the FNLA, the Soviet Union sent arms to the MPLA, Cuban advisers assisted the MPLA, and South Africa supported FNLA and UNITA.",
+      "question": "According to Guimaraes, what caused the rapid arms race in Angola?",
+      "options": [
+        "Foreign intervention in the Angolan civil war",
+        "The absence of all foreign weapons",
+        "The immediate success of the Alvor Agreement",
+        "The end of all political rivalry"
+      ],
+      "answer": "Foreign intervention in the Angolan civil war",
+      "explanation": "The source states that foreign intervention was the cause of the arms race."
+    },
+    {
+      "id": 32,
+      "type": "mcq",
+      "category": "Foreign Intervention 1975-1976",
+      "skill": "Extract information",
+      "sourceId": "ANG-1A",
+      "sourceType": "extract",
+      "sourceText": "Guimaraes argued that the MPLA, FNLA and UNITA had weak fighting machines in 1974, but foreign intervention caused a rapid arms race. The CIA supported the FNLA, the Soviet Union sent arms to the MPLA, Cuban advisers assisted the MPLA, and South Africa supported FNLA and UNITA.",
+      "question": "Which country sent major arms shipments to the MPLA?",
+      "options": [
+        "Soviet Union",
+        "Portugal",
+        "Britain",
+        "Brazil"
+      ],
+      "answer": "Soviet Union",
+      "explanation": "The source says the MPLA began receiving major arms shipments from the Soviet Union."
+    },
+    {
+      "id": 33,
+      "type": "mcq",
+      "category": "Foreign Intervention 1975-1976",
+      "skill": "Extract information",
+      "sourceId": "ANG-1A",
+      "sourceType": "extract",
+      "sourceText": "Guimaraes argued that the MPLA, FNLA and UNITA had weak fighting machines in 1974, but foreign intervention caused a rapid arms race. The CIA supported the FNLA, the Soviet Union sent arms to the MPLA, Cuban advisers assisted the MPLA, and South Africa supported FNLA and UNITA.",
+      "question": "Which intelligence agency secretly supported the FNLA?",
+      "options": [
+        "CIA",
+        "KGB",
+        "MI6",
+        "SADF"
+      ],
+      "answer": "CIA",
+      "explanation": "The source mentions covert CIA support for the FNLA."
+    },
+    {
+      "id": 34,
+      "type": "mcq",
+      "category": "Foreign Intervention 1975-1976",
+      "skill": "Extract information",
+      "sourceId": "ANG-1A",
+      "sourceType": "extract",
+      "sourceText": "Guimaraes argued that the MPLA, FNLA and UNITA had weak fighting machines in 1974, but foreign intervention caused a rapid arms race. The CIA supported the FNLA, the Soviet Union sent arms to the MPLA, Cuban advisers assisted the MPLA, and South Africa supported FNLA and UNITA.",
+      "question": "What was the primary task of the first Cuban advisers according to the source?",
+      "options": [
+        "To set up and run training camps for the MPLA military arm",
+        "To command the FNLA",
+        "To train Portuguese settlers",
+        "To supervise elections for the OAU"
+      ],
+      "answer": "To set up and run training camps for the MPLA military arm",
+      "explanation": "The source states that Cuban advisers were sent to train the MPLA's military arm."
+    },
+    {
+      "id": 35,
+      "type": "mcq",
+      "category": "Foreign Intervention 1975-1976",
+      "skill": "Extract information",
+      "sourceId": "ANG-1A",
+      "sourceType": "extract",
+      "sourceText": "Guimaraes argued that the MPLA, FNLA and UNITA had weak fighting machines in 1974, but foreign intervention caused a rapid arms race. The CIA supported the FNLA, the Soviet Union sent arms to the MPLA, Cuban advisers assisted the MPLA, and South Africa supported FNLA and UNITA.",
+      "question": "Which two Angolan movements had contact with Pretoria according to the source?",
+      "options": [
+        "UNITA and FNLA",
+        "MPLA and FAPLA",
+        "MPLA and OAU",
+        "FNLA and FAPLA"
+      ],
+      "answer": "UNITA and FNLA",
+      "explanation": "South Africa supported UNITA and FNLA."
+    },
+    {
+      "id": 36,
+      "type": "truefalse",
+      "category": "Foreign Intervention 1975-1976",
+      "skill": "Extract information",
+      "sourceId": "ANG-1A",
+      "sourceType": "extract",
+      "sourceText": "Guimaraes argued that the MPLA, FNLA and UNITA had weak fighting machines in 1974, but foreign intervention caused a rapid arms race. The CIA supported the FNLA, the Soviet Union sent arms to the MPLA, Cuban advisers assisted the MPLA, and South Africa supported FNLA and UNITA.",
+      "question": "South Africa set up training camps for both the FNLA and UNITA.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "The source states that South Africa had set up training camps for both movements by late August 1975."
+    },
+    {
+      "id": 37,
+      "type": "mcq",
+      "category": "Foreign Intervention 1975-1976",
+      "skill": "Interpret source",
+      "sourceId": "ANG-1A",
+      "sourceType": "extract",
+      "sourceText": "Guimaraes argued that the MPLA, FNLA and UNITA had weak fighting machines in 1974, but foreign intervention caused a rapid arms race. The CIA supported the FNLA, the Soviet Union sent arms to the MPLA, Cuban advisers assisted the MPLA, and South Africa supported FNLA and UNITA.",
+      "question": "Why did foreign intervention escalate the Angolan civil war?",
+      "options": [
+        "It supplied local movements with weapons, training and military support",
+        "It removed all weapons from Angola",
+        "It forced all movements to unite peacefully",
+        "It ended Cold War rivalry in Africa"
+      ],
+      "answer": "It supplied local movements with weapons, training and military support",
+      "explanation": "Foreign weapons and training intensified the conflict."
+    },
+    {
+      "id": 38,
+      "type": "mcq",
+      "category": "Foreign Intervention 1975-1976",
+      "skill": "Interpret source",
+      "sourceId": "ANG-1A",
+      "sourceType": "extract",
+      "sourceText": "Guimaraes argued that the MPLA, FNLA and UNITA had weak fighting machines in 1974, but foreign intervention caused a rapid arms race. The CIA supported the FNLA, the Soviet Union sent arms to the MPLA, Cuban advisers assisted the MPLA, and South Africa supported FNLA and UNITA.",
+      "question": "Which pairing is correct?",
+      "options": [
+        "MPLA - Soviet Union and Cuba",
+        "MPLA - South Africa only",
+        "FNLA - Cuba only",
+        "UNITA - Soviet Union only"
+      ],
+      "answer": "MPLA - Soviet Union and Cuba",
+      "explanation": "The MPLA received Soviet and Cuban support."
+    },
+    {
+      "id": 39,
+      "type": "mcq",
+      "category": "Foreign Intervention 1975-1976",
+      "skill": "Interpret source",
+      "sourceId": "ANG-1A",
+      "sourceType": "extract",
+      "sourceText": "Guimaraes argued that the MPLA, FNLA and UNITA had weak fighting machines in 1974, but foreign intervention caused a rapid arms race. The CIA supported the FNLA, the Soviet Union sent arms to the MPLA, Cuban advisers assisted the MPLA, and South Africa supported FNLA and UNITA.",
+      "question": "Which pairing is correct?",
+      "options": [
+        "FNLA - CIA and Zaire",
+        "FNLA - Soviet Union and Cuba",
+        "FNLA - OAU only",
+        "FNLA - New York Accords only"
+      ],
+      "answer": "FNLA - CIA and Zaire",
+      "explanation": "The FNLA was supported by the CIA and Zaire."
+    },
+    {
+      "id": 40,
+      "type": "mcq",
+      "category": "Foreign Intervention 1975-1976",
+      "skill": "Interpret source",
+      "sourceId": "ANG-1A",
+      "sourceType": "extract",
+      "sourceText": "Guimaraes argued that the MPLA, FNLA and UNITA had weak fighting machines in 1974, but foreign intervention caused a rapid arms race. The CIA supported the FNLA, the Soviet Union sent arms to the MPLA, Cuban advisers assisted the MPLA, and South Africa supported FNLA and UNITA.",
+      "question": "Which pairing is correct?",
+      "options": [
+        "UNITA - South Africa and later USA support",
+        "UNITA - Cuban pilots only",
+        "UNITA - OAU peacekeepers only",
+        "UNITA - Portuguese monarchy only"
+      ],
+      "answer": "UNITA - South Africa and later USA support",
+      "explanation": "UNITA was supported by South Africa and later drew US backing."
+    },
+    {
+      "id": 41,
+      "type": "mcq",
+      "category": "Foreign Intervention 1975-1976",
+      "skill": "Own knowledge and source",
+      "sourceId": "ANG-1A",
+      "sourceType": "extract",
+      "sourceText": "Guimaraes argued that the MPLA, FNLA and UNITA had weak fighting machines in 1974, but foreign intervention caused a rapid arms race. The CIA supported the FNLA, the Soviet Union sent arms to the MPLA, Cuban advisers assisted the MPLA, and South Africa supported FNLA and UNITA.",
+      "question": "Why did the USA become involved in Angola?",
+      "options": [
+        "To prevent a Soviet-backed MPLA government and contain communism",
+        "To support Portuguese colonialism openly forever",
+        "To help Cuba spread socialism",
+        "To end all resource interests in Angola"
+      ],
+      "answer": "To prevent a Soviet-backed MPLA government and contain communism",
+      "explanation": "The USA feared Soviet influence and the spread of communism in Africa."
+    },
+    {
+      "id": 42,
+      "type": "mcq",
+      "category": "Foreign Intervention 1975-1976",
+      "skill": "Interpret source",
+      "sourceId": "ANG-1A",
+      "sourceType": "extract",
+      "sourceText": "Guimaraes argued that the MPLA, FNLA and UNITA had weak fighting machines in 1974, but foreign intervention caused a rapid arms race. The CIA supported the FNLA, the Soviet Union sent arms to the MPLA, Cuban advisers assisted the MPLA, and South Africa supported FNLA and UNITA.",
+      "question": "What does the phrase 'covert support' mean in the context of USA involvement?",
+      "options": [
+        "Secret or hidden assistance",
+        "A public peacekeeping mission",
+        "A formal United Nations mandate",
+        "Open elections supervised by the OAU"
+      ],
+      "answer": "Secret or hidden assistance",
+      "explanation": "The CIA support was secret rather than openly declared."
+    },
+    {
+      "id": 43,
+      "type": "mcq",
+      "category": "Foreign Intervention 1975-1976",
+      "skill": "Compare sides",
+      "sourceId": "ANG-MINDMAP",
+      "sourceType": "mind map",
+      "sourceText": "A summary mind map links Angola to Portuguese colonialism, the MPLA, FNLA and UNITA, Cold War foreign intervention, the destruction of Angola's economy and the Battle of Cuito Cuanavale as a turning point.",
+      "question": "Which side best represents the Cold War alignment in Angola?",
+      "options": [
+        "MPLA-Cuba-USSR versus UNITA/FNLA-South Africa-USA",
+        "MPLA-USA-South Africa versus UNITA-USSR-Cuba",
+        "OAU-NATO versus Portugal-China",
+        "Cuba-South Africa versus MPLA-FNLA"
+      ],
+      "answer": "MPLA-Cuba-USSR versus UNITA/FNLA-South Africa-USA",
+      "explanation": "The conflict mirrored Cold War rivalries through support for different movements."
+    },
+    {
+      "id": 44,
+      "type": "fillblank",
+      "category": "Foreign Intervention 1975-1976",
+      "skill": "Recall key term",
+      "sourceId": "ANG-1A",
+      "sourceType": "extract",
+      "sourceText": "Guimaraes argued that the MPLA, FNLA and UNITA had weak fighting machines in 1974, but foreign intervention caused a rapid arms race. The CIA supported the FNLA, the Soviet Union sent arms to the MPLA, Cuban advisers assisted the MPLA, and South Africa supported FNLA and UNITA.",
+      "question": "The rapid build-up of weapons between rival Angolan movements was called an arms ________.",
+      "options": [],
+      "answer": "race",
+      "explanation": "Guimaraes called it a rapid arms race."
+    },
+    {
+      "id": 45,
+      "type": "mcq",
+      "category": "Foreign Intervention 1975-1976",
+      "skill": "Paragraph prep",
+      "sourceId": "ANG-1A",
+      "sourceType": "extract",
+      "sourceText": "Guimaraes argued that the MPLA, FNLA and UNITA had weak fighting machines in 1974, but foreign intervention caused a rapid arms race. The CIA supported the FNLA, the Soviet Union sent arms to the MPLA, Cuban advisers assisted the MPLA, and South Africa supported FNLA and UNITA.",
+      "question": "Which sentence would best start an 80-word paragraph on foreign intervention?",
+      "options": [
+        "Foreign countries turned Angola's local power struggle into a Cold War battlefield.",
+        "Angola had no involvement from outside countries.",
+        "The conflict was only about sport and trade.",
+        "Portugal ruled Angola peacefully after 1975."
+      ],
+      "answer": "Foreign countries turned Angola's local power struggle into a Cold War battlefield.",
+      "explanation": "This topic sentence directly answers the source-based paragraph focus."
+    },
+    {
+      "id": 46,
+      "type": "mcq",
+      "category": "USA Involvement",
+      "skill": "Cartoon interpretation",
+      "sourceId": "ANG-2B",
+      "sourceType": "cartoon",
+      "sourceText": "A 1975 British cartoon shows Kissinger telling President Ford that the USA should get involved in Angola to prevent a 'domino situation'. When Ford asks if this is like Vietnam, Kissinger replies, 'Exactly!'",
+      "question": "According to the Kissinger cartoon, why did Kissinger want the USA involved in Angola?",
+      "options": [
+        "To prevent a domino situation",
+        "To support Cuban troops",
+        "To restore Portuguese rule",
+        "To end all Cold War rivalry"
+      ],
+      "answer": "To prevent a domino situation",
+      "explanation": "The cartoon's speech bubble refers to preventing a domino situation."
+    },
+    {
+      "id": 47,
+      "type": "mcq",
+      "category": "USA Involvement",
+      "skill": "Cartoon interpretation",
+      "sourceId": "ANG-2B",
+      "sourceType": "cartoon",
+      "sourceText": "A 1975 British cartoon shows Kissinger telling President Ford that the USA should get involved in Angola to prevent a 'domino situation'. When Ford asks if this is like Vietnam, Kissinger replies, 'Exactly!'",
+      "question": "What does 'domino situation' mean in the cartoon?",
+      "options": [
+        "If one country became communist, others might follow",
+        "If one country became capitalist, all would become colonies",
+        "If Angola fell, Europe would disappear",
+        "If Cuba withdrew, Vietnam would invade"
+      ],
+      "answer": "If one country became communist, others might follow",
+      "explanation": "This reflects the Domino Theory and containment."
+    },
+    {
+      "id": 48,
+      "type": "mcq",
+      "category": "USA Involvement",
+      "skill": "Cartoon interpretation",
+      "sourceId": "ANG-2B",
+      "sourceType": "cartoon",
+      "sourceText": "A 1975 British cartoon shows Kissinger telling President Ford that the USA should get involved in Angola to prevent a 'domino situation'. When Ford asks if this is like Vietnam, Kissinger replies, 'Exactly!'",
+      "question": "Why does the cartoon compare Angola to Vietnam?",
+      "options": [
+        "It suggests the USA feared another Cold War defeat or mistake like Vietnam",
+        "It shows Angola and Vietnam are the same country",
+        "It proves the USA sent no aid anywhere",
+        "It argues that France ruled both countries in 1975"
+      ],
+      "answer": "It suggests the USA feared another Cold War defeat or mistake like Vietnam",
+      "explanation": "Ford's comment about Vietnam highlights American anxiety after the Vietnam War."
+    },
+    {
+      "id": 49,
+      "type": "truefalse",
+      "category": "USA Involvement",
+      "skill": "Cartoon interpretation",
+      "sourceId": "ANG-2B",
+      "sourceType": "cartoon",
+      "sourceText": "A 1975 British cartoon shows Kissinger telling President Ford that the USA should get involved in Angola to prevent a 'domino situation'. When Ford asks if this is like Vietnam, Kissinger replies, 'Exactly!'",
+      "question": "The cartoon suggests that US leaders used Cold War fears to justify intervention in Angola.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "The idea of a domino situation is a Cold War justification for intervention."
+    },
+    {
+      "id": 50,
+      "type": "mcq",
+      "category": "USA Involvement",
+      "skill": "Usefulness",
+      "sourceId": "ANG-2B",
+      "sourceType": "cartoon",
+      "sourceText": "A 1975 British cartoon shows Kissinger telling President Ford that the USA should get involved in Angola to prevent a 'domino situation'. When Ford asks if this is like Vietnam, Kissinger replies, 'Exactly!'",
+      "question": "Why is the Kissinger cartoon useful to a historian?",
+      "options": [
+        "It shows contemporary criticism of US thinking about Angola after Vietnam",
+        "It gives exact troop numbers for every country",
+        "It proves no foreign country intervened",
+        "It is an official Angolan treaty"
+      ],
+      "answer": "It shows contemporary criticism of US thinking about Angola after Vietnam",
+      "explanation": "A cartoon reveals opinions and political criticism at the time."
+    },
+    {
+      "id": 51,
+      "type": "mcq",
+      "category": "Cuban Involvement",
+      "skill": "Extract information",
+      "sourceId": "ANG-CASTRO",
+      "sourceType": "interview",
+      "sourceText": "Fidel Castro claimed Cuba intervened because South African troops invaded Angola, the MPLA requested assistance, and Cuba wanted to prevent apartheid, CIA influence, neo-colonialism and imperialism from being installed in Angola.",
+      "question": "According to Castro, what triggered Cuba's intervention?",
+      "options": [
+        "South African troops invaded Angola and the MPLA requested help",
+        "Portugal asked Cuba to recolonise Angola",
+        "UNITA requested Cuban air support",
+        "The OAU ordered Cuba to attack South Africa"
+      ],
+      "answer": "South African troops invaded Angola and the MPLA requested help",
+      "explanation": "Castro said Cuba acted after South African troops invaded and the MPLA asked for help."
+    },
+    {
+      "id": 52,
+      "type": "mcq",
+      "category": "Cuban Involvement",
+      "skill": "Extract information",
+      "sourceId": "ANG-CASTRO",
+      "sourceType": "interview",
+      "sourceText": "Fidel Castro claimed Cuba intervened because South African troops invaded Angola, the MPLA requested assistance, and Cuba wanted to prevent apartheid, CIA influence, neo-colonialism and imperialism from being installed in Angola.",
+      "question": "Which movement did Cuba support?",
+      "options": [
+        "MPLA",
+        "FNLA",
+        "UNITA",
+        "SADF"
+      ],
+      "answer": "MPLA",
+      "explanation": "Cuba supported the MPLA."
+    },
+    {
+      "id": 53,
+      "type": "mcq",
+      "category": "Cuban Involvement",
+      "skill": "Interpret source",
+      "sourceId": "ANG-CASTRO",
+      "sourceType": "interview",
+      "sourceText": "Fidel Castro claimed Cuba intervened because South African troops invaded Angola, the MPLA requested assistance, and Cuba wanted to prevent apartheid, CIA influence, neo-colonialism and imperialism from being installed in Angola.",
+      "question": "Which reason did Castro give for intervention?",
+      "options": [
+        "To prevent apartheid and neo-colonialism from being installed in Angola",
+        "To help South Africa occupy Angola",
+        "To protect Portuguese colonial rule",
+        "To remove all African governments"
+      ],
+      "answer": "To prevent apartheid and neo-colonialism from being installed in Angola",
+      "explanation": "Castro framed Cuba's role as anti-apartheid and anti-imperialist."
+    },
+    {
+      "id": 54,
+      "type": "mcq",
+      "category": "Cuban Involvement",
+      "skill": "Interpret source",
+      "sourceId": "ANG-CASTRO",
+      "sourceType": "interview",
+      "sourceText": "Fidel Castro claimed Cuba intervened because South African troops invaded Angola, the MPLA requested assistance, and Cuba wanted to prevent apartheid, CIA influence, neo-colonialism and imperialism from being installed in Angola.",
+      "question": "How did Castro describe Cuba's duty?",
+      "options": [
+        "As revolutionary and internationalist support for liberation struggles",
+        "As a business investment in oil companies",
+        "As a NATO military obligation",
+        "As a Portuguese colonial duty"
+      ],
+      "answer": "As revolutionary and internationalist support for liberation struggles",
+      "explanation": "Castro presented Cuba's intervention as internationalist solidarity."
+    },
+    {
+      "id": 55,
+      "type": "truefalse",
+      "category": "Cuban Involvement",
+      "skill": "Interpret source",
+      "sourceId": "ANG-CASTRO",
+      "sourceType": "interview",
+      "sourceText": "Fidel Castro claimed Cuba intervened because South African troops invaded Angola, the MPLA requested assistance, and Cuba wanted to prevent apartheid, CIA influence, neo-colonialism and imperialism from being installed in Angola.",
+      "question": "Castro claimed Cuba acted only because the Soviet Union ordered it to do so.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "Castro denied that the Soviet Union ordered Cuba to send troops."
+    },
+    {
+      "id": 56,
+      "type": "mcq",
+      "category": "Cuban Involvement",
+      "skill": "Reliability/bias",
+      "sourceId": "ANG-CASTRO",
+      "sourceType": "interview",
+      "sourceText": "Fidel Castro claimed Cuba intervened because South African troops invaded Angola, the MPLA requested assistance, and Cuba wanted to prevent apartheid, CIA influence, neo-colonialism and imperialism from being installed in Angola.",
+      "question": "Why might Castro's explanation be considered biased?",
+      "options": [
+        "He was defending Cuba's own intervention and presenting it positively",
+        "He was a neutral UN observer with no political interest",
+        "He was writing before the war began",
+        "He supported South Africa's version completely"
+      ],
+      "answer": "He was defending Cuba's own intervention and presenting it positively",
+      "explanation": "As Cuba's leader, Castro had a reason to justify his country's actions."
+    },
+    {
+      "id": 57,
+      "type": "mcq",
+      "category": "South African Involvement",
+      "skill": "Extract information",
+      "sourceId": "ANG-VORSTER",
+      "sourceType": "interview",
+      "sourceText": "BJ Vorster claimed South Africa was not involved in the Angolan civil war as such. He argued that South Africa acted because of the Calueque dam site and because Russian and Cuban intervention had already taken place.",
+      "question": "According to Vorster, which dam site helped justify South Africa's involvement?",
+      "options": [
+        "Calueque",
+        "Aswan",
+        "Kariba",
+        "Hoover"
+      ],
+      "answer": "Calueque",
+      "explanation": "Vorster mentioned the Calueque dam site."
+    },
+    {
+      "id": 58,
+      "type": "mcq",
+      "category": "South African Involvement",
+      "skill": "Interpret source",
+      "sourceId": "ANG-VORSTER",
+      "sourceType": "interview",
+      "sourceText": "BJ Vorster claimed South Africa was not involved in the Angolan civil war as such. He argued that South Africa acted because of the Calueque dam site and because Russian and Cuban intervention had already taken place.",
+      "question": "How did Vorster try to defend South Africa's involvement?",
+      "options": [
+        "He claimed South Africa reacted to Russian and Cuban intervention and was protecting the dam site",
+        "He admitted South Africa started the civil war for conquest",
+        "He said South Africa supported the MPLA",
+        "He said the OAU ordered South Africa to invade"
+      ],
+      "answer": "He claimed South Africa reacted to Russian and Cuban intervention and was protecting the dam site",
+      "explanation": "Vorster framed South Africa as responding to threats rather than causing escalation."
+    },
+    {
+      "id": 59,
+      "type": "mcq",
+      "category": "South African Involvement",
+      "skill": "Validity",
+      "sourceId": "ANG-VORSTER",
+      "sourceType": "interview",
+      "sourceText": "BJ Vorster claimed South Africa was not involved in the Angolan civil war as such. He argued that South Africa acted because of the Calueque dam site and because Russian and Cuban intervention had already taken place.",
+      "question": "Why is Vorster's statement 'we were never involved in the civil war as such' questionable?",
+      "options": [
+        "Other evidence shows South Africa trained and armed FNLA and UNITA and sent troops into Angola",
+        "No other source mentions South Africa",
+        "Vorster was a Cuban commander",
+        "The war ended before 1975"
+      ],
+      "answer": "Other evidence shows South Africa trained and armed FNLA and UNITA and sent troops into Angola",
+      "explanation": "The sources contradict Vorster's attempt to downplay involvement."
+    },
+    {
+      "id": 60,
+      "type": "mcq",
+      "category": "South African Involvement",
+      "skill": "Compare sources",
+      "sourceId": "ANG-SA-SOURCE",
+      "sourceType": "speech",
+      "sourceText": "A source on Vorster's 1976 speech states that South Africa placed blame on Cuba and Russia, but also describes South African weapons, training and financial support for the FNLA and UNITA.",
+      "question": "How does the source on Vorster's speech contradict his claim of limited involvement?",
+      "options": [
+        "It describes South African weapons, training and money for FNLA and UNITA",
+        "It proves South Africa only sent doctors",
+        "It says Cuba supported South Africa",
+        "It says the civil war had no foreign aid"
+      ],
+      "answer": "It describes South African weapons, training and money for FNLA and UNITA",
+      "explanation": "This evidence shows deeper involvement than Vorster admitted."
+    },
+    {
+      "id": 61,
+      "type": "mcq",
+      "category": "South African Involvement",
+      "skill": "Extract information",
+      "sourceId": "ANG-SA-SOURCE",
+      "sourceType": "speech",
+      "sourceText": "A source on Vorster's 1976 speech states that South Africa placed blame on Cuba and Russia, but also describes South African weapons, training and financial support for the FNLA and UNITA.",
+      "question": "Which TWO countries did Vorster blame for South Africa's intervention?",
+      "options": [
+        "Cuba and Russia/Soviet Union",
+        "Portugal and France",
+        "Britain and Belgium",
+        "China and Japan"
+      ],
+      "answer": "Cuba and Russia/Soviet Union",
+      "explanation": "Vorster blamed Cuban and Russian/Soviet involvement."
+    },
+    {
+      "id": 62,
+      "type": "mcq",
+      "category": "USA and South Africa",
+      "skill": "Interpret source",
+      "sourceId": "ANG-US-SUPPORT",
+      "sourceType": "interview",
+      "sourceText": "A Newsweek interview suggested that South Africa received a green light from Kissinger and that some moderate black African presidents supported South Africa's operation, but Vorster refused to confirm the details.",
+      "question": "Why would Vorster refuse to confirm whether America supported South Africa?",
+      "options": [
+        "Because the matter was politically sensitive and secret",
+        "Because he had never heard of the USA",
+        "Because the source was about World War I",
+        "Because South Africa had no connection to Angola"
+      ],
+      "answer": "Because the matter was politically sensitive and secret",
+      "explanation": "Covert support would be diplomatically sensitive."
+    },
+    {
+      "id": 63,
+      "type": "mcq",
+      "category": "USA and South Africa",
+      "skill": "Extract information",
+      "sourceId": "ANG-US-SUPPORT",
+      "sourceType": "interview",
+      "sourceText": "A Newsweek interview suggested that South Africa received a green light from Kissinger and that some moderate black African presidents supported South Africa's operation, but Vorster refused to confirm the details.",
+      "question": "What phrase suggests possible US support for South Africa's operation?",
+      "options": [
+        "Green light from Kissinger",
+        "No foreign involvement",
+        "OAU peace mission",
+        "Portuguese victory"
+      ],
+      "answer": "Green light from Kissinger",
+      "explanation": "The source refers to a possible green light from Kissinger."
+    },
+    {
+      "id": 64,
+      "type": "mcq",
+      "category": "USA and South Africa",
+      "skill": "Interpret source",
+      "sourceId": "ANG-US-SUPPORT",
+      "sourceType": "interview",
+      "sourceText": "A Newsweek interview suggested that South Africa received a green light from Kissinger and that some moderate black African presidents supported South Africa's operation, but Vorster refused to confirm the details.",
+      "question": "What does 'moderate black African presidents gave their blessing' imply?",
+      "options": [
+        "Some African leaders supported or tolerated South Africa's move against the MPLA",
+        "All African states supported MPLA openly",
+        "Cuba commanded the FNLA",
+        "Portugal returned to rule Angola"
+      ],
+      "answer": "Some African leaders supported or tolerated South Africa's move against the MPLA",
+      "explanation": "The phrase suggests that some African leaders approved South Africa's anti-MPLA operation."
+    },
+    {
+      "id": 65,
+      "type": "mcq",
+      "category": "Cartoon Analysis",
+      "skill": "Cartoon interpretation",
+      "sourceId": "ANG-CARTOON-RUS",
+      "sourceType": "cartoon",
+      "sourceText": "A 1975 cartoon titled 'Knuckle-rapping' shows Henry Kissinger slapping a Russian hand labelled 'Russian grip in Africa' with an olive branch over Angola.",
+      "question": "What does the Russian hand labelled 'Russian grip in Africa' symbolise?",
+      "options": [
+        "Soviet influence in Angola/Africa",
+        "Portuguese independence",
+        "Cuban withdrawal",
+        "OAU neutrality"
+      ],
+      "answer": "Soviet influence in Angola/Africa",
+      "explanation": "The hand represents Soviet control or influence."
+    },
+    {
+      "id": 66,
+      "type": "mcq",
+      "category": "Cartoon Analysis",
+      "skill": "Cartoon interpretation",
+      "sourceId": "ANG-CARTOON-RUS",
+      "sourceType": "cartoon",
+      "sourceText": "A 1975 cartoon titled 'Knuckle-rapping' shows Henry Kissinger slapping a Russian hand labelled 'Russian grip in Africa' with an olive branch over Angola.",
+      "question": "What does Kissinger using an olive branch to slap the Russian hand suggest?",
+      "options": [
+        "The USA claimed to want peace but also opposed Soviet influence",
+        "The USA fully supported Soviet control",
+        "The USA had no interest in Angola",
+        "The USSR was defending Portugal"
+      ],
+      "answer": "The USA claimed to want peace but also opposed Soviet influence",
+      "explanation": "The olive branch is a peace symbol, but it is used aggressively in the cartoon."
+    },
+    {
+      "id": 67,
+      "type": "mcq",
+      "category": "Cartoon Analysis",
+      "skill": "Source limitations",
+      "sourceId": "ANG-CARTOON-RUS",
+      "sourceType": "cartoon",
+      "sourceText": "A 1975 cartoon titled 'Knuckle-rapping' shows Henry Kissinger slapping a Russian hand labelled 'Russian grip in Africa' with an olive branch over Angola.",
+      "question": "What is a limitation of this cartoon as historical evidence?",
+      "options": [
+        "It shows opinion and exaggeration rather than a full factual account",
+        "It contains exact casualty figures",
+        "It was written by the UN as a treaty",
+        "It includes all Angolan voices equally"
+      ],
+      "answer": "It shows opinion and exaggeration rather than a full factual account",
+      "explanation": "Political cartoons are valuable for attitudes but limited as complete factual records."
+    },
+    {
+      "id": 68,
+      "type": "mcq",
+      "category": "Regional Impact",
+      "skill": "Extract information",
+      "sourceId": "ANG-IMPACT",
+      "sourceType": "summary",
+      "sourceText": "The civil war caused about 1.1 million deaths, landmine injuries, destruction of Angola's economy, and the use of natural resources such as oil, diamonds and ivory to finance weapons.",
+      "question": "How many people died according to the summary source?",
+      "options": [
+        "About 1.1 million",
+        "About 31",
+        "About 300",
+        "About 13 billion"
+      ],
+      "answer": "About 1.1 million",
+      "explanation": "The source notes approximately 1.1 million deaths."
+    },
+    {
+      "id": 69,
+      "type": "mcq",
+      "category": "Regional Impact",
+      "skill": "Extract information",
+      "sourceId": "ANG-IMPACT",
+      "sourceType": "summary",
+      "sourceText": "The civil war caused about 1.1 million deaths, landmine injuries, destruction of Angola's economy, and the use of natural resources such as oil, diamonds and ivory to finance weapons.",
+      "question": "Which resources were used to finance weapons?",
+      "options": [
+        "Oil, diamonds and ivory",
+        "Tea, sugar and cotton only",
+        "Gold from Europe only",
+        "No natural resources"
+      ],
+      "answer": "Oil, diamonds and ivory",
+      "explanation": "The sources mention oil, diamonds and ivory being used to fund the war."
+    },
+    {
+      "id": 70,
+      "type": "mcq",
+      "category": "Regional Impact",
+      "skill": "Interpret source",
+      "sourceId": "ANG-IMPACT",
+      "sourceType": "summary",
+      "sourceText": "The civil war caused about 1.1 million deaths, landmine injuries, destruction of Angola's economy, and the use of natural resources such as oil, diamonds and ivory to finance weapons.",
+      "question": "Why did foreign investment decline in Angola?",
+      "options": [
+        "The civil war destroyed stability and infrastructure",
+        "Angola had no resources",
+        "The war was peaceful",
+        "All countries guaranteed safety"
+      ],
+      "answer": "The civil war destroyed stability and infrastructure",
+      "explanation": "War and instability discourage investment."
+    },
+    {
+      "id": 71,
+      "type": "truefalse",
+      "category": "Regional Impact",
+      "skill": "Extract information",
+      "sourceId": "ANG-IMPACT",
+      "sourceType": "summary",
+      "sourceText": "The civil war caused about 1.1 million deaths, landmine injuries, destruction of Angola's economy, and the use of natural resources such as oil, diamonds and ivory to finance weapons.",
+      "question": "The Angolan civil war damaged the economy and infrastructure.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "The source states that Angola's economy and infrastructure were damaged."
+    },
+    {
+      "id": 72,
+      "type": "mcq",
+      "category": "Regional Impact",
+      "skill": "Interpret source",
+      "sourceId": "ANG-MINDMAP",
+      "sourceType": "mind map",
+      "sourceText": "A summary mind map links Angola to Portuguese colonialism, the MPLA, FNLA and UNITA, Cold War foreign intervention, the destruction of Angola's economy and the Battle of Cuito Cuanavale as a turning point.",
+      "question": "Which statement best explains Angola's regional impact?",
+      "options": [
+        "Foreign armies and liberation movements destabilised southern Africa",
+        "Angola's war had no effect outside Angola",
+        "Only Europe was affected",
+        "The conflict immediately created total stability"
+      ],
+      "answer": "Foreign armies and liberation movements destabilised southern Africa",
+      "explanation": "The conflict spread tension across southern Africa."
+    },
+    {
+      "id": 73,
+      "type": "mcq",
+      "category": "Regional Impact",
+      "skill": "Interpret source",
+      "sourceId": "ANG-MINDMAP",
+      "sourceType": "mind map",
+      "sourceText": "A summary mind map links Angola to Portuguese colonialism, the MPLA, FNLA and UNITA, Cold War foreign intervention, the destruction of Angola's economy and the Battle of Cuito Cuanavale as a turning point.",
+      "question": "Why did South Africa fear an MPLA victory?",
+      "options": [
+        "The MPLA could support ANC and SWAPO bases in Angola",
+        "The MPLA supported apartheid rule",
+        "The MPLA was a Portuguese monarchy",
+        "The MPLA wanted South Africa to join NATO"
+      ],
+      "answer": "The MPLA could support ANC and SWAPO bases in Angola",
+      "explanation": "South Africa feared Angola would become a base for anti-apartheid movements and SWAPO."
+    },
+    {
+      "id": 74,
+      "type": "mcq",
+      "category": "Regional Impact",
+      "skill": "Interpret source",
+      "sourceId": "ANG-MINDMAP",
+      "sourceType": "mind map",
+      "sourceText": "A summary mind map links Angola to Portuguese colonialism, the MPLA, FNLA and UNITA, Cold War foreign intervention, the destruction of Angola's economy and the Battle of Cuito Cuanavale as a turning point.",
+      "question": "Which movement fought South African rule in Namibia?",
+      "options": [
+        "SWAPO",
+        "FNLA",
+        "MPLA youth league only",
+        "NATO"
+      ],
+      "answer": "SWAPO",
+      "explanation": "SWAPO fought for Namibian independence from South African control."
+    },
+    {
+      "id": 75,
+      "type": "fillblank",
+      "category": "Regional Impact",
+      "skill": "Recall key term",
+      "sourceId": "ANG-MINDMAP",
+      "sourceType": "mind map",
+      "sourceText": "A summary mind map links Angola to Portuguese colonialism, the MPLA, FNLA and UNITA, Cold War foreign intervention, the destruction of Angola's economy and the Battle of Cuito Cuanavale as a turning point.",
+      "question": "The Angolan movement that could provide bases for the ANC and SWAPO was the ________.",
+      "options": [],
+      "answer": "MPLA",
+      "explanation": "The MPLA government in Angola was feared by apartheid South Africa because it could host liberation movements."
+    },
+    {
+      "id": 76,
+      "type": "mcq",
+      "category": "Cuito Cuanavale",
+      "skill": "Extract information",
+      "sourceId": "ANG-CUITO-A",
+      "sourceType": "extract",
+      "sourceText": "In August 1987 Angolan and Cuban brigades under a Russian commander attacked UNITA. South African troops supported UNITA, halted the advance at the Lomba River and drove the forces back towards Cuito Cuanavale.",
+      "question": "In August 1987, which forces launched a large-scale attack on UNITA?",
+      "options": [
+        "Angolan and Cuban brigades under a Russian commander",
+        "SADF and NATO under a British commander",
+        "FNLA and Portugal under an OAU commander",
+        "China and Zaire under a Cuban commander"
+      ],
+      "answer": "Angolan and Cuban brigades under a Russian commander",
+      "explanation": "The source identifies Angolan and Cuban brigades under Russian command."
+    },
+    {
+      "id": 77,
+      "type": "mcq",
+      "category": "Cuito Cuanavale",
+      "skill": "Extract information",
+      "sourceId": "ANG-CUITO-A",
+      "sourceType": "extract",
+      "sourceText": "In August 1987 Angolan and Cuban brigades under a Russian commander attacked UNITA. South African troops supported UNITA, halted the advance at the Lomba River and drove the forces back towards Cuito Cuanavale.",
+      "question": "Which side did South African troops support at Cuito Cuanavale?",
+      "options": [
+        "UNITA",
+        "MPLA",
+        "Cuba",
+        "FAPLA only"
+      ],
+      "answer": "UNITA",
+      "explanation": "South African troops supported UNITA."
+    },
+    {
+      "id": 78,
+      "type": "mcq",
+      "category": "Cuito Cuanavale",
+      "skill": "Extract information",
+      "sourceId": "ANG-CUITO-A",
+      "sourceType": "extract",
+      "sourceText": "In August 1987 Angolan and Cuban brigades under a Russian commander attacked UNITA. South African troops supported UNITA, halted the advance at the Lomba River and drove the forces back towards Cuito Cuanavale.",
+      "question": "Where did South African forces halt the Angolan advance?",
+      "options": [
+        "Lomba River",
+        "Nile River",
+        "Congo River",
+        "Zambezi River"
+      ],
+      "answer": "Lomba River",
+      "explanation": "The source says the advance was halted at the Lomba River."
+    },
+    {
+      "id": 79,
+      "type": "mcq",
+      "category": "Cuito Cuanavale",
+      "skill": "Extract information",
+      "sourceId": "ANG-CUITO-A2",
+      "sourceType": "extract",
+      "sourceText": "At Cuito Cuanavale, Angolan soldiers resisted stubbornly and gained air support while South Africa began to lose air control. The SADF judged that taking Cuito would cost too many lives and left it in Angolan possession.",
+      "question": "Why did the SADF decide not to take Cuito Cuanavale?",
+      "options": [
+        "The expected human cost was too high",
+        "The town had no military relevance anywhere",
+        "The OAU ordered them to stay forever",
+        "The Cuban/FAPLA forces surrendered immediately"
+      ],
+      "answer": "The expected human cost was too high",
+      "explanation": "The SADF judged that capturing Cuito would cost too many lives."
+    },
+    {
+      "id": 80,
+      "type": "mcq",
+      "category": "Cuito Cuanavale",
+      "skill": "Quote/extract evidence",
+      "sourceId": "ANG-CUITO-A2",
+      "sourceType": "extract",
+      "sourceText": "At Cuito Cuanavale, Angolan soldiers resisted stubbornly and gained air support while South Africa began to lose air control. The SADF judged that taking Cuito would cost too many lives and left it in Angolan possession.",
+      "question": "Which evidence suggests the SADF was unsuccessful in capturing Cuito?",
+      "options": [
+        "It was decided to leave Cuito Cuanavale in Angolan possession",
+        "The SADF captured Luanda",
+        "UNITA defeated Cuba permanently",
+        "The war ended in 1975"
+      ],
+      "answer": "It was decided to leave Cuito Cuanavale in Angolan possession",
+      "explanation": "The source directly indicates that Cuito remained in Angolan hands."
+    },
+    {
+      "id": 81,
+      "type": "mcq",
+      "category": "Cuito Cuanavale",
+      "skill": "Interpret source",
+      "sourceId": "ANG-CUITO-TURN",
+      "sourceType": "extract",
+      "sourceText": "Cuito Cuanavale was described as a turning point. The stalemate made all parties realise victory was not in sight, South Africa struggled to justify the cost of war, and Angola needed peace to rebuild.",
+      "question": "Why was Cuito Cuanavale a turning point?",
+      "options": [
+        "It led all parties to rethink because victory was not in sight",
+        "It ended all conflict immediately in 1975",
+        "It allowed South Africa to capture Luanda",
+        "It removed Angola from the Cold War before 1975"
+      ],
+      "answer": "It led all parties to rethink because victory was not in sight",
+      "explanation": "The stalemate pushed parties towards negotiation."
+    },
+    {
+      "id": 82,
+      "type": "mcq",
+      "category": "Cuito Cuanavale",
+      "skill": "Extract information",
+      "sourceId": "ANG-CUITO-TURN",
+      "sourceType": "extract",
+      "sourceText": "Cuito Cuanavale was described as a turning point. The stalemate made all parties realise victory was not in sight, South Africa struggled to justify the cost of war, and Angola needed peace to rebuild.",
+      "question": "Why did Angola need peace after the battle?",
+      "options": [
+        "To repair its war-damaged economy, infrastructure and human relations",
+        "To return to Portuguese rule",
+        "To build NATO bases",
+        "To continue the war permanently"
+      ],
+      "answer": "To repair its war-damaged economy, infrastructure and human relations",
+      "explanation": "The source says Angola desired peace to rebuild."
+    },
+    {
+      "id": 83,
+      "type": "mcq",
+      "category": "Cuito Cuanavale",
+      "skill": "Extract information",
+      "sourceId": "ANG-CUITO-TURN",
+      "sourceType": "extract",
+      "sourceText": "Cuito Cuanavale was described as a turning point. The stalemate made all parties realise victory was not in sight, South Africa struggled to justify the cost of war, and Angola needed peace to rebuild.",
+      "question": "Why did South Africa find it harder to continue the war?",
+      "options": [
+        "The cost of the war and deaths of young soldiers caused opposition",
+        "South Africa had no involvement at all",
+        "The war cost nothing",
+        "No soldiers died"
+      ],
+      "answer": "The cost of the war and deaths of young soldiers caused opposition",
+      "explanation": "The source mentions enormous costs and growing opposition."
+    },
+    {
+      "id": 84,
+      "type": "mcq",
+      "category": "Cuito Cuanavale",
+      "skill": "Extract information",
+      "sourceId": "ANG-GELD",
+      "sourceType": "interview",
+      "sourceText": "General Jannie Geldenhuys claimed the SADF had limited objectives: to prevent Cuban-FAPLA forces from taking Mavinga and Jamba, not to start a war that would end in Luanda or become 'Angola our Vietnam'.",
+      "question": "According to Geldenhuys, what was the SADF's main objective?",
+      "options": [
+        "To prevent Cuban-FAPLA forces from taking Mavinga and Jamba",
+        "To capture Luanda and occupy Angola forever",
+        "To help the MPLA defeat UNITA",
+        "To annex Angola to South Africa"
+      ],
+      "answer": "To prevent Cuban-FAPLA forces from taking Mavinga and Jamba",
+      "explanation": "Geldenhuys claimed the SADF had limited objectives."
+    },
+    {
+      "id": 85,
+      "type": "mcq",
+      "category": "Cuito Cuanavale",
+      "skill": "Interpret source",
+      "sourceId": "ANG-GELD",
+      "sourceType": "interview",
+      "sourceText": "General Jannie Geldenhuys claimed the SADF had limited objectives: to prevent Cuban-FAPLA forces from taking Mavinga and Jamba, not to start a war that would end in Luanda or become 'Angola our Vietnam'.",
+      "question": "What did Geldenhuys mean by 'We did not want to make Angola our Vietnam'?",
+      "options": [
+        "The SADF wanted to avoid a long, costly and unwinnable war",
+        "The SADF wanted to copy USA tactics exactly",
+        "Angola was located in Asia",
+        "Vietnam had signed the New York Accords"
+      ],
+      "answer": "The SADF wanted to avoid a long, costly and unwinnable war",
+      "explanation": "The phrase compares Angola to the USA's difficult war in Vietnam."
+    },
+    {
+      "id": 86,
+      "type": "mcq",
+      "category": "Cuito Cuanavale",
+      "skill": "Perspective analysis",
+      "sourceId": "ANG-GELD",
+      "sourceType": "interview",
+      "sourceText": "General Jannie Geldenhuys claimed the SADF had limited objectives: to prevent Cuban-FAPLA forces from taking Mavinga and Jamba, not to start a war that would end in Luanda or become 'Angola our Vietnam'.",
+      "question": "Why might Geldenhuys' view be one-sided?",
+      "options": [
+        "He was defending the SADF's role and success",
+        "He was a Cuban pilot",
+        "He represented the MPLA government",
+        "He was not involved in any military institution"
+      ],
+      "answer": "He was defending the SADF's role and success",
+      "explanation": "As a former SADF general, Geldenhuys had an interest in presenting the SADF positively."
+    },
+    {
+      "id": 87,
+      "type": "mcq",
+      "category": "Cuito Cuanavale",
+      "skill": "Statistics interpretation",
+      "sourceId": "ANG-STATS",
+      "sourceType": "table",
+      "sourceText": "A table attributed to General Geldenhuys shows Cuban/FAPLA losses as far higher than SADF losses: 4,785 Cuban/FAPLA lives lost compared with 31 SADF lives lost.",
+      "question": "According to the statistics, which side suffered far greater losses?",
+      "options": [
+        "Cuban/FAPLA",
+        "SADF",
+        "UNITA only",
+        "OAU"
+      ],
+      "answer": "Cuban/FAPLA",
+      "explanation": "The table shows 4,785 Cuban/FAPLA deaths compared with 31 SADF deaths."
+    },
+    {
+      "id": 88,
+      "type": "mcq",
+      "category": "Cuito Cuanavale",
+      "skill": "Reliability",
+      "sourceId": "ANG-STATS",
+      "sourceType": "table",
+      "sourceText": "A table attributed to General Geldenhuys shows Cuban/FAPLA losses as far higher than SADF losses: 4,785 Cuban/FAPLA lives lost compared with 31 SADF lives lost.",
+      "question": "Why should the statistics be treated carefully?",
+      "options": [
+        "They were attributed to General Geldenhuys and exclude UNITA losses",
+        "They are a peace treaty signed by all parties",
+        "They contain no numbers at all",
+        "They were written before the battle"
+      ],
+      "answer": "They were attributed to General Geldenhuys and exclude UNITA losses",
+      "explanation": "The source is useful but limited because it represents one side and lacks UNITA figures."
+    },
+    {
+      "id": 89,
+      "type": "mcq",
+      "category": "Cuito Cuanavale",
+      "skill": "Extract information",
+      "sourceId": "ANG-KASRILS",
+      "sourceType": "article",
+      "sourceText": "Ronnie Kasrils argued that Cuban engineers built airstrips near Namibia and Soviet MIG-23s flown by Cuban pilots gained air superiority. On 27 June 1988 MIGs bombed Ruacana and Calueque, signalling the end for the SADF.",
+      "question": "According to Kasrils, what did Cuban engineers construct?",
+      "options": [
+        "Airstrips at Cahama and Xangongo",
+        "The Berlin Wall",
+        "The Alvor Agreement",
+        "The OAU headquarters"
+      ],
+      "answer": "Airstrips at Cahama and Xangongo",
+      "explanation": "Kasrils highlights Cuban construction of airstrips near Namibia."
+    },
+    {
+      "id": 90,
+      "type": "mcq",
+      "category": "Cuito Cuanavale",
+      "skill": "Extract information",
+      "sourceId": "ANG-KASRILS",
+      "sourceType": "article",
+      "sourceText": "Ronnie Kasrils argued that Cuban engineers built airstrips near Namibia and Soviet MIG-23s flown by Cuban pilots gained air superiority. On 27 June 1988 MIGs bombed Ruacana and Calueque, signalling the end for the SADF.",
+      "question": "Which aircraft helped Cuba gain air superiority?",
+      "options": [
+        "Soviet MIG-23s",
+        "British Spitfires",
+        "American B-52s",
+        "Portuguese helicopters only"
+      ],
+      "answer": "Soviet MIG-23s",
+      "explanation": "Kasrils mentions Soviet MIG-23 warplanes flown by Cuban pilots."
+    },
+    {
+      "id": 91,
+      "type": "mcq",
+      "category": "Cuito Cuanavale",
+      "skill": "Interpret source",
+      "sourceId": "ANG-KASRILS",
+      "sourceType": "article",
+      "sourceText": "Ronnie Kasrils argued that Cuban engineers built airstrips near Namibia and Soviet MIG-23s flown by Cuban pilots gained air superiority. On 27 June 1988 MIGs bombed Ruacana and Calueque, signalling the end for the SADF.",
+      "question": "Why did Kasrils claim 27 June 1988 signalled the end for the SADF?",
+      "options": [
+        "MIGs bombed Ruacana and Calueque, cutting water and power and killing South African conscripts",
+        "The SADF captured Havana",
+        "UNITA surrendered to Portugal",
+        "The OAU dissolved"
+      ],
+      "answer": "MIGs bombed Ruacana and Calueque, cutting water and power and killing South African conscripts",
+      "explanation": "Kasrils viewed the bombing as proof the SADF was vulnerable."
+    },
+    {
+      "id": 92,
+      "type": "mcq",
+      "category": "Cuito Cuanavale",
+      "skill": "Compare perspectives",
+      "sourceId": "ANG-STATS-KASRILS",
+      "sourceType": "paired sources",
+      "sourceText": "A table attributed to General Geldenhuys shows Cuban/FAPLA losses as far higher than SADF losses: 4,785 Cuban/FAPLA lives lost compared with 31 SADF lives lost. Ronnie Kasrils argued that Cuban engineers built airstrips near Namibia and Soviet MIG-23s flown by Cuban pilots gained air superiority. On 27 June 1988 MIGs bombed Ruacana and Calueque, signalling the end for the SADF.",
+      "question": "How do the Geldenhuys statistics and Kasrils source differ?",
+      "options": [
+        "Geldenhuys emphasises SADF military success, while Kasrils emphasises Cuban/Soviet air superiority and SADF vulnerability",
+        "Both say Cuba had no role",
+        "Both say the OAU fought at Cuito",
+        "Kasrils proves the battle never happened"
+      ],
+      "answer": "Geldenhuys emphasises SADF military success, while Kasrils emphasises Cuban/Soviet air superiority and SADF vulnerability",
+      "explanation": "The sources present different interpretations of the same conflict."
+    },
+    {
+      "id": 93,
+      "type": "mcq",
+      "category": "Cuito Cuanavale",
+      "skill": "Interpret source",
+      "sourceId": "ANG-KASRILS",
+      "sourceType": "article",
+      "sourceText": "Ronnie Kasrils argued that Cuban engineers built airstrips near Namibia and Soviet MIG-23s flown by Cuban pilots gained air superiority. On 27 June 1988 MIGs bombed Ruacana and Calueque, signalling the end for the SADF.",
+      "question": "Why did all parties look for compromise after Cuito?",
+      "options": [
+        "Further fighting would cost many lives and negotiations offered a way forward",
+        "The war had become very profitable",
+        "South Africa had conquered all of Angola",
+        "Cuba wanted to invade Europe"
+      ],
+      "answer": "Further fighting would cost many lives and negotiations offered a way forward",
+      "explanation": "The source says all parties were looking for compromise rather than a bloody encounter."
+    },
+    {
+      "id": 94,
+      "type": "mcq",
+      "category": "New York Accords",
+      "skill": "Extract information",
+      "sourceId": "ANG-ACCORDS",
+      "sourceType": "photograph/extract",
+      "sourceText": "The New York Accords were signed by Cuba, Angola and South Africa at the United Nations on 22 December 1988. The accords helped bring about troop withdrawals and Namibia's independence.",
+      "question": "Which countries signed the New York Accords?",
+      "options": [
+        "Cuba, Angola and South Africa",
+        "Portugal, France and Britain",
+        "USA, USSR and China only",
+        "FNLA, UNITA and OAU only"
+      ],
+      "answer": "Cuba, Angola and South Africa",
+      "explanation": "The tripartite agreement was signed by Cuba, Angola and South Africa."
+    },
+    {
+      "id": 95,
+      "type": "mcq",
+      "category": "New York Accords",
+      "skill": "Extract information",
+      "sourceId": "ANG-ACCORDS",
+      "sourceType": "photograph/extract",
+      "sourceText": "The New York Accords were signed by Cuba, Angola and South Africa at the United Nations on 22 December 1988. The accords helped bring about troop withdrawals and Namibia's independence.",
+      "question": "Where were the New York Accords signed?",
+      "options": [
+        "United Nations headquarters in New York",
+        "Luanda airport",
+        "Cuito Cuanavale battlefield",
+        "Pretoria parliament"
+      ],
+      "answer": "United Nations headquarters in New York",
+      "explanation": "The source identifies the UN headquarters in New York."
+    },
+    {
+      "id": 96,
+      "type": "mcq",
+      "category": "New York Accords",
+      "skill": "Interpret source",
+      "sourceId": "ANG-ACCORDS",
+      "sourceType": "photograph/extract",
+      "sourceText": "The New York Accords were signed by Cuba, Angola and South Africa at the United Nations on 22 December 1988. The accords helped bring about troop withdrawals and Namibia's independence.",
+      "question": "What was a major consequence of the New York Accords?",
+      "options": [
+        "Withdrawal of forces and progress towards Namibia's independence",
+        "Permanent Portuguese rule in Angola",
+        "Creation of a new NATO base in Angola",
+        "The end of all African independence movements"
+      ],
+      "answer": "Withdrawal of forces and progress towards Namibia's independence",
+      "explanation": "The accords helped bring troop withdrawals and Namibian independence."
+    },
+    {
+      "id": 97,
+      "type": "truefalse",
+      "category": "New York Accords",
+      "skill": "Extract information",
+      "sourceId": "ANG-ACCORDS",
+      "sourceType": "photograph/extract",
+      "sourceText": "The New York Accords were signed by Cuba, Angola and South Africa at the United Nations on 22 December 1988. The accords helped bring about troop withdrawals and Namibia's independence.",
+      "question": "The Battle of Cuito Cuanavale helped accelerate peace negotiations.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "The sources describe Cuito as a turning point leading to negotiations."
+    },
+    {
+      "id": 98,
+      "type": "mcq",
+      "category": "New York Accords",
+      "skill": "Usefulness",
+      "sourceId": "ANG-ACCORDS",
+      "sourceType": "photograph/extract",
+      "sourceText": "The New York Accords were signed by Cuba, Angola and South Africa at the United Nations on 22 December 1988. The accords helped bring about troop withdrawals and Namibia's independence.",
+      "question": "Why would a photograph of leaders signing the New York Accords be useful?",
+      "options": [
+        "It visually confirms the parties and setting of the agreement",
+        "It provides all casualty figures from the battle",
+        "It proves no negotiations happened",
+        "It explains every motive of each leader"
+      ],
+      "answer": "It visually confirms the parties and setting of the agreement",
+      "explanation": "Photographs are useful for confirming who was present and the formal nature of the event."
+    },
+    {
+      "id": 99,
+      "type": "mcq",
+      "category": "Source-based Paragraph",
+      "skill": "Paragraph prep",
+      "sourceId": "ANG-CUITO-TURN",
+      "sourceType": "extract",
+      "sourceText": "Cuito Cuanavale was described as a turning point. The stalemate made all parties realise victory was not in sight, South Africa struggled to justify the cost of war, and Angola needed peace to rebuild. The New York Accords were signed by Cuba, Angola and South Africa at the United Nations on 22 December 1988. The accords helped bring about troop withdrawals and Namibia's independence.",
+      "question": "Which answer best summarises the consequence of Cuito Cuanavale?",
+      "options": [
+        "It created a stalemate that pushed South Africa, Cuba and Angola towards negotiations and contributed to Namibia's independence",
+        "It allowed Portugal to recolonise Angola",
+        "It ended the Cold War in 1961",
+        "It stopped all African liberation movements"
+      ],
+      "answer": "It created a stalemate that pushed South Africa, Cuba and Angola towards negotiations and contributed to Namibia's independence",
+      "explanation": "This is a strong paragraph summary for source-based questions."
+    },
+    {
+      "id": 100,
+      "type": "mcq",
+      "category": "Source-based Paragraph",
+      "skill": "Paragraph prep",
+      "sourceId": "ANG-SKILLS",
+      "sourceType": "instruction",
+      "sourceText": "Source-based questions require learners to extract information, interpret sources, explain concepts, analyse perspectives, compare sources, and comment on usefulness, reliability and limitations.",
+      "question": "For an 80-word source-based paragraph, which method is best?",
+      "options": [
+        "Use relevant evidence from the sources, add own knowledge, and answer the key question directly",
+        "Copy the whole source word-for-word",
+        "Ignore the sources and write only opinions",
+        "List random dates without linking to the question"
+      ],
+      "answer": "Use relevant evidence from the sources, add own knowledge, and answer the key question directly",
+      "explanation": "Source-based paragraphs require a focused answer using sources and own knowledge."
+    }
+  ]
+}
+  </script>
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="quiz-engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!--
+NEW QUIZ TEMPLATE FOR THE DYNAMIC HISTORY SYSTEM
+
+In future you usually do NOT need to edit this manually.
+ChatGPT can generate the complete new quiz HTML file for you.
+
+The only file needed for a new quiz is one HTML file with this structure:
+- quiz-app-data JSON
+- config.js
+- supabase-js
+- quiz-engine.js
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>History Live Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Use the same body layout from any existing quiz file. -->
+
+  <script type="application/json" id="quiz-app-data">
+  {
+    "id": "unique-quiz-id-here",
+    "title": "Full Quiz Title Here",
+    "shortTitle": "Short Dropdown Name",
+    "description": "Short description of the quiz.",
+    "file": "new-quiz-file.html",
+    "group": "history-live-quizzes",
+    "subject": "GRADE 12 HISTORY",
+    "questionsPerAttempt": 30,
+    "questions": [
+      {
+        "id": 1,
+        "type": "mcq",
+        "category": "Topic",
+        "question": "Example question?",
+        "options": ["Option A", "Option B", "Option C", "Option D"],
+        "answer": "Option A",
+        "explanation": "Explanation here."
+      }
+    ]
+  }
+  </script>
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="quiz-engine.js"></script>
+</body>
+</html>

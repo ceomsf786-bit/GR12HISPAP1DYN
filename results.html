@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>History Quiz Results</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div>
+        <p class="eyebrow">GRADE 12 HISTORY</p>
+        <h1>Shared Results Dashboard</h1>
+        <p class="hero-copy">Combined leaderboard plus per-quiz filtering. Learner codes are checked but not shown on this page.</p>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html">Quiz Hub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel results-toolbar">
+      <label class="select-label">Show results for
+        <select id="quizFilter">
+          <option value="all">All Quizzes Combined</option>
+        </select>
+      </label>
+      <div class="toolbar-actions">
+        <span id="modeBadge" class="badge">Checking storage…</span>
+        <button id="refreshButton" class="secondary-button compact" type="button">Refresh</button>
+        <button id="printButton" class="secondary-button compact" type="button">Print</button>
+      </div>
+    </section>
+
+    <section class="stats-grid" aria-label="Result statistics">
+      <article class="stat-card">
+        <span>Learners</span>
+        <strong id="learnerCount">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Total attempts</span>
+        <strong id="attemptCount">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Quizzes registered</span>
+        <strong id="quizCount">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Class average</span>
+        <strong id="classAverage">0%</strong>
+      </article>
+    </section>
+
+    <section class="panel table-panel">
+      <div class="status-bar">
+        <div id="loadingMessage" class="loading-message">Loading results…</div>
+        <div class="small-note">Last updated: <strong id="lastUpdated">—</strong></div>
+      </div>
+      <div class="table-scroll">
+        <table id="resultsTable" class="hidden">
+          <thead id="resultsHead"></thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </div>
+      <p id="emptyMessage" class="empty-message hidden">No results yet for this view.</p>
+      <p id="resultsError" class="error-message hidden"></p>
+    </section>
+
+    <section class="panel privacy-panel">
+      <strong>Privacy:</strong> Learner codes are used for checking submissions but are not shown on this public results page.
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Results refresh automatically while this page is open.</div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="results.js"></script>
+</body>
+</html>

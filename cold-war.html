@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>History Live Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div>
+        <p class="eyebrow" id="quizSubject">GRADE 12 HISTORY</p>
+        <h1 id="quizTitle">Loading quiz…</h1>
+        <p class="hero-copy" id="quizDescription">30 random questions each attempt • Self-marking • Live saved results</p>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html">Quiz Hub</a>
+        <a href="results.html">View Results</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="status-bar">
+      <span id="modeBadge" class="badge">Checking storage…</span>
+      <span id="questionCountBadge" class="badge soft">Loading questions…</span>
+    </section>
+
+    <form id="quizForm" novalidate>
+      <section class="panel learner-panel">
+        <h2>Learner details</h2>
+        <div class="form-grid">
+          <label>Select learner name
+            <select id="learnerName" required>
+              <option value="">Loading learner names…</option>
+            </select>
+          </label>
+          <label>Learner code
+            <input id="learnerCode" type="text" maxlength="30" placeholder="Example: G12-014" required />
+          </label>
+        </div>
+        <p class="small-note">Select your official name and enter the private learner code given by the teacher.</p>
+      </section>
+
+      <section class="panel quiz-progress-panel">
+        <div>
+          <strong id="progressText">0 answered</strong>
+          <p class="small-note">Answer all questions, then click submit at the bottom.</p>
+        </div>
+        <div class="progress-track" aria-hidden="true"><div id="progressBar" class="progress-bar"></div></div>
+      </section>
+
+      <div id="questionsContainer"></div>
+
+      <section class="panel submit-panel">
+        <p id="formMessage" class="form-message" role="alert"></p>
+        <button id="submitButton" class="primary-button" type="submit">Mark and save result</button>
+      </section>
+    </form>
+
+    <section id="resultPanel" class="panel result-panel hidden" aria-live="polite">
+      <h2>Your result</h2>
+      <div class="score-circle">
+        <strong id="scoreNumber">0/30</strong>
+        <span id="scorePercent">0%</span>
+      </div>
+      <p id="resultComment"></p>
+      <div class="result-actions">
+        <button id="tryAgainButton" class="secondary-button" type="button">New random quiz</button>
+        <a class="primary-button button-link" href="results.html">Open shared results</a>
+      </div>
+      <div id="answerReview"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Correct answers are shown only after submission.</div>
+  </footer>
+
+  <script type="application/json" id="quiz-app-data">
+{
+  "id": "grade12-history-cold-war",
+  "title": "Grade 12 History: Cold War Source-Based Quiz",
+  "shortTitle": "Cold War",
+  "description": "Cold War origins source-based questions: Iron Curtain, Truman Doctrine, Marshall Plan, Berlin crises and Cuban Missile Crisis.",
+  "file": "cold-war.html",
+  "group": "history-live-quizzes",
+  "subject": "GRADE 12 HISTORY",
+  "questionsPerAttempt": 30,
+  "questions": [
+    {
+      "id": 1,
+      "type": "mcq",
+      "category": "Cold War Origins",
+      "skill": "extract",
+      "sourceId": "CW-001",
+      "sourceType": "extract",
+      "sourceText": "After World War II there was an ideological struggle between two superpowers. This struggle became known as the Cold War.",
+      "question": "According to the source, what was the Cold War mainly about?",
+      "options": [
+        "A direct war between Britain and France",
+        "An ideological struggle between two superpowers",
+        "A civil war inside Germany only",
+        "A war fought only in Asia"
+      ],
+      "answer": "An ideological struggle between two superpowers",
+      "explanation": "The Cold War was mainly a struggle between the USA and the USSR over different ideologies."
+    },
+    {
+      "id": 2,
+      "type": "mcq",
+      "category": "Cold War Origins",
+      "skill": "identify",
+      "sourceId": "CW-002",
+      "sourceType": "identify",
+      "sourceText": "The two superpowers tried to strengthen their own positions and gain influence over parts of Europe after 1945.",
+      "question": "Which two superpowers were involved in this struggle?",
+      "options": [
+        "USA and USSR",
+        "Britain and France",
+        "Germany and Japan",
+        "Italy and Spain"
+      ],
+      "answer": "USA and USSR",
+      "explanation": "The Cold War developed mainly between the capitalist USA and communist USSR."
+    },
+    {
+      "id": 3,
+      "type": "mcq",
+      "category": "Cold War Origins",
+      "skill": "concept",
+      "sourceId": "CW-003",
+      "sourceType": "concept",
+      "sourceText": "A superpower is a country that dominates world affairs and has strong military, political and economic influence.",
+      "question": "Which option best defines a superpower?",
+      "options": [
+        "A country that dominates world affairs",
+        "A country with no military power",
+        "A small country controlled by another",
+        "A country that refuses all trade"
+      ],
+      "answer": "A country that dominates world affairs",
+      "explanation": "A superpower has major influence in world affairs."
+    },
+    {
+      "id": 4,
+      "type": "mcq",
+      "category": "Cold War Origins",
+      "skill": "concept",
+      "sourceId": "CW-004",
+      "sourceType": "concept",
+      "sourceText": "Political ideology refers to a set of political beliefs and aims.",
+      "question": "What does political ideology mean?",
+      "options": [
+        "A set of political beliefs and aims",
+        "A military aircraft",
+        "A type of currency",
+        "A peace treaty"
+      ],
+      "answer": "A set of political beliefs and aims",
+      "explanation": "The Cold War was ideological because capitalism and communism were competing systems."
+    },
+    {
+      "id": 5,
+      "type": "mcq",
+      "category": "Cold War Origins",
+      "skill": "interpret",
+      "sourceId": "CW-005",
+      "sourceType": "interpret",
+      "sourceText": "The Grand Alliance defeated Nazi Germany, but the wartime alliance weakened after 1945.",
+      "question": "Why did the Grand Alliance weaken after World War II?",
+      "options": [
+        "The common enemy had been defeated and mistrust grew",
+        "The USA and USSR had identical ideologies",
+        "Germany immediately became united",
+        "All countries accepted Soviet control"
+      ],
+      "answer": "The common enemy had been defeated and mistrust grew",
+      "explanation": "Once Nazi Germany was defeated, the differences between the Allies became clearer."
+    },
+    {
+      "id": 6,
+      "type": "mcq",
+      "category": "Cold War Origins",
+      "skill": "concept",
+      "sourceId": "CW-006",
+      "sourceType": "concept",
+      "sourceText": "Zones of occupation were areas under the military control of the powers that defeated Germany.",
+      "question": "What were zones of occupation?",
+      "options": [
+        "Areas of Germany controlled by Allied powers",
+        "Independent countries in Africa",
+        "Neutral countries during the Cold War",
+        "Military bases in Cuba only"
+      ],
+      "answer": "Areas of Germany controlled by Allied powers",
+      "explanation": "After World War II, Germany was divided into zones controlled by the Allies."
+    },
+    {
+      "id": 7,
+      "type": "mcq",
+      "category": "Cold War Origins",
+      "skill": "identify",
+      "sourceId": "CW-007",
+      "sourceType": "identify",
+      "sourceText": "At Yalta, the Big Three agreed that Germany and Berlin would be occupied by the victorious powers.",
+      "question": "Which four countries occupied Germany and Berlin after World War II?",
+      "options": [
+        "USA, Britain, France and USSR",
+        "USA, China, Japan and Italy",
+        "Germany, Austria, Poland and Hungary",
+        "France, Spain, Portugal and Belgium"
+      ],
+      "answer": "USA, Britain, France and USSR",
+      "explanation": "Germany and Berlin were divided into American, British, French and Soviet occupation zones."
+    },
+    {
+      "id": 8,
+      "type": "mcq",
+      "category": "Cold War Origins",
+      "skill": "concept",
+      "sourceId": "CW-008",
+      "sourceType": "concept",
+      "sourceText": "A sphere of influence is an area under the influence or control of a dominant country.",
+      "question": "What is a sphere of influence?",
+      "options": [
+        "An area controlled or influenced by a dominant country",
+        "A type of nuclear weapon",
+        "A refugee camp",
+        "A democratic election"
+      ],
+      "answer": "An area controlled or influenced by a dominant country",
+      "explanation": "Both the USA and USSR tried to create spheres of influence after 1945."
+    },
+    {
+      "id": 9,
+      "type": "mcq",
+      "category": "Cold War Origins",
+      "skill": "concept",
+      "sourceId": "CW-009",
+      "sourceType": "concept",
+      "sourceText": "A satellite state is strongly under the influence of another country.",
+      "question": "In the Cold War, what was a satellite state?",
+      "options": [
+        "A state strongly controlled or influenced by another country",
+        "A country in outer space",
+        "A state with no government",
+        "A country that refused alliances"
+      ],
+      "answer": "A state strongly controlled or influenced by another country",
+      "explanation": "Eastern European states under Soviet influence were often called satellite states."
+    },
+    {
+      "id": 10,
+      "type": "mcq",
+      "category": "Cold War Origins",
+      "skill": "interpret",
+      "sourceId": "CW-010",
+      "sourceType": "interpret",
+      "sourceText": "After World War II, the USA promoted capitalism while the USSR promoted communism.",
+      "question": "Which contrast best explains the ideological rivalry?",
+      "options": [
+        "Capitalism versus communism",
+        "Monarchy versus monarchy",
+        "Religion versus science",
+        "Colonialism versus slavery only"
+      ],
+      "answer": "Capitalism versus communism",
+      "explanation": "The Cold War was shaped by the rivalry between capitalist democracy and Soviet communism."
+    },
+    {
+      "id": 11,
+      "type": "mcq",
+      "category": "Iron Curtain",
+      "skill": "interpret",
+      "sourceId": "CW-011",
+      "sourceType": "interpret",
+      "sourceText": "Churchill said that an Iron Curtain had descended across Europe from Stettin to Trieste.",
+      "question": "What did Churchill mean by the Iron Curtain?",
+      "options": [
+        "The division between communist Eastern Europe and non-communist Western Europe",
+        "A real metal wall built in 1946",
+        "A railway line through Germany",
+        "The end of World War II in Asia"
+      ],
+      "answer": "The division between communist Eastern Europe and non-communist Western Europe",
+      "explanation": "The Iron Curtain symbolised the political and ideological division of Europe."
+    },
+    {
+      "id": 12,
+      "type": "mcq",
+      "category": "Iron Curtain",
+      "skill": "extract",
+      "sourceId": "CW-012",
+      "sourceType": "extract",
+      "sourceText": "Churchill listed Warsaw, Berlin, Prague, Vienna, Budapest, Belgrade, Bucharest and Sofia as being in the Soviet sphere.",
+      "question": "Which city was mentioned as being inside the Soviet sphere?",
+      "options": [
+        "Prague",
+        "London",
+        "Madrid",
+        "Lisbon"
+      ],
+      "answer": "Prague",
+      "explanation": "Prague was one of the cities Churchill placed behind the Iron Curtain."
+    },
+    {
+      "id": 13,
+      "type": "mcq",
+      "category": "Iron Curtain",
+      "skill": "extract",
+      "sourceId": "CW-013",
+      "sourceType": "extract",
+      "sourceText": "Churchill said that Athens alone was free to decide its future through an election under Western observation.",
+      "question": "According to the source, which place was not under Soviet control?",
+      "options": [
+        "Athens/Greece",
+        "Warsaw/Poland",
+        "Budapest/Hungary",
+        "Sofia/Bulgaria"
+      ],
+      "answer": "Athens/Greece",
+      "explanation": "Churchill identified Greece as free to decide its future by election."
+    },
+    {
+      "id": 14,
+      "type": "mcq",
+      "category": "Iron Curtain",
+      "skill": "interpret",
+      "sourceId": "CW-014",
+      "sourceType": "interpret",
+      "sourceText": "Churchill argued that Eastern European states were subject to increasing control from Moscow.",
+      "question": "What does this suggest about Eastern Europe after World War II?",
+      "options": [
+        "The USSR dominated many Eastern European states",
+        "Eastern Europe became fully independent of all superpowers",
+        "The USA controlled Moscow",
+        "No country influenced Eastern Europe"
+      ],
+      "answer": "The USSR dominated many Eastern European states",
+      "explanation": "Moscow refers to Soviet power and control over Eastern Europe."
+    },
+    {
+      "id": 15,
+      "type": "mcq",
+      "category": "Iron Curtain",
+      "skill": "quote evidence",
+      "sourceId": "CW-015",
+      "sourceType": "quote evidence",
+      "sourceText": "Churchill said that all these cities were subject to Soviet influence and, in some cases, increasing control from Moscow.",
+      "question": "Which phrase best shows that Eastern European countries could not make their own decisions?",
+      "options": [
+        "increasing control from Moscow",
+        "Athens alone",
+        "immortal glories",
+        "Westminster College"
+      ],
+      "answer": "increasing control from Moscow",
+      "explanation": "This phrase directly indicates Soviet control over Eastern Europe."
+    },
+    {
+      "id": 16,
+      "type": "mcq",
+      "category": "Iron Curtain",
+      "skill": "interpret",
+      "sourceId": "CW-016",
+      "sourceType": "interpret",
+      "sourceText": "Churchill claimed that communist parties in Eastern Europe had gained power far beyond their numbers.",
+      "question": "What was Churchill suggesting?",
+      "options": [
+        "Communists gained power without true democratic support",
+        "Communist parties won every election freely",
+        "The USA controlled all elections",
+        "Eastern Europe had no political parties"
+      ],
+      "answer": "Communists gained power without true democratic support",
+      "explanation": "Churchill suggested that communist control was imposed rather than freely chosen."
+    },
+    {
+      "id": 17,
+      "type": "mcq",
+      "category": "Iron Curtain",
+      "skill": "interpret",
+      "sourceId": "CW-017",
+      "sourceType": "interpret",
+      "sourceText": "Churchill stated that police governments were prevailing in nearly every case in Eastern Europe.",
+      "question": "What does the phrase 'police governments' imply?",
+      "options": [
+        "Authoritarian rule using force and control",
+        "Full political freedom",
+        "A government run by judges only",
+        "A country with no laws"
+      ],
+      "answer": "Authoritarian rule using force and control",
+      "explanation": "Police governments suggest repression, surveillance and lack of freedom."
+    },
+    {
+      "id": 18,
+      "type": "mcq",
+      "category": "Iron Curtain",
+      "skill": "source perspective",
+      "sourceId": "CW-018",
+      "sourceType": "source perspective",
+      "sourceText": "The Iron Curtain speech was made by Winston Churchill, a Western leader, in the USA in 1946.",
+      "question": "Why might this source have an anti-Soviet perspective?",
+      "options": [
+        "It was delivered by a Western leader warning against Soviet expansion",
+        "It was written by Stalin",
+        "It praised communist control",
+        "It was a Soviet government brochure"
+      ],
+      "answer": "It was delivered by a Western leader warning against Soviet expansion",
+      "explanation": "Churchill’s position and audience shaped the anti-Soviet tone of the speech."
+    },
+    {
+      "id": 19,
+      "type": "mcq",
+      "category": "Iron Curtain",
+      "skill": "usefulness",
+      "sourceId": "CW-019",
+      "sourceType": "usefulness",
+      "sourceText": "The source is Churchill's 1946 speech describing Soviet influence over Eastern Europe.",
+      "question": "Why is this source useful to a historian studying Cold War origins?",
+      "options": [
+        "It shows Western fears of Soviet expansion soon after World War II",
+        "It gives the full Soviet viewpoint",
+        "It proves there was no tension",
+        "It is about the Vietnam War"
+      ],
+      "answer": "It shows Western fears of Soviet expansion soon after World War II",
+      "explanation": "The source is useful for understanding Western suspicion and the division of Europe."
+    },
+    {
+      "id": 20,
+      "type": "mcq",
+      "category": "Iron Curtain",
+      "skill": "message",
+      "sourceId": "CW-020",
+      "sourceType": "message",
+      "sourceText": "A cartoon shows Truman and Stalin as taxi drivers competing for customers in the Balkans.",
+      "question": "What is the cartoon’s likely message?",
+      "options": [
+        "The USA and USSR were competing for influence in Europe",
+        "Truman and Stalin were actual taxi drivers",
+        "The Balkans were not important",
+        "Europe was completely united"
+      ],
+      "answer": "The USA and USSR were competing for influence in Europe",
+      "explanation": "The taxi-driver image symbolises both superpowers trying to attract countries into their spheres."
+    },
+    {
+      "id": 21,
+      "type": "mcq",
+      "category": "Containment",
+      "skill": "concept",
+      "sourceId": "CW-021",
+      "sourceType": "concept",
+      "sourceText": "Containment was the USA foreign policy after World War II to stop the spread of communism.",
+      "question": "What was containment?",
+      "options": [
+        "Stopping the spread of communism",
+        "Supporting Soviet expansion",
+        "Withdrawing from world affairs",
+        "Dividing Germany into four zones only"
+      ],
+      "answer": "Stopping the spread of communism",
+      "explanation": "Containment aimed to prevent communism from spreading beyond Soviet-controlled areas."
+    },
+    {
+      "id": 22,
+      "type": "mcq",
+      "category": "Containment",
+      "skill": "concept",
+      "sourceId": "CW-022",
+      "sourceType": "concept",
+      "sourceText": "Isolation was the USA policy between the two world wars of not becoming deeply involved in world affairs.",
+      "question": "What was isolationism?",
+      "options": [
+        "Avoiding involvement in world affairs",
+        "Sending aid to Greece",
+        "Creating NATO",
+        "Building the Berlin Wall"
+      ],
+      "answer": "Avoiding involvement in world affairs",
+      "explanation": "The USA moved away from isolationism towards active containment after World War II."
+    },
+    {
+      "id": 23,
+      "type": "mcq",
+      "category": "Truman Doctrine",
+      "skill": "extract",
+      "sourceId": "CW-023",
+      "sourceType": "extract",
+      "sourceText": "In 1947, anti-communist governments in Turkey and Greece claimed to be under severe Soviet pressure.",
+      "question": "Which two countries were linked to the Truman Doctrine in this source?",
+      "options": [
+        "Greece and Turkey",
+        "France and Germany",
+        "Cuba and Vietnam",
+        "Italy and Japan"
+      ],
+      "answer": "Greece and Turkey",
+      "explanation": "The Truman Doctrine promised aid to Greece and Turkey against communism."
+    },
+    {
+      "id": 24,
+      "type": "mcq",
+      "category": "Truman Doctrine",
+      "skill": "interpret",
+      "sourceId": "CW-024",
+      "sourceType": "interpret",
+      "sourceText": "Dean Acheson argued that the crisis in southeastern Europe involved the two Cold War powers, not only local problems.",
+      "question": "How did Acheson convince Congress to support aid?",
+      "options": [
+        "He presented Greece and Turkey as part of a wider Cold War struggle",
+        "He said communism was harmless",
+        "He asked Congress to support Stalin",
+        "He argued the USA must return to isolation"
+      ],
+      "answer": "He presented Greece and Turkey as part of a wider Cold War struggle",
+      "explanation": "Acheson linked local crises to the global conflict between the USA and USSR."
+    },
+    {
+      "id": 25,
+      "type": "mcq",
+      "category": "Truman Doctrine",
+      "skill": "interpret",
+      "sourceId": "CW-025",
+      "sourceType": "interpret",
+      "sourceText": "Acheson compared the spread of communism to one rotten apple infecting other apples in a barrel.",
+      "question": "What idea is closest to Acheson’s comparison?",
+      "options": [
+        "Domino Theory",
+        "Peaceful coexistence",
+        "Isolationism",
+        "Neutrality"
+      ],
+      "answer": "Domino Theory",
+      "explanation": "The comparison suggests that if one country fell to communism, others could follow."
+    },
+    {
+      "id": 26,
+      "type": "mcq",
+      "category": "Truman Doctrine",
+      "skill": "interpret",
+      "sourceId": "CW-026",
+      "sourceType": "interpret",
+      "sourceText": "Truman promised that the United States would fight communism wherever it threatened free peoples.",
+      "question": "What was the main aim of the Truman Doctrine?",
+      "options": [
+        "To prevent the spread of communism",
+        "To support Soviet control",
+        "To rebuild Germany only",
+        "To end NATO"
+      ],
+      "answer": "To prevent the spread of communism",
+      "explanation": "The Truman Doctrine became the basis of USA containment policy."
+    },
+    {
+      "id": 27,
+      "type": "mcq",
+      "category": "Truman Doctrine",
+      "skill": "own knowledge",
+      "sourceId": "CW-027",
+      "sourceType": "own knowledge",
+      "sourceText": "Some members of Congress were reluctant to give aid to Greece and Turkey because of financial concerns.",
+      "question": "Why was Congress initially reluctant to provide aid?",
+      "options": [
+        "They were worried about the cost",
+        "They supported Soviet rule in Greece",
+        "They wanted Germany to invade Turkey",
+        "They believed communism had ended"
+      ],
+      "answer": "They were worried about the cost",
+      "explanation": "The source describes Congress as financially careful, so cost was a concern."
+    },
+    {
+      "id": 28,
+      "type": "mcq",
+      "category": "Truman Doctrine",
+      "skill": "source perspective",
+      "sourceId": "CW-028",
+      "sourceType": "source perspective",
+      "sourceText": "A historian argues that Acheson changed the debate by framing the crisis as part of a communist threat to the free world.",
+      "question": "What does this show about Acheson’s role?",
+      "options": [
+        "He helped shape USA Cold War policy",
+        "He rejected containment",
+        "He supported the Warsaw Pact",
+        "He built the Berlin Wall"
+      ],
+      "answer": "He helped shape USA Cold War policy",
+      "explanation": "Acheson helped persuade Congress to accept an active anti-communist policy."
+    },
+    {
+      "id": 29,
+      "type": "mcq",
+      "category": "Truman Doctrine",
+      "skill": "cause and effect",
+      "sourceId": "CW-029",
+      "sourceType": "cause and effect",
+      "sourceText": "The Truman Doctrine marked a radical change in American foreign policy after World War II.",
+      "question": "Why was it a radical change?",
+      "options": [
+        "The USA moved from isolation to active involvement in world affairs",
+        "The USA ended all foreign aid",
+        "The USA joined the Soviet Union",
+        "The USA stopped opposing communism"
+      ],
+      "answer": "The USA moved from isolation to active involvement in world affairs",
+      "explanation": "The USA took a more active role in preventing communist expansion."
+    },
+    {
+      "id": 30,
+      "type": "mcq",
+      "category": "Truman Doctrine",
+      "skill": "source reliability",
+      "sourceId": "CW-030",
+      "sourceType": "source reliability",
+      "sourceText": "A historian writing later explains how Acheson helped persuade Congress in 1947.",
+      "question": "Why can this source be useful for a historian?",
+      "options": [
+        "It gives an interpretation of how USA policy was justified",
+        "It is a Soviet cartoon only",
+        "It contains no historical information",
+        "It discusses only the Vietnam War"
+      ],
+      "answer": "It gives an interpretation of how USA policy was justified",
+      "explanation": "A historian's account can help explain motives and arguments behind policy decisions."
+    },
+    {
+      "id": 31,
+      "type": "mcq",
+      "category": "Marshall Plan",
+      "skill": "extract",
+      "sourceId": "CW-031",
+      "sourceType": "extract",
+      "sourceText": "Everett Bellows described the Marshall Plan as a great and original initiative to rebuild Europe after World War II.",
+      "question": "According to Bellows, what was the Marshall Plan meant to do?",
+      "options": [
+        "Rebuild Europe",
+        "Destroy West Berlin",
+        "Create the Warsaw Pact",
+        "Support Soviet domination"
+      ],
+      "answer": "Rebuild Europe",
+      "explanation": "Bellows presented the Marshall Plan as economic assistance to rebuild Europe."
+    },
+    {
+      "id": 32,
+      "type": "mcq",
+      "category": "Marshall Plan",
+      "skill": "interpret",
+      "sourceId": "CW-032",
+      "sourceType": "interpret",
+      "sourceText": "Bellows said Europeans needed help and the USA did not want them to collapse into the Soviet sphere of influence.",
+      "question": "What was one political purpose of the Marshall Plan?",
+      "options": [
+        "To prevent Western Europe from falling under Soviet influence",
+        "To make Europe communist",
+        "To divide Cuba",
+        "To start a direct war with China"
+      ],
+      "answer": "To prevent Western Europe from falling under Soviet influence",
+      "explanation": "The USA used aid to strengthen non-communist Europe."
+    },
+    {
+      "id": 33,
+      "type": "mcq",
+      "category": "Marshall Plan",
+      "skill": "extract",
+      "sourceId": "CW-033",
+      "sourceType": "extract",
+      "sourceText": "The counterpart fund helped rebuild bridges, highways, hospitals, airports and schools.",
+      "question": "Which item was rebuilt using the counterpart fund?",
+      "options": [
+        "Hospitals",
+        "Nuclear submarines",
+        "The Berlin Wall",
+        "Soviet missiles"
+      ],
+      "answer": "Hospitals",
+      "explanation": "The source lists hospitals as one type of infrastructure rebuilt."
+    },
+    {
+      "id": 34,
+      "type": "mcq",
+      "category": "Marshall Plan",
+      "skill": "interpret",
+      "sourceId": "CW-034",
+      "sourceType": "interpret",
+      "sourceText": "Bellows described the Marshall Plan as an economic, psychological and political manoeuvre.",
+      "question": "Why was the Marshall Plan more than just economic aid?",
+      "options": [
+        "It also aimed to win support for the USA and contain communism",
+        "It had no political purpose",
+        "It was only a military invasion",
+        "It forced Europe to join the USSR"
+      ],
+      "answer": "It also aimed to win support for the USA and contain communism",
+      "explanation": "The plan had political and psychological goals as well as economic goals."
+    },
+    {
+      "id": 35,
+      "type": "mcq",
+      "category": "Marshall Plan",
+      "skill": "source perspective",
+      "sourceId": "CW-035",
+      "sourceType": "source perspective",
+      "sourceText": "Vyshinsky argued that the Marshall Plan was an instrument of political pressure on needy European countries.",
+      "question": "How did the Soviet Union view the Marshall Plan?",
+      "options": [
+        "As political pressure and American control",
+        "As pure charity with no purpose",
+        "As a Soviet victory",
+        "As a plan to remove NATO"
+      ],
+      "answer": "As political pressure and American control",
+      "explanation": "Vyshinsky criticised the Marshall Plan as a way for the USA to dominate Europe."
+    },
+    {
+      "id": 36,
+      "type": "mcq",
+      "category": "Marshall Plan",
+      "skill": "compare",
+      "sourceId": "CW-036",
+      "sourceType": "compare",
+      "sourceText": "Source A praises Marshall aid as rebuilding Europe. Source B criticises it as American political pressure.",
+      "question": "How do the two sources differ?",
+      "options": [
+        "One presents the Marshall Plan as helpful, the other as controlling",
+        "Both sources praise the Soviet Union only",
+        "Both say the Marshall Plan did not exist",
+        "Neither source gives a view"
+      ],
+      "answer": "One presents the Marshall Plan as helpful, the other as controlling",
+      "explanation": "The sources give opposing perspectives on the purpose and effect of Marshall aid."
+    },
+    {
+      "id": 37,
+      "type": "mcq",
+      "category": "Marshall Plan",
+      "skill": "interpret",
+      "sourceId": "CW-037",
+      "sourceType": "interpret",
+      "sourceText": "Vyshinsky said the Marshall Plan would split Europe into two camps.",
+      "question": "What did Vyshinsky believe the Marshall Plan would cause?",
+      "options": [
+        "Greater division between East and West",
+        "Immediate world peace",
+        "The end of communism in the USSR",
+        "The reunification of Germany in 1947"
+      ],
+      "answer": "Greater division between East and West",
+      "explanation": "The Soviet view was that Marshall aid deepened the division of Europe."
+    },
+    {
+      "id": 38,
+      "type": "mcq",
+      "category": "Marshall Plan",
+      "skill": "extract",
+      "sourceId": "CW-038",
+      "sourceType": "extract",
+      "sourceText": "Czechoslovakia and Poland showed interest in the European Recovery Programme, but Stalin warned them against taking part.",
+      "question": "Which two Eastern European countries showed interest in the Marshall Plan?",
+      "options": [
+        "Czechoslovakia and Poland",
+        "Britain and France",
+        "Turkey and Greece",
+        "Cuba and Vietnam"
+      ],
+      "answer": "Czechoslovakia and Poland",
+      "explanation": "The historian’s source identifies Czechoslovakia and Poland."
+    },
+    {
+      "id": 39,
+      "type": "mcq",
+      "category": "Marshall Plan",
+      "skill": "interpret",
+      "sourceId": "CW-039",
+      "sourceType": "interpret",
+      "sourceText": "Stalin saw the American offer as a challenge to his sphere of influence.",
+      "question": "Why did Stalin oppose the Marshall Plan?",
+      "options": [
+        "He feared it would weaken Soviet control in Eastern Europe",
+        "He wanted the USA to control Poland",
+        "He believed Europe needed no aid",
+        "He supported capitalist recovery"
+      ],
+      "answer": "He feared it would weaken Soviet control in Eastern Europe",
+      "explanation": "Marshall aid could draw Eastern European countries closer to the USA."
+    },
+    {
+      "id": 40,
+      "type": "mcq",
+      "category": "Marshall Plan",
+      "skill": "usefulness",
+      "sourceId": "CW-040",
+      "sourceType": "usefulness",
+      "sourceText": "Vyshinsky was the Soviet Foreign Minister speaking at the United Nations in 1947 against the Marshall Plan.",
+      "question": "Why is this source useful to a historian?",
+      "options": [
+        "It reveals the official Soviet criticism of Marshall aid",
+        "It gives secret USA military plans",
+        "It is neutral and has no viewpoint",
+        "It describes the Berlin Wall in 1961"
+      ],
+      "answer": "It reveals the official Soviet criticism of Marshall aid",
+      "explanation": "The speech helps historians understand the Soviet perspective."
+    },
+    {
+      "id": 41,
+      "type": "mcq",
+      "category": "Soviet Response",
+      "skill": "extract",
+      "sourceId": "CW-041",
+      "sourceType": "extract",
+      "sourceText": "Stalin created Cominform to organise foreign communist parties and strengthen Soviet control.",
+      "question": "What was Cominform created to do?",
+      "options": [
+        "Coordinate communist parties",
+        "Create the Marshall Plan",
+        "Build West Berlin",
+        "End communism"
+      ],
+      "answer": "Coordinate communist parties",
+      "explanation": "Cominform helped Stalin direct communist parties in Europe."
+    },
+    {
+      "id": 42,
+      "type": "mcq",
+      "category": "Soviet Response",
+      "skill": "interpret",
+      "sourceId": "CW-042",
+      "sourceType": "interpret",
+      "sourceText": "In Eastern Europe, Soviet influence became Soviet domination after 1947.",
+      "question": "What does this suggest about Soviet policy?",
+      "options": [
+        "The USSR tightened control over Eastern Europe",
+        "The USSR gave Eastern Europe complete freedom",
+        "The USA controlled Moscow",
+        "NATO controlled the Soviet Union"
+      ],
+      "answer": "The USSR tightened control over Eastern Europe",
+      "explanation": "Domination suggests stronger political control by the USSR."
+    },
+    {
+      "id": 43,
+      "type": "mcq",
+      "category": "Soviet Response",
+      "skill": "extract",
+      "sourceId": "CW-043",
+      "sourceType": "extract",
+      "sourceText": "The coup in Czechoslovakia in February 1948 was followed by Stalinisation of much of the region.",
+      "question": "Which event damaged the Soviet image in Europe?",
+      "options": [
+        "The coup in Czechoslovakia",
+        "The signing of the Geneva Accords",
+        "The fall of Saigon",
+        "The Cuban trade agreement"
+      ],
+      "answer": "The coup in Czechoslovakia",
+      "explanation": "The Czech coup showed Soviet-backed communist control and increased Western fears."
+    },
+    {
+      "id": 44,
+      "type": "mcq",
+      "category": "Soviet Response",
+      "skill": "concept",
+      "sourceId": "CW-044",
+      "sourceType": "concept",
+      "sourceText": "A coup is a violent or illegal seizure of state power.",
+      "question": "What is a coup?",
+      "options": [
+        "A violent or illegal seizure of power",
+        "A form of economic aid",
+        "A military alliance",
+        "A city divided into sectors"
+      ],
+      "answer": "A violent or illegal seizure of power",
+      "explanation": "A coup involves taking control of government by force or illegal means."
+    },
+    {
+      "id": 45,
+      "type": "mcq",
+      "category": "Soviet Response",
+      "skill": "interpret",
+      "sourceId": "CW-045",
+      "sourceType": "interpret",
+      "sourceText": "Agriculture and heavy industry were brought under state control, while political liberties were abolished.",
+      "question": "What does this reveal about Stalinisation?",
+      "options": [
+        "It increased state control and reduced freedoms",
+        "It created multiparty democracy",
+        "It ended Soviet influence",
+        "It gave farms to the USA"
+      ],
+      "answer": "It increased state control and reduced freedoms",
+      "explanation": "Stalinisation meant communist control over politics and the economy."
+    },
+    {
+      "id": 46,
+      "type": "mcq",
+      "category": "Soviet Response",
+      "skill": "compare",
+      "sourceId": "CW-046",
+      "sourceType": "compare",
+      "sourceText": "One source says Marshall aid won hearts and minds in Western Europe, while another says the USSR took resources from Eastern Europe.",
+      "question": "What contrast is shown between the USA and USSR?",
+      "options": [
+        "The USA gave aid while the USSR extracted resources",
+        "Both gave equal aid to Eastern Europe",
+        "The USSR rebuilt West Berlin only",
+        "The USA created Cominform"
+      ],
+      "answer": "The USA gave aid while the USSR extracted resources",
+      "explanation": "This comparison highlights different approaches to controlling influence in Europe."
+    },
+    {
+      "id": 47,
+      "type": "mcq",
+      "category": "Soviet Response",
+      "skill": "cause and effect",
+      "sourceId": "CW-047",
+      "sourceType": "cause and effect",
+      "sourceText": "The Truman Doctrine and Marshall Plan increased mistrust and tension between the two superpowers.",
+      "question": "What was a consequence of the Truman Doctrine and Marshall Plan?",
+      "options": [
+        "Cold War tension increased",
+        "The USSR joined NATO",
+        "Germany immediately reunited",
+        "The Cold War ended in 1947"
+      ],
+      "answer": "Cold War tension increased",
+      "explanation": "USA containment policies deepened Soviet suspicion and East-West division."
+    },
+    {
+      "id": 48,
+      "type": "mcq",
+      "category": "Soviet Response",
+      "skill": "message",
+      "sourceId": "CW-048",
+      "sourceType": "message",
+      "sourceText": "An American cartoon titled 'It's the same thing without mechanical problems' depicts a 'Marshal Stalin Plan'.",
+      "question": "What message is the cartoon likely giving about Stalin's policy?",
+      "options": [
+        "Stalin also wanted control over Europe, but through force and domination",
+        "Stalin created the Marshall Plan",
+        "The USSR had no interest in Europe",
+        "The USA supported Stalin's plan"
+      ],
+      "answer": "Stalin also wanted control over Europe, but through force and domination",
+      "explanation": "The cartoon mocks Soviet control as an alternative to Marshall aid."
+    },
+    {
+      "id": 49,
+      "type": "mcq",
+      "category": "Soviet Response",
+      "skill": "bias",
+      "sourceId": "CW-049",
+      "sourceType": "bias",
+      "sourceText": "The cartoon about the 'Marshal Stalin Plan' was drawn by an American cartoonist in 1949.",
+      "question": "Why might this cartoon be biased?",
+      "options": [
+        "It reflects an American anti-Soviet viewpoint",
+        "It was written by Stalin",
+        "It was created before the Cold War",
+        "It contains no opinion"
+      ],
+      "answer": "It reflects an American anti-Soviet viewpoint",
+      "explanation": "The origin of the cartoon suggests it may criticise Soviet actions from a Western perspective."
+    },
+    {
+      "id": 50,
+      "type": "mcq",
+      "category": "Soviet Response",
+      "skill": "paragraph prep",
+      "sourceId": "CW-050",
+      "sourceType": "paragraph prep",
+      "sourceText": "The USA responded to Europe's crisis with the Truman Doctrine and Marshall Plan; the USSR responded by rejecting Marshall aid and tightening control over Eastern Europe.",
+      "question": "Which sentence would best begin an 80-word paragraph on this source set?",
+      "options": [
+        "After 1945 the USA and USSR responded to Europe's crisis in opposing ways that increased Cold War tension.",
+        "The Vietnam War began in 1975.",
+        "The Berlin Wall was built by France in 1945.",
+        "The USA and USSR had no interest in Europe."
+      ],
+      "answer": "After 1945 the USA and USSR responded to Europe's crisis in opposing ways that increased Cold War tension.",
+      "explanation": "This topic sentence directly answers the source-based paragraph question."
+    },
+    {
+      "id": 51,
+      "type": "mcq",
+      "category": "Berlin Blockade",
+      "skill": "extract",
+      "sourceId": "CW-051",
+      "sourceType": "extract",
+      "sourceText": "On 18 June 1948 a new currency, the Deutschmark, was introduced in the Western zones.",
+      "question": "Which currency was introduced in the Western zones in 1948?",
+      "options": [
+        "Deutschmark",
+        "Ostmark",
+        "Dollar",
+        "Rouble"
+      ],
+      "answer": "Deutschmark",
+      "explanation": "The Western powers introduced the Deutschmark in their zones."
+    },
+    {
+      "id": 52,
+      "type": "mcq",
+      "category": "Berlin Blockade",
+      "skill": "extract",
+      "sourceId": "CW-052",
+      "sourceType": "extract",
+      "sourceText": "The Russians responded by introducing a new currency in their zone, the Ostmark.",
+      "question": "Which currency did the Russians introduce in their zone?",
+      "options": [
+        "Ostmark",
+        "Deutschmark",
+        "Pound",
+        "Franc"
+      ],
+      "answer": "Ostmark",
+      "explanation": "The Ostmark was introduced in the Soviet zone."
+    },
+    {
+      "id": 53,
+      "type": "mcq",
+      "category": "Berlin Blockade",
+      "skill": "extract",
+      "sourceId": "CW-053",
+      "sourceType": "extract",
+      "sourceText": "On 24 June 1948, the Russians closed roads, railroads and waterways linking West Berlin to the Western zones.",
+      "question": "What action did the Soviet Union take on 24 June 1948?",
+      "options": [
+        "Blocked access to West Berlin",
+        "Created NATO",
+        "Built the Berlin Wall",
+        "Signed the Paris Peace Accords"
+      ],
+      "answer": "Blocked access to West Berlin",
+      "explanation": "The Soviet blockade cut land and water access to West Berlin."
+    },
+    {
+      "id": 54,
+      "type": "mcq",
+      "category": "Berlin Blockade",
+      "skill": "concept",
+      "sourceId": "CW-054",
+      "sourceType": "concept",
+      "sourceText": "A blockade occurs when a government or army stops people or goods from entering or leaving a place.",
+      "question": "What is a blockade?",
+      "options": [
+        "Stopping people or goods from entering or leaving",
+        "Dropping supplies by plane",
+        "A military alliance",
+        "A democratic election"
+      ],
+      "answer": "Stopping people or goods from entering or leaving",
+      "explanation": "The Soviet blockade stopped land and water access to West Berlin."
+    },
+    {
+      "id": 55,
+      "type": "mcq",
+      "category": "Berlin Blockade",
+      "skill": "interpret",
+      "sourceId": "CW-055",
+      "sourceType": "interpret",
+      "sourceText": "The Western powers could have abandoned Berlin, but this would have handed two million West Berliners to communist rule.",
+      "question": "Why were the Western powers not prepared to leave West Berlin?",
+      "options": [
+        "They did not want West Berliners to fall under communist control",
+        "They wanted Stalin to control all of Germany",
+        "They had no interest in Berlin",
+        "They wanted to end capitalism"
+      ],
+      "answer": "They did not want West Berliners to fall under communist control",
+      "explanation": "Leaving Berlin would have been seen as giving in to communism."
+    },
+    {
+      "id": 56,
+      "type": "mcq",
+      "category": "Berlin Blockade",
+      "skill": "interpret",
+      "sourceId": "CW-056",
+      "sourceType": "interpret",
+      "sourceText": "General Lucius Clay warned that if Berlin fell, Western Germany and perhaps Western Europe would be next.",
+      "question": "What fear is expressed in this source?",
+      "options": [
+        "The spread of communism across Europe",
+        "The collapse of the Soviet Union",
+        "The end of the USA",
+        "The return of Nazi Germany only"
+      ],
+      "answer": "The spread of communism across Europe",
+      "explanation": "Clay used a domino-style argument about communist expansion."
+    },
+    {
+      "id": 57,
+      "type": "mcq",
+      "category": "Berlin Blockade",
+      "skill": "quote evidence",
+      "sourceId": "CW-057",
+      "sourceType": "quote evidence",
+      "sourceText": "President Truman summed up the American position: 'We are going to stay, period.'",
+      "question": "Which option best shows Truman's determination to remain in Berlin?",
+      "options": [
+        "We are going to stay, period",
+        "The city was jointly occupied",
+        "The Russians introduced a currency",
+        "The old Reichsmark was replaced"
+      ],
+      "answer": "We are going to stay, period",
+      "explanation": "This quote shows the USA would not withdraw from West Berlin."
+    },
+    {
+      "id": 58,
+      "type": "mcq",
+      "category": "Berlin Blockade",
+      "skill": "concept",
+      "sourceId": "CW-058",
+      "sourceType": "concept",
+      "sourceText": "An airlift is the transport of goods by aircraft in an emergency.",
+      "question": "What was the Berlin Airlift?",
+      "options": [
+        "Supplying West Berlin by plane",
+        "Building a wall around Berlin",
+        "Introducing the Ostmark",
+        "Signing the Warsaw Pact"
+      ],
+      "answer": "Supplying West Berlin by plane",
+      "explanation": "The Western powers used aircraft to supply West Berlin during the blockade."
+    },
+    {
+      "id": 59,
+      "type": "mcq",
+      "category": "Berlin Blockade",
+      "skill": "cause and effect",
+      "sourceId": "CW-059",
+      "sourceType": "cause and effect",
+      "sourceText": "The Berlin Blockade was one of the first major crises of the Cold War.",
+      "question": "How did the Berlin Blockade contribute to Cold War tension?",
+      "options": [
+        "It brought the USA and USSR into direct confrontation over Berlin",
+        "It ended all mistrust between the superpowers",
+        "It united Germany immediately",
+        "It caused the Vietnam War"
+      ],
+      "answer": "It brought the USA and USSR into direct confrontation over Berlin",
+      "explanation": "The blockade showed how Germany and Berlin became Cold War flashpoints."
+    },
+    {
+      "id": 60,
+      "type": "mcq",
+      "category": "Berlin Blockade",
+      "skill": "source usefulness",
+      "sourceId": "CW-060",
+      "sourceType": "source usefulness",
+      "sourceText": "A source explains the currency reform, Soviet blockade and Western decision to stay in Berlin.",
+      "question": "Why is this source useful for studying the Berlin Blockade?",
+      "options": [
+        "It explains causes and responses during the crisis",
+        "It is about Cuba in 1962",
+        "It gives only sports results",
+        "It contains no historical evidence"
+      ],
+      "answer": "It explains causes and responses during the crisis",
+      "explanation": "The source gives important information about what caused the blockade and how the West responded."
+    },
+    {
+      "id": 61,
+      "type": "mcq",
+      "category": "Berlin Crisis",
+      "skill": "concept",
+      "sourceId": "CW-061",
+      "sourceType": "concept",
+      "sourceText": "A flashpoint is a place where conflict or violence is likely to break out.",
+      "question": "Why was Berlin a Cold War flashpoint?",
+      "options": [
+        "It was a divided city where East and West confronted each other",
+        "It was far from Europe",
+        "It had no political importance",
+        "It was controlled only by the USA"
+      ],
+      "answer": "It was a divided city where East and West confronted each other",
+      "explanation": "Berlin was surrounded by East Germany but included a Western-controlled sector."
+    },
+    {
+      "id": 62,
+      "type": "mcq",
+      "category": "Berlin Crisis",
+      "skill": "cause and effect",
+      "sourceId": "CW-062",
+      "sourceType": "cause and effect",
+      "sourceText": "The Berlin crisis caused the division of Germany into West Germany and East Germany.",
+      "question": "What was one long-term result of the Berlin crisis?",
+      "options": [
+        "Germany became divided into West and East Germany",
+        "The USSR joined the USA",
+        "The Cold War ended in 1949",
+        "France controlled all of Germany"
+      ],
+      "answer": "Germany became divided into West and East Germany",
+      "explanation": "The crisis deepened the division between capitalist West Germany and communist East Germany."
+    },
+    {
+      "id": 63,
+      "type": "mcq",
+      "category": "Berlin Crisis",
+      "skill": "identify",
+      "sourceId": "CW-063",
+      "sourceType": "identify",
+      "sourceText": "West Germany was known as the Federal Republic of Germany, while East Germany was known as the German Democratic Republic.",
+      "question": "What did GDR refer to?",
+      "options": [
+        "German Democratic Republic",
+        "German Defence Regime",
+        "Great Democratic Revolution",
+        "General Deutschmark Reform"
+      ],
+      "answer": "German Democratic Republic",
+      "explanation": "The GDR was communist East Germany."
+    },
+    {
+      "id": 64,
+      "type": "mcq",
+      "category": "Berlin Crisis",
+      "skill": "identify",
+      "sourceId": "CW-064",
+      "sourceType": "identify",
+      "sourceText": "The Federal Republic of Germany was created in the West; the German Democratic Republic was created in the East.",
+      "question": "Which one was West Germany?",
+      "options": [
+        "Federal Republic of Germany",
+        "German Democratic Republic",
+        "Warsaw Pact",
+        "Cominform"
+      ],
+      "answer": "Federal Republic of Germany",
+      "explanation": "The FRG was capitalist West Germany."
+    },
+    {
+      "id": 65,
+      "type": "mcq",
+      "category": "Berlin Wall",
+      "skill": "extract",
+      "sourceId": "CW-065",
+      "sourceType": "extract",
+      "sourceText": "By 1961, about 2.7 million East Germans had fled through the open border to West Berlin and then West Germany.",
+      "question": "How many East Germans had fled by 1961 according to the source?",
+      "options": [
+        "About 2.7 million",
+        "About 300",
+        "About 13 billion",
+        "About 250 000"
+      ],
+      "answer": "About 2.7 million",
+      "explanation": "The source states that about 2.7 million East Germans fled before the Wall."
+    },
+    {
+      "id": 66,
+      "type": "mcq",
+      "category": "Berlin Wall",
+      "skill": "extract",
+      "sourceId": "CW-066",
+      "sourceType": "extract",
+      "sourceText": "The GDR population declined from 19 million to 17 million after 1949.",
+      "question": "What happened to the population of East Germany after 1949?",
+      "options": [
+        "It declined",
+        "It doubled",
+        "It stayed exactly the same",
+        "It became larger than the USA"
+      ],
+      "answer": "It declined",
+      "explanation": "The source shows that many East Germans left the GDR."
+    },
+    {
+      "id": 67,
+      "type": "mcq",
+      "category": "Berlin Wall",
+      "skill": "interpret",
+      "sourceId": "CW-067",
+      "sourceType": "interpret",
+      "sourceText": "A Soviet official warned that if communism did not prove itself in East Germany, the communist side had not won.",
+      "question": "Why was the refugee crisis a crisis for communism?",
+      "options": [
+        "It showed many people preferred life in the West",
+        "It proved communism was popular everywhere",
+        "It showed the USA controlled East Germany",
+        "It ended NATO"
+      ],
+      "answer": "It showed many people preferred life in the West",
+      "explanation": "Mass flight made the communist system look weak and unattractive."
+    },
+    {
+      "id": 68,
+      "type": "mcq",
+      "category": "Berlin Wall",
+      "skill": "extract",
+      "sourceId": "CW-068",
+      "sourceType": "extract",
+      "sourceText": "Khrushchev said the East German economy would have collapsed if action was not taken against mass flight.",
+      "question": "According to Khrushchev, why was the Wall necessary?",
+      "options": [
+        "To stop mass flight and prevent economic collapse",
+        "To help people leave East Germany",
+        "To remove all guards",
+        "To join NATO"
+      ],
+      "answer": "To stop mass flight and prevent economic collapse",
+      "explanation": "Khrushchev linked the Wall to stopping skilled people from leaving."
+    },
+    {
+      "id": 69,
+      "type": "mcq",
+      "category": "Berlin Wall",
+      "skill": "extract",
+      "sourceId": "CW-069",
+      "sourceType": "extract",
+      "sourceText": "The Wall went up on the night of 12 to 13 August 1961, first as barbed wire and later as concrete.",
+      "question": "When did the Berlin Wall begin to go up?",
+      "options": [
+        "12 to 13 August 1961",
+        "24 June 1948",
+        "5 March 1946",
+        "27 January 1973"
+      ],
+      "answer": "12 to 13 August 1961",
+      "explanation": "The source dates the beginning of the Wall to the night of 12-13 August 1961."
+    },
+    {
+      "id": 70,
+      "type": "mcq",
+      "category": "Berlin Wall",
+      "skill": "extract",
+      "sourceId": "CW-070",
+      "sourceType": "extract",
+      "sourceText": "The Wall was protected by guard towers, minefields, police dogs and orders to shoot anyone trying to cross.",
+      "question": "Which feature protected the Berlin Wall?",
+      "options": [
+        "Guard towers",
+        "Marshall aid",
+        "United Nations elections",
+        "French colonies"
+      ],
+      "answer": "Guard towers",
+      "explanation": "The Wall was heavily guarded to stop escape attempts."
+    },
+    {
+      "id": 71,
+      "type": "mcq",
+      "category": "Berlin Wall",
+      "skill": "interpret",
+      "sourceId": "CW-071",
+      "sourceType": "interpret",
+      "sourceText": "Kennedy said that a wall was not a nice solution, but it was better than war.",
+      "question": "What did Kennedy mean?",
+      "options": [
+        "The Wall was terrible but reduced the risk of direct superpower war",
+        "The USA fully supported communist control",
+        "The Wall ended all Cold War tension",
+        "Kennedy wanted to build more walls"
+      ],
+      "answer": "The Wall was terrible but reduced the risk of direct superpower war",
+      "explanation": "Kennedy accepted the Wall as a lesser evil compared with a possible war over Berlin."
+    },
+    {
+      "id": 72,
+      "type": "mcq",
+      "category": "Berlin Wall",
+      "skill": "interpret",
+      "sourceId": "CW-072",
+      "sourceType": "interpret",
+      "sourceText": "Kennedy observed that the West never had to put up a wall to prevent its people from leaving.",
+      "question": "What was Kennedy criticising?",
+      "options": [
+        "Communist lack of freedom",
+        "Western democracy",
+        "The Marshall Plan",
+        "The Berlin Airlift"
+      ],
+      "answer": "Communist lack of freedom",
+      "explanation": "Kennedy suggested that East Germany had to trap its own people."
+    },
+    {
+      "id": 73,
+      "type": "mcq",
+      "category": "Berlin Wall",
+      "skill": "interpret",
+      "sourceId": "CW-073",
+      "sourceType": "interpret",
+      "sourceText": "An East German brochure argued that West Berlin encouraged doctors, engineers and skilled workers to leave the GDR.",
+      "question": "What reason did East Germany give for building the Wall?",
+      "options": [
+        "To stop skilled workers leaving",
+        "To help skilled workers move west",
+        "To join the Marshall Plan",
+        "To end the Warsaw Pact"
+      ],
+      "answer": "To stop skilled workers leaving",
+      "explanation": "The GDR blamed the West for encouraging a brain drain."
+    },
+    {
+      "id": 74,
+      "type": "mcq",
+      "category": "Berlin Wall",
+      "skill": "extract",
+      "sourceId": "CW-074",
+      "sourceType": "extract",
+      "sourceText": "The East German government claimed that the loss of skilled workers cost the GDR 3.5 billion marks each year.",
+      "question": "What annual loss did East Germany claim?",
+      "options": [
+        "3.5 billion marks",
+        "13 billion dollars",
+        "2.7 million marks",
+        "155 kilometres"
+      ],
+      "answer": "3.5 billion marks",
+      "explanation": "The brochure claimed annual losses of 3.5 billion marks."
+    },
+    {
+      "id": 75,
+      "type": "mcq",
+      "category": "Berlin Wall",
+      "skill": "reliability",
+      "sourceId": "CW-075",
+      "sourceType": "reliability",
+      "sourceText": "The brochure was produced by the East German government in 1962 and distributed in English to foreigners.",
+      "question": "Why should a historian be careful when using this source?",
+      "options": [
+        "It is propaganda from the East German government",
+        "It was written by a neutral student",
+        "It contains no viewpoint",
+        "It was created before World War II"
+      ],
+      "answer": "It is propaganda from the East German government",
+      "explanation": "The source was designed to justify the Wall to an international audience."
+    },
+    {
+      "id": 76,
+      "type": "mcq",
+      "category": "Berlin Wall Responses",
+      "skill": "extract",
+      "sourceId": "CW-076",
+      "sourceType": "extract",
+      "sourceText": "An American serviceman described West Berlin before the Wall as positive and almost carefree.",
+      "question": "How was the atmosphere in West Berlin before the Wall described?",
+      "options": [
+        "Positive and almost carefree",
+        "Completely empty",
+        "Already destroyed by missiles",
+        "Under French colonial rule"
+      ],
+      "answer": "Positive and almost carefree",
+      "explanation": "The eyewitness account describes West Berlin as positive before the Wall."
+    },
+    {
+      "id": 77,
+      "type": "mcq",
+      "category": "Berlin Wall Responses",
+      "skill": "interpret",
+      "sourceId": "CW-077",
+      "sourceType": "interpret",
+      "sourceText": "East Germans knew they had to act fast if they wanted to get out after the Wall began to go up.",
+      "question": "What is implied by 'act fast'?",
+      "options": [
+        "Escape routes would soon close and become dangerous",
+        "The Wall would help them travel easily",
+        "The West was inviting all guards",
+        "No one wanted to leave"
+      ],
+      "answer": "Escape routes would soon close and become dangerous",
+      "explanation": "East Berliners realised the Wall would soon prevent escape."
+    },
+    {
+      "id": 78,
+      "type": "mcq",
+      "category": "Berlin Wall Responses",
+      "skill": "extract",
+      "sourceId": "CW-078",
+      "sourceType": "extract",
+      "sourceText": "East Berliners jumped over barbed wire, jumped from upper-floor windows and swam across rivers and lakes.",
+      "question": "Which was one way East Berliners tried to escape?",
+      "options": [
+        "Swimming across rivers and lakes",
+        "Using Marshall Plan money",
+        "Joining NATO",
+        "Flying to Cuba"
+      ],
+      "answer": "Swimming across rivers and lakes",
+      "explanation": "The source lists swimming as one escape method."
+    },
+    {
+      "id": 79,
+      "type": "mcq",
+      "category": "Berlin Wall Responses",
+      "skill": "extract",
+      "sourceId": "CW-079",
+      "sourceType": "extract",
+      "sourceText": "Peter Fechter, an 18-year-old East German bricklayer, was shot while trying to climb over the Wall and bled to death.",
+      "question": "Who was Peter Fechter?",
+      "options": [
+        "An East German who was shot while trying to escape",
+        "The USA president",
+        "The leader of NATO",
+        "A Soviet foreign minister"
+      ],
+      "answer": "An East German who was shot while trying to escape",
+      "explanation": "Fechter became a symbol of the brutality of the Wall."
+    },
+    {
+      "id": 80,
+      "type": "mcq",
+      "category": "Berlin Wall Responses",
+      "skill": "interpret",
+      "sourceId": "CW-080",
+      "sourceType": "interpret",
+      "sourceText": "US soldiers and East German guards hesitated to help Fechter because they feared starting a shooting war.",
+      "question": "Why was Peter Fechter left to die?",
+      "options": [
+        "Both sides feared an armed confrontation",
+        "No one saw him",
+        "He was in West Germany already",
+        "The Wall had not been built"
+      ],
+      "answer": "Both sides feared an armed confrontation",
+      "explanation": "The Cold War tension made soldiers avoid actions that could trigger conflict."
+    },
+    {
+      "id": 81,
+      "type": "mcq",
+      "category": "Berlin Wall Responses",
+      "skill": "message",
+      "sourceId": "CW-081",
+      "sourceType": "message",
+      "sourceText": "A cartoon shows Khrushchev standing on the Berlin Wall above barbed wire and dead bodies, claiming many people are staying on his side.",
+      "question": "What message is the cartoonist giving?",
+      "options": [
+        "People stayed in East Berlin because they were trapped by force",
+        "East Berliners stayed because they were all happy",
+        "The Wall was a tourist attraction",
+        "The USA built the Wall"
+      ],
+      "answer": "People stayed in East Berlin because they were trapped by force",
+      "explanation": "The dead bodies and barbed wire suggest repression, not voluntary loyalty."
+    },
+    {
+      "id": 82,
+      "type": "mcq",
+      "category": "Berlin Wall Responses",
+      "skill": "bias",
+      "sourceId": "CW-082",
+      "sourceType": "bias",
+      "sourceText": "The cartoon was drawn by an American cartoonist and criticises Khrushchev and the Berlin Wall.",
+      "question": "Why can the cartoon be considered biased?",
+      "options": [
+        "It presents a strongly anti-Soviet interpretation",
+        "It is a Soviet government document",
+        "It supports the Wall completely",
+        "It has no message"
+      ],
+      "answer": "It presents a strongly anti-Soviet interpretation",
+      "explanation": "The cartoon reflects the Western view that communist rule denied freedom."
+    },
+    {
+      "id": 83,
+      "type": "mcq",
+      "category": "Berlin Wall Responses",
+      "skill": "extract",
+      "sourceId": "CW-083",
+      "sourceType": "extract",
+      "sourceText": "West Berlin protesters carried signs asking: 'Doesn't the West know what to do?' and 'Betrayed by the West?'",
+      "question": "What do these signs show?",
+      "options": [
+        "West Berliners were angry at the weak Western response",
+        "West Berliners supported Khrushchev",
+        "The Wall was popular in West Berlin",
+        "West Berliners wanted to join the GDR"
+      ],
+      "answer": "West Berliners were angry at the weak Western response",
+      "explanation": "The signs show disappointment and frustration with the Western Allies."
+    },
+    {
+      "id": 84,
+      "type": "mcq",
+      "category": "Berlin Wall Responses",
+      "skill": "extract",
+      "sourceId": "CW-084",
+      "sourceType": "extract",
+      "sourceText": "West Berlin Mayor Willy Brandt shouted: 'Berlin expects more than just words!'",
+      "question": "What did Willy Brandt want from the West?",
+      "options": [
+        "Stronger action, not only statements",
+        "A Soviet takeover",
+        "Less protection",
+        "The end of all protests"
+      ],
+      "answer": "Stronger action, not only statements",
+      "explanation": "Brandt criticised the Western powers for not doing enough."
+    },
+    {
+      "id": 85,
+      "type": "mcq",
+      "category": "Berlin Wall Responses",
+      "skill": "interpret",
+      "sourceId": "CW-085",
+      "sourceType": "interpret",
+      "sourceText": "A West German newspaper referred to the Soviet zone as a concentration camp after the Wall was built.",
+      "question": "Why did the journalist use the phrase 'concentration camp'?",
+      "options": [
+        "To emphasise that East Berliners were trapped and controlled",
+        "To praise the GDR government",
+        "To show that movement was completely free",
+        "To describe a holiday resort"
+      ],
+      "answer": "To emphasise that East Berliners were trapped and controlled",
+      "explanation": "The phrase was used to condemn the lack of freedom in East Berlin."
+    },
+    {
+      "id": 86,
+      "type": "mcq",
+      "category": "Berlin Wall Responses",
+      "skill": "paragraph prep",
+      "sourceId": "CW-086",
+      "sourceType": "paragraph prep",
+      "sourceText": "East Berliners tried to escape, while many West Berliners protested against the Wall and criticised the weak Western response.",
+      "question": "Which sentence best summarises responses to the Berlin Wall?",
+      "options": [
+        "East Berliners responded by trying to escape, while West Berliners protested and felt betrayed by the West.",
+        "Everyone in Berlin supported the Wall.",
+        "Only the USA reacted to the Wall.",
+        "The Wall caused no reaction from ordinary people."
+      ],
+      "answer": "East Berliners responded by trying to escape, while West Berliners protested and felt betrayed by the West.",
+      "explanation": "This summary covers both East and West Berlin responses."
+    },
+    {
+      "id": 87,
+      "type": "mcq",
+      "category": "Military Alliances",
+      "skill": "concept",
+      "sourceId": "CW-087",
+      "sourceType": "concept",
+      "sourceText": "A defence alliance is a military pact between countries that agree to support each other in war.",
+      "question": "What is a defence alliance?",
+      "options": [
+        "A military pact for mutual support",
+        "A single political party",
+        "A currency reform",
+        "A refugee route"
+      ],
+      "answer": "A military pact for mutual support",
+      "explanation": "NATO and the Warsaw Pact were opposing military alliances."
+    },
+    {
+      "id": 88,
+      "type": "mcq",
+      "category": "Military Alliances",
+      "skill": "identify",
+      "sourceId": "CW-088",
+      "sourceType": "identify",
+      "sourceText": "The North Atlantic Treaty Organisation was formed as a Western military alliance in 1949.",
+      "question": "What does NATO stand for?",
+      "options": [
+        "North Atlantic Treaty Organisation",
+        "New Atomic Trade Organisation",
+        "National Anti-Tank Operation",
+        "North African Treaty Office"
+      ],
+      "answer": "North Atlantic Treaty Organisation",
+      "explanation": "NATO was the Western defence alliance formed in 1949."
+    },
+    {
+      "id": 89,
+      "type": "mcq",
+      "category": "Military Alliances",
+      "skill": "identify",
+      "sourceId": "CW-089",
+      "sourceType": "identify",
+      "sourceText": "The Warsaw Pact was formed in 1955 as the Soviet-led military alliance.",
+      "question": "Which alliance was led by the Soviet Union?",
+      "options": [
+        "Warsaw Pact",
+        "NATO",
+        "Marshall Plan",
+        "Truman Doctrine"
+      ],
+      "answer": "Warsaw Pact",
+      "explanation": "The Warsaw Pact was the communist military alliance led by the USSR."
+    },
+    {
+      "id": 90,
+      "type": "mcq",
+      "category": "Military Alliances",
+      "skill": "cause and effect",
+      "sourceId": "CW-090",
+      "sourceType": "cause and effect",
+      "sourceText": "Tension between the superpowers led to the creation of two opposing military alliances.",
+      "question": "Why were NATO and the Warsaw Pact formed?",
+      "options": [
+        "Because Cold War tension made countries prepare for possible conflict",
+        "Because the Cold War had ended",
+        "Because Germany was united peacefully",
+        "Because all countries rejected military alliances"
+      ],
+      "answer": "Because Cold War tension made countries prepare for possible conflict",
+      "explanation": "The alliances reflected growing fear and mistrust between East and West."
+    },
+    {
+      "id": 91,
+      "type": "mcq",
+      "category": "Military Alliances",
+      "skill": "concept",
+      "sourceId": "CW-091",
+      "sourceType": "concept",
+      "sourceText": "A treaty is a formal agreement between countries.",
+      "question": "What is a treaty?",
+      "options": [
+        "A formal agreement between countries",
+        "A type of wall",
+        "A secret police force",
+        "A currency reform"
+      ],
+      "answer": "A formal agreement between countries",
+      "explanation": "Military alliances are usually based on treaties between countries."
+    },
+    {
+      "id": 92,
+      "type": "mcq",
+      "category": "Military Alliances",
+      "skill": "concept",
+      "sourceId": "CW-092",
+      "sourceType": "concept",
+      "sourceText": "A one-party state is a state where all political parties except the ruling party are banned.",
+      "question": "What is a one-party state?",
+      "options": [
+        "A state where only the ruling party is allowed",
+        "A country with many equal parties",
+        "A military alliance",
+        "A state with no government"
+      ],
+      "answer": "A state where only the ruling party is allowed",
+      "explanation": "Many Soviet satellite states became one-party communist states."
+    },
+    {
+      "id": 93,
+      "type": "mcq",
+      "category": "Cuban Missile Crisis",
+      "skill": "extract",
+      "sourceId": "CW-093",
+      "sourceType": "extract",
+      "sourceText": "The mind map states that Castro took over Cuba in 1959 and Cuba changed to communism.",
+      "question": "Who took over Cuba in 1959?",
+      "options": [
+        "Castro",
+        "Khrushchev",
+        "Truman",
+        "Churchill"
+      ],
+      "answer": "Castro",
+      "explanation": "Fidel Castro took power in Cuba in 1959."
+    },
+    {
+      "id": 94,
+      "type": "mcq",
+      "category": "Cuban Missile Crisis",
+      "skill": "extract",
+      "sourceId": "CW-094",
+      "sourceType": "extract",
+      "sourceText": "The mind map states that Cuba made a trade agreement with Russia in 1960 after the USA cut ties.",
+      "question": "Which country did Cuba move closer to after the USA cut ties?",
+      "options": [
+        "Russia/USSR",
+        "Britain",
+        "France",
+        "West Germany"
+      ],
+      "answer": "Russia/USSR",
+      "explanation": "Cuba moved closer to the Soviet Union, increasing Cold War tension."
+    },
+    {
+      "id": 95,
+      "type": "mcq",
+      "category": "Cuban Missile Crisis",
+      "skill": "extract",
+      "sourceId": "CW-095",
+      "sourceType": "extract",
+      "sourceText": "The mind map links the Cuban Missile Crisis to Kennedy versus Khrushchev and a naval blockade in October 1962.",
+      "question": "Which two leaders faced each other during the Cuban Missile Crisis?",
+      "options": [
+        "Kennedy and Khrushchev",
+        "Truman and Stalin",
+        "Churchill and Hitler",
+        "Castro and Diem"
+      ],
+      "answer": "Kennedy and Khrushchev",
+      "explanation": "The crisis involved the USA under Kennedy and the USSR under Khrushchev."
+    },
+    {
+      "id": 96,
+      "type": "mcq",
+      "category": "Cuban Missile Crisis",
+      "skill": "concept",
+      "sourceId": "CW-096",
+      "sourceType": "concept",
+      "sourceText": "The mind map uses the term brinkmanship to describe the Cuban Missile Crisis.",
+      "question": "What does brinkmanship mean in the Cold War context?",
+      "options": [
+        "Taking a crisis to the edge of war to force the other side to back down",
+        "Signing a peace treaty immediately",
+        "Avoiding all confrontation",
+        "Building the Berlin Wall"
+      ],
+      "answer": "Taking a crisis to the edge of war to force the other side to back down",
+      "explanation": "Brinkmanship means pushing a dangerous confrontation close to war."
+    },
+    {
+      "id": 97,
+      "type": "mcq",
+      "category": "Cuban Missile Crisis",
+      "skill": "extract",
+      "sourceId": "CW-097",
+      "sourceType": "extract",
+      "sourceText": "On 22 October 1962 the USA announced a naval blockade during the Cuban Missile Crisis.",
+      "question": "What did the USA announce on 22 October 1962?",
+      "options": [
+        "A naval blockade",
+        "The Marshall Plan",
+        "The Berlin Airlift",
+        "The Warsaw Pact"
+      ],
+      "answer": "A naval blockade",
+      "explanation": "Kennedy used a naval blockade to stop Soviet missile shipments to Cuba."
+    },
+    {
+      "id": 98,
+      "type": "mcq",
+      "category": "Cuban Missile Crisis",
+      "skill": "extract",
+      "sourceId": "CW-098",
+      "sourceType": "extract",
+      "sourceText": "The mind map states that 19 Russian missile ships turned back in 1962.",
+      "question": "According to the mind map, what did Russian missile ships do?",
+      "options": [
+        "They turned back",
+        "They invaded West Berlin",
+        "They created NATO",
+        "They bombed Britain"
+      ],
+      "answer": "They turned back",
+      "explanation": "The Soviet ships turning back helped reduce the crisis."
+    },
+    {
+      "id": 99,
+      "type": "mcq",
+      "category": "Cuban Missile Crisis",
+      "skill": "interpret",
+      "sourceId": "CW-099",
+      "sourceType": "interpret",
+      "sourceText": "The settlement included the USA not attacking Cuba if Soviet missile bases were not built there.",
+      "question": "What was one outcome of the Cuban Missile Crisis?",
+      "options": [
+        "The USA agreed not to attack Cuba if Soviet missile bases were removed/not built",
+        "The USA joined the Warsaw Pact",
+        "Cuba became a USA colony",
+        "The Berlin Wall was destroyed"
+      ],
+      "answer": "The USA agreed not to attack Cuba if Soviet missile bases were removed/not built",
+      "explanation": "The settlement reduced the immediate threat of nuclear war."
+    },
+    {
+      "id": 100,
+      "type": "mcq",
+      "category": "Source Skills",
+      "skill": "source-based exam method",
+      "sourceId": "CW-100",
+      "sourceType": "source-based exam method",
+      "sourceText": "Source-based questions often ask learners to extract evidence, interpret messages, compare sources and comment on usefulness or reliability.",
+      "question": "Which answer best describes a strong source-based response?",
+      "options": [
+        "Use the source evidence, add own knowledge where needed, and answer the instruction word",
+        "Ignore the source and write an essay",
+        "Copy random sentences without explaining them",
+        "Give only dates with no connection to the question"
+      ],
+      "answer": "Use the source evidence, add own knowledge where needed, and answer the instruction word",
+      "explanation": "Source-based answers must respond directly to the question using source evidence and relevant own knowledge."
+    }
+  ]
+}
+  </script>
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="quiz-engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>History Live Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div>
+        <p class="eyebrow" id="quizSubject">GRADE 12 HISTORY</p>
+        <h1 id="quizTitle">Loading quiz…</h1>
+        <p class="hero-copy" id="quizDescription">30 random questions each attempt • Self-marking • Live saved results</p>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html">Quiz Hub</a>
+        <a href="results.html">View Results</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="status-bar">
+      <span id="modeBadge" class="badge">Checking storage…</span>
+      <span id="questionCountBadge" class="badge soft">Loading questions…</span>
+    </section>
+
+    <form id="quizForm" novalidate>
+      <section class="panel learner-panel">
+        <h2>Learner details</h2>
+        <div class="form-grid">
+          <label>Select learner name
+            <select id="learnerName" required>
+              <option value="">Loading learner names…</option>
+            </select>
+          </label>
+          <label>Learner code
+            <input id="learnerCode" type="text" maxlength="30" placeholder="Example: G12-014" required />
+          </label>
+        </div>
+        <p class="small-note">Select your official name and enter the private learner code given by the teacher.</p>
+      </section>
+
+      <section class="panel quiz-progress-panel">
+        <div>
+          <strong id="progressText">0 answered</strong>
+          <p class="small-note">Answer all questions, then click submit at the bottom.</p>
+        </div>
+        <div class="progress-track" aria-hidden="true"><div id="progressBar" class="progress-bar"></div></div>
+      </section>
+
+      <div id="questionsContainer"></div>
+
+      <section class="panel submit-panel">
+        <p id="formMessage" class="form-message" role="alert"></p>
+        <button id="submitButton" class="primary-button" type="submit">Mark and save result</button>
+      </section>
+    </form>
+
+    <section id="resultPanel" class="panel result-panel hidden" aria-live="polite">
+      <h2>Your result</h2>
+      <div class="score-circle">
+        <strong id="scoreNumber">0/30</strong>
+        <span id="scorePercent">0%</span>
+      </div>
+      <p id="resultComment"></p>
+      <div class="result-actions">
+        <button id="tryAgainButton" class="secondary-button" type="button">New random quiz</button>
+        <a class="primary-button button-link" href="results.html">Open shared results</a>
+      </div>
+      <div id="answerReview"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Correct answers are shown only after submission.</div>
+  </footer>
+
+  <script type="application/json" id="quiz-app-data">
+{
+  "id": "grade12-history-source-essay-hints",
+  "title": "Grade 12 History: Source & Essay Skills Quiz",
+  "shortTitle": "Source & Essay Skills",
+  "description": "Exam technique quiz: cognitive levels, source skills, reliability, usefulness, bias, cartoons, paragraph writing and essay structure.",
+  "file": "source-essay-hints.html",
+  "group": "history-live-quizzes",
+  "subject": "GRADE 12 HISTORY",
+  "questionsPerAttempt": 30,
+  "questions": [
+    {
+      "id": 1,
+      "type": "mcq",
+      "category": "Exam Requirements",
+      "skill": "Extract information",
+      "sourceId": "HINTS-EXAM",
+      "sourceType": "exam guidance",
+      "sourceText": "Examination requirements: learners answer THREE questions for 150 marks. They may answer TWO source-based questions and ONE essay, or TWO essays and ONE source-based question.",
+      "question": "How many questions must a learner answer in the History examination according to the guide?",
+      "options": [
+        "Three questions",
+        "Two questions",
+        "Four questions",
+        "Five questions"
+      ],
+      "answer": "Three questions",
+      "explanation": "The guide says learners must answer three questions in total."
+    },
+    {
+      "id": 2,
+      "type": "mcq",
+      "category": "Exam Requirements",
+      "skill": "Extract information",
+      "sourceId": "HINTS-EXAM",
+      "sourceType": "exam guidance",
+      "sourceText": "Examination requirements: learners answer THREE questions for 150 marks. They may answer TWO source-based questions and ONE essay, or TWO essays and ONE source-based question.",
+      "question": "What is the total mark allocation mentioned for the three answered questions?",
+      "options": [
+        "150 marks",
+        "100 marks",
+        "75 marks",
+        "300 marks"
+      ],
+      "answer": "150 marks",
+      "explanation": "The examination requirement states that the selected questions total 150 marks."
+    },
+    {
+      "id": 3,
+      "type": "mcq",
+      "category": "Exam Requirements",
+      "skill": "Extract information",
+      "sourceId": "HINTS-EXAM",
+      "sourceType": "exam guidance",
+      "sourceText": "Examination requirements: learners answer THREE questions for 150 marks. They may answer TWO source-based questions and ONE essay, or TWO essays and ONE source-based question.",
+      "question": "Which combination is allowed according to the examination requirements?",
+      "options": [
+        "Two source-based questions and one essay question",
+        "Three source-based questions only",
+        "Three essay questions only",
+        "One source-based question and no essay question"
+      ],
+      "answer": "Two source-based questions and one essay question",
+      "explanation": "The source gives this as one possible combination."
+    },
+    {
+      "id": 4,
+      "type": "mcq",
+      "category": "Exam Requirements",
+      "skill": "Extract information",
+      "sourceId": "HINTS-EXAM",
+      "sourceType": "exam guidance",
+      "sourceText": "Examination requirements: learners answer THREE questions for 150 marks. They may answer TWO source-based questions and ONE essay, or TWO essays and ONE source-based question.",
+      "question": "Which second combination is also allowed?",
+      "options": [
+        "Two essay questions and one source-based question",
+        "One essay question only",
+        "Two source-based questions only",
+        "Four short questions",
+        "Two essay questions and one source-based question"
+      ],
+      "answer": "Two essay questions and one source-based question",
+      "explanation": "The guide says learners may answer two essays and one source-based question."
+    },
+    {
+      "id": 5,
+      "type": "truefalse",
+      "category": "Exam Requirements",
+      "skill": "Extract information",
+      "sourceId": "HINTS-EXAM",
+      "sourceType": "exam guidance",
+      "sourceText": "Examination requirements: learners answer THREE questions for 150 marks. They may answer TWO source-based questions and ONE essay, or TWO essays and ONE source-based question.",
+      "question": "Learners must answer three questions in total.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "The examination requirement clearly states that three questions are answered."
+    },
+    {
+      "id": 6,
+      "type": "truefalse",
+      "category": "Exam Requirements",
+      "skill": "Extract information",
+      "sourceId": "HINTS-EXAM",
+      "sourceType": "exam guidance",
+      "sourceText": "Examination requirements: learners answer THREE questions for 150 marks. They may answer TWO source-based questions and ONE essay, or TWO essays and ONE source-based question.",
+      "question": "The guide says learners answer only essays and no source-based question.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "At least one source-based question is included in the allowed combinations."
+    },
+    {
+      "id": 7,
+      "type": "fillblank",
+      "category": "Exam Requirements",
+      "skill": "Recall key detail",
+      "sourceId": "HINTS-EXAM",
+      "sourceType": "exam guidance",
+      "sourceText": "Examination requirements: learners answer THREE questions for 150 marks. They may answer TWO source-based questions and ONE essay, or TWO essays and ONE source-based question.",
+      "question": "The examination requires learners to answer ________ questions. ",
+      "options": [],
+      "answer": "three",
+      "explanation": "The guide states that three questions must be answered."
+    },
+    {
+      "id": 8,
+      "type": "fillblank",
+      "category": "Exam Requirements",
+      "skill": "Recall key detail",
+      "sourceId": "HINTS-EXAM",
+      "sourceType": "exam guidance",
+      "sourceText": "Examination requirements: learners answer THREE questions for 150 marks. They may answer TWO source-based questions and ONE essay, or TWO essays and ONE source-based question.",
+      "question": "The total mark allocation for the selected questions is ________ marks.",
+      "options": [],
+      "answer": "150",
+      "explanation": "The examination total shown is 150 marks."
+    },
+    {
+      "id": 9,
+      "type": "mcq",
+      "category": "Exam Requirements",
+      "skill": "Interpret information",
+      "sourceId": "HINTS-EXAM",
+      "sourceType": "exam guidance",
+      "sourceText": "Examination requirements: learners answer THREE questions for 150 marks. They may answer TWO source-based questions and ONE essay, or TWO essays and ONE source-based question.",
+      "question": "Which statement best summarises the exam requirement?",
+      "options": [
+        "Answer three questions using an approved mix of source-based and essay questions",
+        "Answer any six questions from the paper",
+        "Answer only the first question",
+        "Answer no essay question at all"
+      ],
+      "answer": "Answer three questions using an approved mix of source-based and essay questions",
+      "explanation": "This captures the two allowed combinations in the guide."
+    },
+    {
+      "id": 10,
+      "type": "mcq",
+      "category": "Cognitive Levels",
+      "skill": "Identify level",
+      "sourceId": "HINTS-LEVELS",
+      "sourceType": "exam guidance",
+      "sourceText": "Cognitive levels: Level 1 focuses on extracting evidence, organising information and defining concepts. Level 2 focuses on explanation, interpretation and analysis. Level 3 focuses on evaluation, usefulness, reliability, bias, limitations and comparing sources.",
+      "question": "Which cognitive level focuses mainly on extracting evidence from sources?",
+      "options": [
+        "Level 1",
+        "Level 2",
+        "Level 3",
+        "Essay Level"
+      ],
+      "answer": "Level 1",
+      "explanation": "Level 1 includes extracting evidence and selecting information from sources."
+    },
+    {
+      "id": 11,
+      "type": "mcq",
+      "category": "Cognitive Levels",
+      "skill": "Identify level",
+      "sourceId": "HINTS-LEVELS",
+      "sourceType": "exam guidance",
+      "sourceText": "Cognitive levels: Level 1 focuses on extracting evidence, organising information and defining concepts. Level 2 focuses on explanation, interpretation and analysis. Level 3 focuses on evaluation, usefulness, reliability, bias, limitations and comparing sources.",
+      "question": "Which cognitive level includes defining historical concepts or terms?",
+      "options": [
+        "Level 1",
+        "Level 2",
+        "Level 3",
+        "No level"
+      ],
+      "answer": "Level 1",
+      "explanation": "The guide places defining concepts or terms under Level 1."
+    },
+    {
+      "id": 12,
+      "type": "mcq",
+      "category": "Cognitive Levels",
+      "skill": "Identify level",
+      "sourceId": "HINTS-LEVELS",
+      "sourceType": "exam guidance",
+      "sourceText": "Cognitive levels: Level 1 focuses on extracting evidence, organising information and defining concepts. Level 2 focuses on explanation, interpretation and analysis. Level 3 focuses on evaluation, usefulness, reliability, bias, limitations and comparing sources.",
+      "question": "Which cognitive level focuses on explaining and interpreting information from sources?",
+      "options": [
+        "Level 2",
+        "Level 1",
+        "Level 3",
+        "Mark Level"
+      ],
+      "answer": "Level 2",
+      "explanation": "Level 2 focuses on explanation, interpretation and analysis."
+    },
+    {
+      "id": 13,
+      "type": "mcq",
+      "category": "Cognitive Levels",
+      "skill": "Identify level",
+      "sourceId": "HINTS-LEVELS",
+      "sourceType": "exam guidance",
+      "sourceText": "Cognitive levels: Level 1 focuses on extracting evidence, organising information and defining concepts. Level 2 focuses on explanation, interpretation and analysis. Level 3 focuses on evaluation, usefulness, reliability, bias, limitations and comparing sources.",
+      "question": "Which cognitive level focuses on usefulness, reliability, bias and limitations?",
+      "options": [
+        "Level 3",
+        "Level 1",
+        "Level 2",
+        "Timeline level"
+      ],
+      "answer": "Level 3",
+      "explanation": "Level 3 requires evaluation of source evidence."
+    },
+    {
+      "id": 14,
+      "type": "mcq",
+      "category": "Cognitive Levels",
+      "skill": "Identify level",
+      "sourceId": "HINTS-LEVELS",
+      "sourceType": "exam guidance",
+      "sourceText": "Cognitive levels: Level 1 focuses on extracting evidence, organising information and defining concepts. Level 2 focuses on explanation, interpretation and analysis. Level 3 focuses on evaluation, usefulness, reliability, bias, limitations and comparing sources.",
+      "question": "A question asking “Quote TWO reasons from the source” is usually which level?",
+      "options": [
+        "Level 1",
+        "Level 2",
+        "Level 3",
+        "Essay level"
+      ],
+      "answer": "Level 1",
+      "explanation": "Quoting evidence directly is an extraction task."
+    },
+    {
+      "id": 15,
+      "type": "mcq",
+      "category": "Cognitive Levels",
+      "skill": "Identify level",
+      "sourceId": "HINTS-LEVELS",
+      "sourceType": "exam guidance",
+      "sourceText": "Cognitive levels: Level 1 focuses on extracting evidence, organising information and defining concepts. Level 2 focuses on explanation, interpretation and analysis. Level 3 focuses on evaluation, usefulness, reliability, bias, limitations and comparing sources.",
+      "question": "A question asking “What message does the cartoonist convey?” is usually which level?",
+      "options": [
+        "Level 2",
+        "Level 1",
+        "Level 3",
+        "No level"
+      ],
+      "answer": "Level 2",
+      "explanation": "Interpreting a cartoon’s message is a Level 2 skill."
+    },
+    {
+      "id": 16,
+      "type": "mcq",
+      "category": "Cognitive Levels",
+      "skill": "Identify level",
+      "sourceId": "HINTS-LEVELS",
+      "sourceType": "exam guidance",
+      "sourceText": "Cognitive levels: Level 1 focuses on extracting evidence, organising information and defining concepts. Level 2 focuses on explanation, interpretation and analysis. Level 3 focuses on evaluation, usefulness, reliability, bias, limitations and comparing sources.",
+      "question": "A question asking “Comment on the usefulness of Source 3C” is usually which level?",
+      "options": [
+        "Level 3",
+        "Level 1",
+        "Level 2",
+        "Recall only"
+      ],
+      "answer": "Level 3",
+      "explanation": "Usefulness requires evaluation, which is Level 3."
+    },
+    {
+      "id": 17,
+      "type": "mcq",
+      "category": "Cognitive Levels",
+      "skill": "Extract information",
+      "sourceId": "HINTS-LEVELS",
+      "sourceType": "exam guidance",
+      "sourceText": "Cognitive levels: Level 1 focuses on extracting evidence, organising information and defining concepts. Level 2 focuses on explanation, interpretation and analysis. Level 3 focuses on evaluation, usefulness, reliability, bias, limitations and comparing sources.",
+      "question": "What percentage weighting is given to Level 1 questions in the guide?",
+      "options": [
+        "30%",
+        "40%",
+        "50%",
+        "10%"
+      ],
+      "answer": "30%",
+      "explanation": "The guide gives Level 1 a 30% weighting."
+    },
+    {
+      "id": 18,
+      "type": "mcq",
+      "category": "Cognitive Levels",
+      "skill": "Extract information",
+      "sourceId": "HINTS-LEVELS",
+      "sourceType": "exam guidance",
+      "sourceText": "Cognitive levels: Level 1 focuses on extracting evidence, organising information and defining concepts. Level 2 focuses on explanation, interpretation and analysis. Level 3 focuses on evaluation, usefulness, reliability, bias, limitations and comparing sources.",
+      "question": "What percentage weighting is given to Level 2 questions in the guide?",
+      "options": [
+        "40%",
+        "30%",
+        "20%",
+        "60%"
+      ],
+      "answer": "40%",
+      "explanation": "The guide gives Level 2 a 40% weighting."
+    },
+    {
+      "id": 19,
+      "type": "mcq",
+      "category": "Cognitive Levels",
+      "skill": "Extract information",
+      "sourceId": "HINTS-LEVELS",
+      "sourceType": "exam guidance",
+      "sourceText": "Cognitive levels: Level 1 focuses on extracting evidence, organising information and defining concepts. Level 2 focuses on explanation, interpretation and analysis. Level 3 focuses on evaluation, usefulness, reliability, bias, limitations and comparing sources.",
+      "question": "What percentage weighting is given to Level 3 questions in the guide?",
+      "options": [
+        "30%",
+        "40%",
+        "15%",
+        "70%"
+      ],
+      "answer": "30%",
+      "explanation": "The guide gives Level 3 a 30% weighting."
+    },
+    {
+      "id": 20,
+      "type": "truefalse",
+      "category": "Cognitive Levels",
+      "skill": "Check understanding",
+      "sourceId": "HINTS-LEVELS",
+      "sourceType": "exam guidance",
+      "sourceText": "Cognitive levels: Level 1 focuses on extracting evidence, organising information and defining concepts. Level 2 focuses on explanation, interpretation and analysis. Level 3 focuses on evaluation, usefulness, reliability, bias, limitations and comparing sources.",
+      "question": "Level 2 questions may ask learners to explain information gathered from sources.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "Explanation and interpretation are Level 2 skills."
+    },
+    {
+      "id": 21,
+      "type": "truefalse",
+      "category": "Cognitive Levels",
+      "skill": "Check understanding",
+      "sourceId": "HINTS-LEVELS",
+      "sourceType": "exam guidance",
+      "sourceText": "Cognitive levels: Level 1 focuses on extracting evidence, organising information and defining concepts. Level 2 focuses on explanation, interpretation and analysis. Level 3 focuses on evaluation, usefulness, reliability, bias, limitations and comparing sources.",
+      "question": "Level 3 questions only require copying information word-for-word.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "Level 3 requires evaluation, comparison and judgement."
+    },
+    {
+      "id": 22,
+      "type": "mcq",
+      "category": "Cognitive Levels",
+      "skill": "Interpret information",
+      "sourceId": "HINTS-LEVELS",
+      "sourceType": "exam guidance",
+      "sourceText": "Cognitive levels: Level 1 focuses on extracting evidence, organising information and defining concepts. Level 2 focuses on explanation, interpretation and analysis. Level 3 focuses on evaluation, usefulness, reliability, bias, limitations and comparing sources.",
+      "question": "Which option is the best example of a Level 3 task?",
+      "options": [
+        "Compare two sources and explain differences in perspective",
+        "Name one person in the source",
+        "Quote one word from the source",
+        "Define a term only"
+      ],
+      "answer": "Compare two sources and explain differences in perspective",
+      "explanation": "Comparing perspectives and drawing conclusions are Level 3 skills."
+    },
+    {
+      "id": 23,
+      "type": "fillblank",
+      "category": "Cognitive Levels",
+      "skill": "Recall key term",
+      "sourceId": "HINTS-LEVELS",
+      "sourceType": "exam guidance",
+      "sourceText": "Cognitive levels: Level 1 focuses on extracting evidence, organising information and defining concepts. Level 2 focuses on explanation, interpretation and analysis. Level 3 focuses on evaluation, usefulness, reliability, bias, limitations and comparing sources.",
+      "question": "Questions on usefulness, reliability, bias and limitations are mainly Level ________ questions.",
+      "options": [],
+      "answer": "3",
+      "explanation": "These are evaluation skills under Level 3."
+    },
+    {
+      "id": 24,
+      "type": "mcq",
+      "category": "Source-Based Preparation",
+      "skill": "Identify method",
+      "sourceId": "HINTS-PREP",
+      "sourceType": "exam guidance",
+      "sourceText": "To prepare for source-based questions: know the content and background, read the key question, identify the focus area, know concepts and timelines, highlight key ideas, understand phrasing, analyse the questions, answer according to mark allocation and read through responses.",
+      "question": "What should learners know before attempting source-based questions?",
+      "options": [
+        "The content and background",
+        "Only the page number",
+        "The marker’s name",
+        "Only essay conclusions"
+      ],
+      "answer": "The content and background",
+      "explanation": "The preparation list begins with knowing content and background."
+    },
+    {
+      "id": 25,
+      "type": "mcq",
+      "category": "Source-Based Preparation",
+      "skill": "Identify method",
+      "sourceId": "HINTS-PREP",
+      "sourceType": "exam guidance",
+      "sourceText": "To prepare for source-based questions: know the content and background, read the key question, identify the focus area, know concepts and timelines, highlight key ideas, understand phrasing, analyse the questions, answer according to mark allocation and read through responses.",
+      "question": "What should learners read to identify the focus area?",
+      "options": [
+        "The key question",
+        "The footer only",
+        "Only the pictures",
+        "The mark total only"
+      ],
+      "answer": "The key question",
+      "explanation": "The guide says to read the key question and identify the focus area."
+    },
+    {
+      "id": 26,
+      "type": "mcq",
+      "category": "Source-Based Preparation",
+      "skill": "Identify method",
+      "sourceId": "HINTS-PREP",
+      "sourceType": "exam guidance",
+      "sourceText": "To prepare for source-based questions: know the content and background, read the key question, identify the focus area, know concepts and timelines, highlight key ideas, understand phrasing, analyse the questions, answer according to mark allocation and read through responses.",
+      "question": "Which tool does the guide suggest for highlighting key ideas in sources?",
+      "options": [
+        "A pencil",
+        "A calculator",
+        "A ruler only",
+        "A dictionary only"
+      ],
+      "answer": "A pencil",
+      "explanation": "The guide recommends using a pencil to highlight key ideas."
+    },
+    {
+      "id": 27,
+      "type": "mcq",
+      "category": "Source-Based Preparation",
+      "skill": "Identify method",
+      "sourceId": "HINTS-PREP",
+      "sourceType": "exam guidance",
+      "sourceText": "To prepare for source-based questions: know the content and background, read the key question, identify the focus area, know concepts and timelines, highlight key ideas, understand phrasing, analyse the questions, answer according to mark allocation and read through responses.",
+      "question": "Why should learners know concepts and timelines?",
+      "options": [
+        "To understand the context of the sources",
+        "To avoid answering the question",
+        "To make responses longer without evidence",
+        "To replace source analysis"
+      ],
+      "answer": "To understand the context of the sources",
+      "explanation": "Concepts and timelines help learners interpret the sources correctly."
+    },
+    {
+      "id": 28,
+      "type": "mcq",
+      "category": "Source-Based Preparation",
+      "skill": "Identify method",
+      "sourceId": "HINTS-PREP",
+      "sourceType": "exam guidance",
+      "sourceText": "To prepare for source-based questions: know the content and background, read the key question, identify the focus area, know concepts and timelines, highlight key ideas, understand phrasing, analyse the questions, answer according to mark allocation and read through responses.",
+      "question": "What should guide the length and depth of a response?",
+      "options": [
+        "The mark allocation",
+        "The colour of the page",
+        "The number of pictures",
+        "The learner’s mood"
+      ],
+      "answer": "The mark allocation",
+      "explanation": "The guide says responses must be according to mark allocation."
+    },
+    {
+      "id": 29,
+      "type": "truefalse",
+      "category": "Source-Based Preparation",
+      "skill": "Check understanding",
+      "sourceId": "HINTS-PREP",
+      "sourceType": "exam guidance",
+      "sourceText": "To prepare for source-based questions: know the content and background, read the key question, identify the focus area, know concepts and timelines, highlight key ideas, understand phrasing, analyse the questions, answer according to mark allocation and read through responses.",
+      "question": "Learners should analyse the questions before writing responses.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "The guide includes analysing the questions as a preparation step."
+    },
+    {
+      "id": 30,
+      "type": "truefalse",
+      "category": "Source-Based Preparation",
+      "skill": "Check understanding",
+      "sourceId": "HINTS-PREP",
+      "sourceType": "exam guidance",
+      "sourceText": "To prepare for source-based questions: know the content and background, read the key question, identify the focus area, know concepts and timelines, highlight key ideas, understand phrasing, analyse the questions, answer according to mark allocation and read through responses.",
+      "question": "Learners should ignore the phrasing of questions.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "Understanding the phrasing of questions is specifically listed."
+    },
+    {
+      "id": 31,
+      "type": "mcq",
+      "category": "Source-Based Preparation",
+      "skill": "Interpret method",
+      "sourceId": "HINTS-PREP",
+      "sourceType": "exam guidance",
+      "sourceText": "To prepare for source-based questions: know the content and background, read the key question, identify the focus area, know concepts and timelines, highlight key ideas, understand phrasing, analyse the questions, answer according to mark allocation and read through responses.",
+      "question": "What is the best reason to read through responses after writing?",
+      "options": [
+        "To check that the answer matches the question and mark allocation",
+        "To add random facts",
+        "To make the answer illegible",
+        "To remove all evidence"
+      ],
+      "answer": "To check that the answer matches the question and mark allocation",
+      "explanation": "Reading through helps correct errors and ensure the response is focused."
+    },
+    {
+      "id": 32,
+      "type": "fillblank",
+      "category": "Source-Based Preparation",
+      "skill": "Recall key term",
+      "sourceId": "HINTS-PREP",
+      "sourceType": "exam guidance",
+      "sourceText": "To prepare for source-based questions: know the content and background, read the key question, identify the focus area, know concepts and timelines, highlight key ideas, understand phrasing, analyse the questions, answer according to mark allocation and read through responses.",
+      "question": "Learners should read the key question and identify the focus ________.",
+      "options": [],
+      "answer": "area",
+      "explanation": "The preparation guide uses the phrase focus area."
+    },
+    {
+      "id": 33,
+      "type": "mcq",
+      "category": "Answering Source Questions",
+      "skill": "Extract information",
+      "sourceId": "HINTS-ANSWERING",
+      "sourceType": "exam guidance",
+      "sourceText": "How to answer source-based questions: the key question gives the focus of the sources and will also be asked as the paragraph question. Make brief notes on each source, read with understanding, and highlight concepts or terms.",
+      "question": "What does the key question provide?",
+      "options": [
+        "The focus of the content in the sources",
+        "The final answer to every question",
+        "A list of all dates only",
+        "A replacement for the sources"
+      ],
+      "answer": "The focus of the content in the sources",
+      "explanation": "The guide states that the key question provides the focus."
+    },
+    {
+      "id": 34,
+      "type": "mcq",
+      "category": "Answering Source Questions",
+      "skill": "Extract information",
+      "sourceId": "HINTS-ANSWERING",
+      "sourceType": "exam guidance",
+      "sourceText": "How to answer source-based questions: the key question gives the focus of the sources and will also be asked as the paragraph question. Make brief notes on each source, read with understanding, and highlight concepts or terms.",
+      "question": "According to the guide, what will also be asked as the paragraph question?",
+      "options": [
+        "The key question",
+        "The page number",
+        "The source label only",
+        "The glossary heading"
+      ],
+      "answer": "The key question",
+      "explanation": "The guide says the key question will also be asked as the paragraph question."
+    },
+    {
+      "id": 35,
+      "type": "mcq",
+      "category": "Answering Source Questions",
+      "skill": "Identify method",
+      "sourceId": "HINTS-ANSWERING",
+      "sourceType": "exam guidance",
+      "sourceText": "How to answer source-based questions: the key question gives the focus of the sources and will also be asked as the paragraph question. Make brief notes on each source, read with understanding, and highlight concepts or terms.",
+      "question": "What should learners make about each source for the paragraph?",
+      "options": [
+        "Brief notes",
+        "Decorative drawings",
+        "A full essay for every source",
+        "Personal messages to the marker"
+      ],
+      "answer": "Brief notes",
+      "explanation": "The guide recommends brief notes for paragraph evidence."
+    },
+    {
+      "id": 36,
+      "type": "mcq",
+      "category": "Answering Source Questions",
+      "skill": "Source handling",
+      "sourceId": "HINTS-ANSWERING",
+      "sourceType": "exam guidance",
+      "sourceText": "How to answer source-based questions: the key question gives the focus of the sources and will also be asked as the paragraph question. Make brief notes on each source, read with understanding, and highlight concepts or terms.",
+      "question": "What does contextualising a source usually indicate?",
+      "options": [
+        "What the source is about, who wrote it, why and when it was written, and where the event took place",
+        "Only the answer options",
+        "The learner’s school name",
+        "The final mark"
+      ],
+      "answer": "What the source is about, who wrote it, why and when it was written, and where the event took place",
+      "explanation": "Context helps learners understand origin, purpose and setting."
+    },
+    {
+      "id": 37,
+      "type": "mcq",
+      "category": "Mark Allocation",
+      "skill": "Interpret marks",
+      "sourceId": "HINTS-MARKS",
+      "sourceType": "exam guidance",
+      "sourceText": "Mark allocation guides the length of the response. (2 x 1) means two short source responses. (1 x 2) means one complex response such as a definition or explanation. (2 x 2) means two complex responses such as interpretation or explanation.",
+      "question": "What does (2 x 1) (2) usually require?",
+      "options": [
+        "Two short responses from the source",
+        "One long essay paragraph",
+        "Two complex explanations",
+        "Four examples from memory only"
+      ],
+      "answer": "Two short responses from the source",
+      "explanation": "(2 x 1) means two separate short points for two marks."
+    },
+    {
+      "id": 38,
+      "type": "mcq",
+      "category": "Mark Allocation",
+      "skill": "Interpret marks",
+      "sourceId": "HINTS-MARKS",
+      "sourceType": "exam guidance",
+      "sourceText": "Mark allocation guides the length of the response. (2 x 1) means two short source responses. (1 x 2) means one complex response such as a definition or explanation. (2 x 2) means two complex responses such as interpretation or explanation.",
+      "question": "What does (1 x 2) (2) usually require?",
+      "options": [
+        "One complex response such as a definition or explanation",
+        "Two one-word answers",
+        "Four paragraph responses",
+        "No response"
+      ],
+      "answer": "One complex response such as a definition or explanation",
+      "explanation": "The guide links (1 x 2) to one complex response."
+    },
+    {
+      "id": 39,
+      "type": "mcq",
+      "category": "Mark Allocation",
+      "skill": "Interpret marks",
+      "sourceId": "HINTS-MARKS",
+      "sourceType": "exam guidance",
+      "sourceText": "Mark allocation guides the length of the response. (2 x 1) means two short source responses. (1 x 2) means one complex response such as a definition or explanation. (2 x 2) means two complex responses such as interpretation or explanation.",
+      "question": "What does (2 x 2) (4) usually require?",
+      "options": [
+        "Two complex responses with explanation or interpretation",
+        "Two copied words only",
+        "One yes/no answer",
+        "Four dates only"
+      ],
+      "answer": "Two complex responses with explanation or interpretation",
+      "explanation": "The guide links (2 x 2) to two explained points."
+    },
+    {
+      "id": 40,
+      "type": "truefalse",
+      "category": "Mark Allocation",
+      "skill": "Check understanding",
+      "sourceId": "HINTS-MARKS",
+      "sourceType": "exam guidance",
+      "sourceText": "Mark allocation guides the length of the response. (2 x 1) means two short source responses. (1 x 2) means one complex response such as a definition or explanation. (2 x 2) means two complex responses such as interpretation or explanation.",
+      "question": "Mark allocation indicates how much information is needed in the response.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "The guide says mark allocation guides the amount of information required."
+    },
+    {
+      "id": 41,
+      "type": "fillblank",
+      "category": "Mark Allocation",
+      "skill": "Recall key term",
+      "sourceId": "HINTS-MARKS",
+      "sourceType": "exam guidance",
+      "sourceText": "Mark allocation guides the length of the response. (2 x 1) means two short source responses. (1 x 2) means one complex response such as a definition or explanation. (2 x 2) means two complex responses such as interpretation or explanation.",
+      "question": "A (2 x 2) (4) question needs two complex responses for a total of ________ marks.",
+      "options": [],
+      "answer": "4",
+      "explanation": "Two responses worth two marks each totals four marks."
+    },
+    {
+      "id": 42,
+      "type": "mcq",
+      "category": "Mark Allocation",
+      "skill": "Apply method",
+      "sourceId": "HINTS-MARKS",
+      "sourceType": "exam guidance",
+      "sourceText": "Mark allocation guides the length of the response. (2 x 1) means two short source responses. (1 x 2) means one complex response such as a definition or explanation. (2 x 2) means two complex responses such as interpretation or explanation.",
+      "question": "For a 4-mark interpretive question marked (2 x 2), the best answer should include...",
+      "options": [
+        "Two explained points",
+        "One copied word",
+        "A full essay",
+        "Only a heading"
+      ],
+      "answer": "Two explained points",
+      "explanation": "Each of the two points should be explained for two marks."
+    },
+    {
+      "id": 43,
+      "type": "mcq",
+      "category": "Reliability",
+      "skill": "Identify criteria",
+      "sourceId": "HINTS-RELIABILITY",
+      "sourceType": "exam guidance",
+      "sourceText": "Reliability questions can consider source type, author, date, purpose and place. No source is 100% reliable. Primary sources created at the time or by people directly involved can be useful, but they may still be biased.",
+      "question": "Which question helps assess reliability?",
+      "options": [
+        "Who created the source?",
+        "How many pages are in the textbook?",
+        "What colour is the border?",
+        "How fast can the learner write?"
+      ],
+      "answer": "Who created the source?",
+      "explanation": "Author or creator is a key reliability criterion."
+    },
+    {
+      "id": 44,
+      "type": "mcq",
+      "category": "Reliability",
+      "skill": "Identify criteria",
+      "sourceId": "HINTS-RELIABILITY",
+      "sourceType": "exam guidance",
+      "sourceText": "Reliability questions can consider source type, author, date, purpose and place. No source is 100% reliable. Primary sources created at the time or by people directly involved can be useful, but they may still be biased.",
+      "question": "Which factor is useful when judging reliability?",
+      "options": [
+        "When the source was created",
+        "The learner’s pen colour",
+        "The length of the answer only",
+        "The seating plan"
+      ],
+      "answer": "When the source was created",
+      "explanation": "Date matters because sources from the time can provide first-hand evidence."
+    },
+    {
+      "id": 45,
+      "type": "mcq",
+      "category": "Reliability",
+      "skill": "Identify criteria",
+      "sourceId": "HINTS-RELIABILITY",
+      "sourceType": "exam guidance",
+      "sourceText": "Reliability questions can consider source type, author, date, purpose and place. No source is 100% reliable. Primary sources created at the time or by people directly involved can be useful, but they may still be biased.",
+      "question": "Which type of source is likely to give first-hand information?",
+      "options": [
+        "A primary source created at the time",
+        "A random modern rumour",
+        "A cartoon with no context",
+        "An answer copied from a friend"
+      ],
+      "answer": "A primary source created at the time",
+      "explanation": "The guide says primary sources created at the time can be more reliable."
+    },
+    {
+      "id": 46,
+      "type": "truefalse",
+      "category": "Reliability",
+      "skill": "Check understanding",
+      "sourceId": "HINTS-RELIABILITY",
+      "sourceType": "exam guidance",
+      "sourceText": "Reliability questions can consider source type, author, date, purpose and place. No source is 100% reliable. Primary sources created at the time or by people directly involved can be useful, but they may still be biased.",
+      "question": "No source is 100% reliable.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "The guide explicitly reminds learners that no source is completely reliable."
+    },
+    {
+      "id": 47,
+      "type": "mcq",
+      "category": "Reliability",
+      "skill": "Interpret reliability",
+      "sourceId": "HINTS-RELIABILITY",
+      "sourceType": "exam guidance",
+      "sourceText": "Reliability questions can consider source type, author, date, purpose and place. No source is 100% reliable. Primary sources created at the time or by people directly involved can be useful, but they may still be biased.",
+      "question": "Why can a source by someone directly involved still be useful even if biased?",
+      "options": [
+        "It shows how a key role-player experienced the event",
+        "It contains no perspective at all",
+        "It is always completely neutral",
+        "It should replace all other sources"
+      ],
+      "answer": "It shows how a key role-player experienced the event",
+      "explanation": "The guide says such sources may be biased but useful for experience and viewpoint."
+    },
+    {
+      "id": 48,
+      "type": "mcq",
+      "category": "Usefulness",
+      "skill": "Identify criteria",
+      "sourceId": "HINTS-USEFULNESS",
+      "sourceType": "exam guidance",
+      "sourceText": "Usefulness questions consider what the source tells you, who created it, when it was created, its purpose, bias, relevance, limitations and whether it can be corroborated by another source.",
+      "question": "Which question helps assess usefulness?",
+      "options": [
+        "What does the source tell you?",
+        "How many pencils are on the desk?",
+        "What is the teacher’s lunch?",
+        "What is the classroom colour?"
+      ],
+      "answer": "What does the source tell you?",
+      "explanation": "Usefulness begins with what valid information the source provides."
+    },
+    {
+      "id": 49,
+      "type": "mcq",
+      "category": "Usefulness",
+      "skill": "Identify criteria",
+      "sourceId": "HINTS-USEFULNESS",
+      "sourceType": "exam guidance",
+      "sourceText": "Usefulness questions consider what the source tells you, who created it, when it was created, its purpose, bias, relevance, limitations and whether it can be corroborated by another source.",
+      "question": "What does corroboration mean in usefulness questions?",
+      "options": [
+        "Relating the source to another source that confirms or challenges it",
+        "Drawing a smiley next to the source",
+        "Ignoring all other evidence",
+        "Writing an essay without sources"
+      ],
+      "answer": "Relating the source to another source that confirms or challenges it",
+      "explanation": "Corroboration means checking against another source."
+    },
+    {
+      "id": 50,
+      "type": "mcq",
+      "category": "Usefulness",
+      "skill": "Identify criteria",
+      "sourceId": "HINTS-USEFULNESS",
+      "sourceType": "exam guidance",
+      "sourceText": "Usefulness questions consider what the source tells you, who created it, when it was created, its purpose, bias, relevance, limitations and whether it can be corroborated by another source.",
+      "question": "Which usefulness criterion asks whether the source was typical for its time?",
+      "options": [
+        "Relevance",
+        "Decoration",
+        "Neatness",
+        "Alphabetical order"
+      ],
+      "answer": "Relevance",
+      "explanation": "The guide links typicality to relevance."
+    },
+    {
+      "id": 51,
+      "type": "mcq",
+      "category": "Limitations",
+      "skill": "Identify limitation",
+      "sourceId": "HINTS-LIMITATIONS",
+      "sourceType": "exam guidance",
+      "sourceText": "Limitations of a source include a one-sided view, bias, facts deliberately omitted or exaggerated, and propaganda.",
+      "question": "Which is a limitation of a source?",
+      "options": [
+        "A one-sided view",
+        "Clear balanced evidence",
+        "Correct contextual detail",
+        "Corroboration by another source"
+      ],
+      "answer": "A one-sided view",
+      "explanation": "The guide lists one-sided view as a limitation."
+    },
+    {
+      "id": 52,
+      "type": "mcq",
+      "category": "Limitations",
+      "skill": "Identify limitation",
+      "sourceId": "HINTS-LIMITATIONS",
+      "sourceType": "exam guidance",
+      "sourceText": "Limitations of a source include a one-sided view, bias, facts deliberately omitted or exaggerated, and propaganda.",
+      "question": "Which option is listed as a limitation of a source?",
+      "options": [
+        "Propaganda",
+        "Chronological order",
+        "Balanced tone",
+        "Relevant evidence"
+      ],
+      "answer": "Propaganda",
+      "explanation": "Propaganda is listed under limitations."
+    },
+    {
+      "id": 53,
+      "type": "mcq",
+      "category": "Limitations",
+      "skill": "Identify limitation",
+      "sourceId": "HINTS-LIMITATIONS",
+      "sourceType": "exam guidance",
+      "sourceText": "Limitations of a source include a one-sided view, bias, facts deliberately omitted or exaggerated, and propaganda.",
+      "question": "What does it mean if facts are deliberately omitted?",
+      "options": [
+        "Important information has been left out on purpose",
+        "The source is automatically perfect",
+        "The source has no bias",
+        "The source needs no evaluation"
+      ],
+      "answer": "Important information has been left out on purpose",
+      "explanation": "Omission of key facts can limit reliability and usefulness."
+    },
+    {
+      "id": 54,
+      "type": "truefalse",
+      "category": "Limitations",
+      "skill": "Check understanding",
+      "sourceId": "HINTS-LIMITATIONS",
+      "sourceType": "exam guidance",
+      "sourceText": "Limitations of a source include a one-sided view, bias, facts deliberately omitted or exaggerated, and propaganda.",
+      "question": "Exaggeration can make a source less reliable.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "The guide notes that exaggerated information can make a source unreliable."
+    },
+    {
+      "id": 55,
+      "type": "mcq",
+      "category": "Bias",
+      "skill": "Define concept",
+      "sourceId": "HINTS-BIAS",
+      "sourceType": "exam guidance",
+      "sourceText": "Bias is when the creator’s perspective is strongly for or against something so that the information is unbalanced or prejudiced. Bias can be pro, anti or difficult to detect in a balanced source.",
+      "question": "What is bias?",
+      "options": [
+        "An unbalanced or prejudiced perspective strongly for or against something",
+        "A mark allocation code",
+        "A source label only",
+        "A timeline of events"
+      ],
+      "answer": "An unbalanced or prejudiced perspective strongly for or against something",
+      "explanation": "The guide defines bias as unbalanced or prejudiced perspective."
+    },
+    {
+      "id": 56,
+      "type": "mcq",
+      "category": "Bias",
+      "skill": "Identify type",
+      "sourceId": "HINTS-BIAS",
+      "sourceType": "exam guidance",
+      "sourceText": "Bias is when the creator’s perspective is strongly for or against something so that the information is unbalanced or prejudiced. Bias can be pro, anti or difficult to detect in a balanced source.",
+      "question": "If a source is extremely positive towards a person or event, it can be described as...",
+      "options": [
+        "pro or in favour of",
+        "anti only",
+        "irrelevant",
+        "unmarked"
+      ],
+      "answer": "pro or in favour of",
+      "explanation": "The guide says positive bias can be called pro or in favour of."
+    },
+    {
+      "id": 57,
+      "type": "mcq",
+      "category": "Bias",
+      "skill": "Identify type",
+      "sourceId": "HINTS-BIAS",
+      "sourceType": "exam guidance",
+      "sourceText": "Bias is when the creator’s perspective is strongly for or against something so that the information is unbalanced or prejudiced. Bias can be pro, anti or difficult to detect in a balanced source.",
+      "question": "If a source is extremely negative towards a person or event, it can be described as...",
+      "options": [
+        "anti or strongly against",
+        "pro only",
+        "balanced always",
+        "chronological"
+      ],
+      "answer": "anti or strongly against",
+      "explanation": "The guide says negative bias can be anti or strongly against."
+    },
+    {
+      "id": 58,
+      "type": "mcq",
+      "category": "Bias",
+      "skill": "Detect bias",
+      "sourceId": "HINTS-BIAS",
+      "sourceType": "exam guidance",
+      "sourceText": "Bias is when the creator’s perspective is strongly for or against something so that the information is unbalanced or prejudiced. Bias can be pro, anti or difficult to detect in a balanced source.",
+      "question": "Which is a sign of possible bias?",
+      "options": [
+        "Language that is too positive and admits nothing negative",
+        "Balanced evidence from both sides",
+        "Clear acknowledgement of limitations",
+        "Careful corroboration"
+      ],
+      "answer": "Language that is too positive and admits nothing negative",
+      "explanation": "Overly positive language may reveal bias."
+    },
+    {
+      "id": 59,
+      "type": "mcq",
+      "category": "Bias",
+      "skill": "Detect bias",
+      "sourceId": "HINTS-BIAS",
+      "sourceType": "exam guidance",
+      "sourceText": "Bias is when the creator’s perspective is strongly for or against something so that the information is unbalanced or prejudiced. Bias can be pro, anti or difficult to detect in a balanced source.",
+      "question": "Which is another sign of possible bias?",
+      "options": [
+        "The source fails to mention very important information",
+        "The source gives context and evidence",
+        "The source compares perspectives",
+        "The source admits uncertainty"
+      ],
+      "answer": "The source fails to mention very important information",
+      "explanation": "Omitting important information can indicate bias."
+    },
+    {
+      "id": 60,
+      "type": "fillblank",
+      "category": "Bias",
+      "skill": "Recall key term",
+      "sourceId": "HINTS-BIAS",
+      "sourceType": "exam guidance",
+      "sourceText": "Bias is when the creator’s perspective is strongly for or against something so that the information is unbalanced or prejudiced. Bias can be pro, anti or difficult to detect in a balanced source.",
+      "question": "A source strongly against something can be described as ________ biased.",
+      "options": [],
+      "answer": "anti",
+      "explanation": "Extremely negative bias is described as anti or strongly against."
+    },
+    {
+      "id": 61,
+      "type": "mcq",
+      "category": "Political Cartoons",
+      "skill": "Interpret visual source",
+      "sourceId": "HINTS-CARTOONS",
+      "sourceType": "exam guidance",
+      "sourceText": "Political cartoons use a visual code. Cartoonists use caricature or exaggeration, labelling and symbolism to communicate a message. Learners must identify literal and symbolic meanings.",
+      "question": "What do political cartoons rely on heavily to convey a message?",
+      "options": [
+        "A simple visual code",
+        "Only long paragraphs",
+        "Mathematical formulas",
+        "Essay conclusions only"
+      ],
+      "answer": "A simple visual code",
+      "explanation": "The guide says political cartoons rely on visual code, not only words."
+    },
+    {
+      "id": 62,
+      "type": "mcq",
+      "category": "Political Cartoons",
+      "skill": "Define feature",
+      "sourceId": "HINTS-CARTOONS",
+      "sourceType": "exam guidance",
+      "sourceText": "Political cartoons use a visual code. Cartoonists use caricature or exaggeration, labelling and symbolism to communicate a message. Learners must identify literal and symbolic meanings.",
+      "question": "What is caricature in a political cartoon?",
+      "options": [
+        "Exaggerating physical features to make a point",
+        "Writing a full essay under the image",
+        "Removing all symbols",
+        "Using no opinion at all"
+      ],
+      "answer": "Exaggerating physical features to make a point",
+      "explanation": "Caricature uses exaggeration to highlight character or meaning."
+    },
+    {
+      "id": 63,
+      "type": "mcq",
+      "category": "Political Cartoons",
+      "skill": "Define feature",
+      "sourceId": "HINTS-CARTOONS",
+      "sourceType": "exam guidance",
+      "sourceText": "Political cartoons use a visual code. Cartoonists use caricature or exaggeration, labelling and symbolism to communicate a message. Learners must identify literal and symbolic meanings.",
+      "question": "Why do cartoonists use labelling?",
+      "options": [
+        "To help the audience understand what a person or object represents",
+        "To hide the message completely",
+        "To avoid all interpretation",
+        "To replace the source context"
+      ],
+      "answer": "To help the audience understand what a person or object represents",
+      "explanation": "Labels identify figures or ideas in cartoons."
+    },
+    {
+      "id": 64,
+      "type": "mcq",
+      "category": "Political Cartoons",
+      "skill": "Define feature",
+      "sourceId": "HINTS-CARTOONS",
+      "sourceType": "exam guidance",
+      "sourceText": "Political cartoons use a visual code. Cartoonists use caricature or exaggeration, labelling and symbolism to communicate a message. Learners must identify literal and symbolic meanings.",
+      "question": "What is symbolism in a cartoon?",
+      "options": [
+        "Using objects to represent important concepts or ideas",
+        "Writing the date only",
+        "Making all people realistic",
+        "Ignoring familiar objects"
+      ],
+      "answer": "Using objects to represent important concepts or ideas",
+      "explanation": "Symbols stand for larger ideas in visual sources."
+    },
+    {
+      "id": 65,
+      "type": "mcq",
+      "category": "Political Cartoons",
+      "skill": "Message question",
+      "sourceId": "HINTS-CARTOONS",
+      "sourceType": "exam guidance",
+      "sourceText": "Political cartoons use a visual code. Cartoonists use caricature or exaggeration, labelling and symbolism to communicate a message. Learners must identify literal and symbolic meanings.",
+      "question": "When answering “What message...?” learners must mainly...",
+      "options": [
+        "Interpret what the creator is trying to show",
+        "Copy only the title",
+        "Ignore symbols and labels",
+        "Write an unrelated essay"
+      ],
+      "answer": "Interpret what the creator is trying to show",
+      "explanation": "Message questions require interpretation and clarification of meaning."
+    },
+    {
+      "id": 66,
+      "type": "mcq",
+      "category": "Political Cartoons",
+      "skill": "Message question",
+      "sourceId": "HINTS-CARTOONS",
+      "sourceType": "exam guidance",
+      "sourceText": "Political cartoons use a visual code. Cartoonists use caricature or exaggeration, labelling and symbolism to communicate a message. Learners must identify literal and symbolic meanings.",
+      "question": "In a visual source, learners should explain both the literal meaning and the...",
+      "options": [
+        "symbolic or figurative meaning",
+        "page number only",
+        "marking grid only",
+        "learner’s personal feelings"
+      ],
+      "answer": "symbolic or figurative meaning",
+      "explanation": "The guide distinguishes literal and symbolic/figurative meaning."
+    },
+    {
+      "id": 67,
+      "type": "truefalse",
+      "category": "Political Cartoons",
+      "skill": "Check understanding",
+      "sourceId": "HINTS-CARTOONS",
+      "sourceType": "exam guidance",
+      "sourceText": "Political cartoons use a visual code. Cartoonists use caricature or exaggeration, labelling and symbolism to communicate a message. Learners must identify literal and symbolic meanings.",
+      "question": "Cartoonists may exaggerate features to make a point.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "Caricature is deliberate exaggeration used to make a point."
+    },
+    {
+      "id": 68,
+      "type": "truefalse",
+      "category": "Political Cartoons",
+      "skill": "Check understanding",
+      "sourceId": "HINTS-CARTOONS",
+      "sourceType": "exam guidance",
+      "sourceText": "Political cartoons use a visual code. Cartoonists use caricature or exaggeration, labelling and symbolism to communicate a message. Learners must identify literal and symbolic meanings.",
+      "question": "Learners should ignore labels when interpreting cartoons.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "Labels are important clues for interpreting cartoons."
+    },
+    {
+      "id": 69,
+      "type": "mcq",
+      "category": "Political Cartoons",
+      "skill": "Apply method",
+      "sourceId": "HINTS-CARTOONS",
+      "sourceType": "exam guidance",
+      "sourceText": "Political cartoons use a visual code. Cartoonists use caricature or exaggeration, labelling and symbolism to communicate a message. Learners must identify literal and symbolic meanings.",
+      "question": "Which is the best first step when decoding a political cartoon?",
+      "options": [
+        "Look for labels, symbols and exaggeration",
+        "Count the words only",
+        "Ignore the picture",
+        "Write the conclusion first"
+      ],
+      "answer": "Look for labels, symbols and exaggeration",
+      "explanation": "These are the key parts of the cartoon visual code."
+    },
+    {
+      "id": 70,
+      "type": "fillblank",
+      "category": "Political Cartoons",
+      "skill": "Recall key term",
+      "sourceId": "HINTS-CARTOONS",
+      "sourceType": "exam guidance",
+      "sourceText": "Political cartoons use a visual code. Cartoonists use caricature or exaggeration, labelling and symbolism to communicate a message. Learners must identify literal and symbolic meanings.",
+      "question": "A simple object used to represent an idea in a cartoon is called a ________.",
+      "options": [],
+      "answer": "symbol",
+      "explanation": "Symbols represent concepts or ideas in cartoons."
+    },
+    {
+      "id": 71,
+      "type": "mcq",
+      "category": "Paragraph Writing",
+      "skill": "Identify rule",
+      "sourceId": "HINTS-PARAGRAPH",
+      "sourceType": "exam guidance",
+      "sourceText": "A paragraph question must be answered in ONE paragraph. Use the relevant sources and own knowledge. Own knowledge should elaborate on what the source gives, not replace the source evidence.",
+      "question": "How many paragraphs should the source-based paragraph question be written in?",
+      "options": [
+        "One paragraph",
+        "Two paragraphs",
+        "Five paragraphs",
+        "As many as possible"
+      ],
+      "answer": "One paragraph",
+      "explanation": "The guide says to write only one paragraph."
+    },
+    {
+      "id": 72,
+      "type": "mcq",
+      "category": "Paragraph Writing",
+      "skill": "Identify evidence",
+      "sourceId": "HINTS-PARAGRAPH",
+      "sourceType": "exam guidance",
+      "sourceText": "A paragraph question must be answered in ONE paragraph. Use the relevant sources and own knowledge. Own knowledge should elaborate on what the source gives, not replace the source evidence.",
+      "question": "A paragraph question instructs learners to use...",
+      "options": [
+        "Relevant sources and own knowledge",
+        "Only personal opinions",
+        "Only the textbook cover",
+        "Only headings"
+      ],
+      "answer": "Relevant sources and own knowledge",
+      "explanation": "The guide says paragraph questions use sources as well as own knowledge."
+    },
+    {
+      "id": 73,
+      "type": "mcq",
+      "category": "Paragraph Writing",
+      "skill": "Role of own knowledge",
+      "sourceId": "HINTS-PARAGRAPH",
+      "sourceType": "exam guidance",
+      "sourceText": "A paragraph question must be answered in ONE paragraph. Use the relevant sources and own knowledge. Own knowledge should elaborate on what the source gives, not replace the source evidence.",
+      "question": "How should own knowledge be used in a paragraph question?",
+      "options": [
+        "To elaborate on information provided by the sources",
+        "To replace all source evidence",
+        "To introduce unrelated stories",
+        "To avoid answering the key question"
+      ],
+      "answer": "To elaborate on information provided by the sources",
+      "explanation": "Own knowledge should help expand source evidence, not replace it."
+    },
+    {
+      "id": 74,
+      "type": "mcq",
+      "category": "Paragraph Writing",
+      "skill": "Interpret method",
+      "sourceId": "HINTS-PARAGRAPH",
+      "sourceType": "exam guidance",
+      "sourceText": "A paragraph question must be answered in ONE paragraph. Use the relevant sources and own knowledge. Own knowledge should elaborate on what the source gives, not replace the source evidence.",
+      "question": "What should source information do in a paragraph response?",
+      "options": [
+        "Guide the learner into answering the key question",
+        "Be ignored completely",
+        "Be copied without explanation",
+        "Be replaced by drawings"
+      ],
+      "answer": "Guide the learner into answering the key question",
+      "explanation": "The sources guide the answer to the key question."
+    },
+    {
+      "id": 75,
+      "type": "truefalse",
+      "category": "Paragraph Writing",
+      "skill": "Check understanding",
+      "sourceId": "HINTS-PARAGRAPH",
+      "sourceType": "exam guidance",
+      "sourceText": "A paragraph question must be answered in ONE paragraph. Use the relevant sources and own knowledge. Own knowledge should elaborate on what the source gives, not replace the source evidence.",
+      "question": "A paragraph answer should use evidence from relevant sources.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "Source evidence is required in the paragraph response."
+    },
+    {
+      "id": 76,
+      "type": "mcq",
+      "category": "Comparing Sources",
+      "skill": "Identify method",
+      "sourceId": "HINTS-COMPARE",
+      "sourceType": "exam guidance",
+      "sourceText": "When comparing sources, gather information from both sources that corresponds or differs. A good answer may say: Source A says ... and Source B confirms this by saying ...",
+      "question": "When comparing two sources, learners should gather information that...",
+      "options": [
+        "corresponds or differs between the sources",
+        "comes from only one source",
+        "is unrelated to the question",
+        "is copied from the heading only"
+      ],
+      "answer": "corresponds or differs between the sources",
+      "explanation": "Comparison is about similarities or differences between sources."
+    },
+    {
+      "id": 77,
+      "type": "mcq",
+      "category": "Comparing Sources",
+      "skill": "Answer frame",
+      "sourceId": "HINTS-COMPARE",
+      "sourceType": "exam guidance",
+      "sourceText": "When comparing sources, gather information from both sources that corresponds or differs. A good answer may say: Source A says ... and Source B confirms this by saying ...",
+      "question": "Which answer frame best compares two sources?",
+      "options": [
+        "Source A says..., and Source B confirms this by saying...",
+        "I think maybe...",
+        "The source is nice",
+        "There are many things etc."
+      ],
+      "answer": "Source A says..., and Source B confirms this by saying...",
+      "explanation": "The guide gives this type of comparison structure."
+    },
+    {
+      "id": 78,
+      "type": "mcq",
+      "category": "Comparing Sources",
+      "skill": "Compare similarities",
+      "sourceId": "HINTS-COMPARE",
+      "sourceType": "exam guidance",
+      "sourceText": "When comparing sources, gather information from both sources that corresponds or differs. A good answer may say: Source A says ... and Source B confirms this by saying ...",
+      "question": "If two sources support the same idea, the learner should show that the sources...",
+      "options": [
+        "confirm or correspond with each other",
+        "are always unreliable",
+        "must be ignored",
+        "cannot be used together"
+      ],
+      "answer": "confirm or correspond with each other",
+      "explanation": "Corresponding evidence shows similarity or confirmation."
+    },
+    {
+      "id": 79,
+      "type": "mcq",
+      "category": "Comparing Sources",
+      "skill": "Compare differences",
+      "sourceId": "HINTS-COMPARE",
+      "sourceType": "exam guidance",
+      "sourceText": "When comparing sources, gather information from both sources that corresponds or differs. A good answer may say: Source A says ... and Source B confirms this by saying ...",
+      "question": "If two sources give different views, the learner should explain...",
+      "options": [
+        "how they differ and why this may be the case",
+        "only the first source",
+        "only the longest sentence",
+        "the colour of the source"
+      ],
+      "answer": "how they differ and why this may be the case",
+      "explanation": "A strong comparison accounts for differences in perspective."
+    },
+    {
+      "id": 80,
+      "type": "fillblank",
+      "category": "Paragraph Writing",
+      "skill": "Recall key term",
+      "sourceId": "HINTS-PARAGRAPH",
+      "sourceType": "exam guidance",
+      "sourceText": "A paragraph question must be answered in ONE paragraph. Use the relevant sources and own knowledge. Own knowledge should elaborate on what the source gives, not replace the source evidence.",
+      "question": "A source-based paragraph should be written in only ________ paragraph.",
+      "options": [],
+      "answer": "one",
+      "explanation": "The guide says write only one paragraph."
+    },
+    {
+      "id": 81,
+      "type": "mcq",
+      "category": "Essay Preparation",
+      "skill": "Identify method",
+      "sourceId": "HINTS-ESSAY",
+      "sourceType": "exam guidance",
+      "sourceText": "Essay preparation: read the question carefully, underline the instruction verb, focus, direction and timeframe, use key words to plan, and write in introduction, body paragraphs and conclusion.",
+      "question": "What should learners do first when preparing an essay question?",
+      "options": [
+        "Read the question carefully to understand the focus",
+        "Write the conclusion immediately",
+        "Ignore the instruction verb",
+        "Draw pictures in the margin"
+      ],
+      "answer": "Read the question carefully to understand the focus",
+      "explanation": "The essay hints begin with reading carefully to understand focus."
+    },
+    {
+      "id": 82,
+      "type": "mcq",
+      "category": "Essay Preparation",
+      "skill": "Identify method",
+      "sourceId": "HINTS-ESSAY",
+      "sourceType": "exam guidance",
+      "sourceText": "Essay preparation: read the question carefully, underline the instruction verb, focus, direction and timeframe, use key words to plan, and write in introduction, body paragraphs and conclusion.",
+      "question": "Which parts of the question should be underlined?",
+      "options": [
+        "Instruction verb, focus, direction and timeframe",
+        "Only the page number",
+        "Only the first name mentioned",
+        "Only the mark total"
+      ],
+      "answer": "Instruction verb, focus, direction and timeframe",
+      "explanation": "The guide says to underline these key features."
+    },
+    {
+      "id": 83,
+      "type": "mcq",
+      "category": "Essay Preparation",
+      "skill": "Planning",
+      "sourceId": "HINTS-ESSAY",
+      "sourceType": "exam guidance",
+      "sourceText": "Essay preparation: read the question carefully, underline the instruction verb, focus, direction and timeframe, use key words to plan, and write in introduction, body paragraphs and conclusion.",
+      "question": "What can key words in the question be used to draw?",
+      "options": [
+        "A mind-map for planning",
+        "A cartoon only",
+        "A mark sheet",
+        "A personal note"
+      ],
+      "answer": "A mind-map for planning",
+      "explanation": "The guide suggests using key words to draw a mind-map."
+    },
+    {
+      "id": 84,
+      "type": "mcq",
+      "category": "Essay Structure",
+      "skill": "Identify format",
+      "sourceId": "HINTS-ESSAY",
+      "sourceType": "exam guidance",
+      "sourceText": "Essay preparation: read the question carefully, underline the instruction verb, focus, direction and timeframe, use key words to plan, and write in introduction, body paragraphs and conclusion.",
+      "question": "What is the correct basic format of a History essay?",
+      "options": [
+        "Introduction, body paragraphs and conclusion",
+        "Heading, bullet list and smiley",
+        "Source A, Source B and no conclusion",
+        "Only one paragraph"
+      ],
+      "answer": "Introduction, body paragraphs and conclusion",
+      "explanation": "The guide names introduction, body and conclusion as essay format."
+    },
+    {
+      "id": 85,
+      "type": "mcq",
+      "category": "Essay Structure",
+      "skill": "Chronology",
+      "sourceId": "HINTS-BODY",
+      "sourceType": "exam guidance",
+      "sourceText": "In the body of the essay, content and evidence must link back to and support the stance taken in the introduction. Events should be written in chronological order.",
+      "question": "In what order should the essay be written?",
+      "options": [
+        "Chronological order",
+        "Random order",
+        "Alphabetical order",
+        "Reverse mark order"
+      ],
+      "answer": "Chronological order",
+      "explanation": "The guide says essays should follow the order in which events unfolded."
+    },
+    {
+      "id": 86,
+      "type": "mcq",
+      "category": "Introduction",
+      "skill": "Essay introduction",
+      "sourceId": "HINTS-INTRO",
+      "sourceType": "exam guidance",
+      "sourceText": "The introduction must respond directly to the question. The learner should take a stance, explain it and outline the evidence that will support the stance.",
+      "question": "What should the introduction do?",
+      "options": [
+        "Respond directly to the question and take a stance",
+        "Give new evidence not used later",
+        "Use bullet points",
+        "Apologise to the marker"
+      ],
+      "answer": "Respond directly to the question and take a stance",
+      "explanation": "The introduction should answer the question, state a stance and outline evidence."
+    },
+    {
+      "id": 87,
+      "type": "mcq",
+      "category": "Essay Body",
+      "skill": "Essay body",
+      "sourceId": "HINTS-BODY",
+      "sourceType": "exam guidance",
+      "sourceText": "In the body of the essay, content and evidence must link back to and support the stance taken in the introduction. Events should be written in chronological order.",
+      "question": "What should body paragraphs do?",
+      "options": [
+        "Link content and evidence to the stance",
+        "Ignore the introduction",
+        "Use only unrelated facts",
+        "Avoid evidence"
+      ],
+      "answer": "Link content and evidence to the stance",
+      "explanation": "The body must support the stance taken in the introduction."
+    },
+    {
+      "id": 88,
+      "type": "mcq",
+      "category": "Conclusion",
+      "skill": "Essay conclusion",
+      "sourceId": "HINTS-CONCLUSION",
+      "sourceType": "exam guidance",
+      "sourceText": "The conclusion must restate the main point from the introduction. It should not introduce new information and should tie up the argument.",
+      "question": "What should the conclusion do?",
+      "options": [
+        "Restate the main point and tie up the argument",
+        "Introduce new information",
+        "Start a new argument",
+        "List unrelated names"
+      ],
+      "answer": "Restate the main point and tie up the argument",
+      "explanation": "The guide says no new information should be added in the conclusion."
+    },
+    {
+      "id": 89,
+      "type": "truefalse",
+      "category": "Conclusion",
+      "skill": "Check understanding",
+      "sourceId": "HINTS-CONCLUSION",
+      "sourceType": "exam guidance",
+      "sourceText": "The conclusion must restate the main point from the introduction. It should not introduce new information and should tie up the argument.",
+      "question": "A conclusion should introduce many new facts not mentioned in the essay.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "False",
+      "explanation": "The guide says no new information must be presented in the conclusion."
+    },
+    {
+      "id": 90,
+      "type": "mcq",
+      "category": "Essay Frame",
+      "skill": "PEEL method",
+      "sourceId": "HINTS-FRAME",
+      "sourceType": "exam guidance",
+      "sourceText": "Essay writing frame: identify instruction words and terms, write a direct introduction, use paragraphs built on Point, Explanation, Evidence or Elaboration, and Link back to the line of argument.",
+      "question": "Which paragraph structure is recommended by the frame?",
+      "options": [
+        "Point, Explain, Example/Evidence, Link",
+        "Picture, Emotion, Ending, List",
+        "Place, Event, Essay, Label",
+        "Plan, Extra, Etc, Leave"
+      ],
+      "answer": "Point, Explain, Example/Evidence, Link",
+      "explanation": "The guide links the frame to Point > Explain > Example > Link."
+    },
+    {
+      "id": 91,
+      "type": "mcq",
+      "category": "Essay Frame",
+      "skill": "Line of argument",
+      "sourceId": "HINTS-FRAME",
+      "sourceType": "exam guidance",
+      "sourceText": "Essay writing frame: identify instruction words and terms, write a direct introduction, use paragraphs built on Point, Explanation, Evidence or Elaboration, and Link back to the line of argument.",
+      "question": "What should the link sentence connect back to?",
+      "options": [
+        "The line of argument and question",
+        "The learner’s personal feelings",
+        "The source label only",
+        "A drawing in the margin"
+      ],
+      "answer": "The line of argument and question",
+      "explanation": "The frame asks learners to link explicitly back to the question and argument."
+    },
+    {
+      "id": 92,
+      "type": "mcq",
+      "category": "Essay Don’ts",
+      "skill": "Avoid errors",
+      "sourceId": "HINTS-DONTS",
+      "sourceType": "exam guidance",
+      "sourceText": "Do not use personal pronouns such as I. Do not call historical figures by their first names. Do not write personal notes to the marker. Do not colour in, draw smileys, use unnecessary value judgements, use etc, subheadings or bullets in essays.",
+      "question": "Which phrase should be avoided in a History essay?",
+      "options": [
+        "I think that",
+        "It can be argued that",
+        "The evidence shows",
+        "This supports the argument"
+      ],
+      "answer": "I think that",
+      "explanation": "The guide says not to use personal pronouns like I."
+    },
+    {
+      "id": 93,
+      "type": "mcq",
+      "category": "Essay Don’ts",
+      "skill": "Avoid errors",
+      "sourceId": "HINTS-DONTS",
+      "sourceType": "exam guidance",
+      "sourceText": "Do not use personal pronouns such as I. Do not call historical figures by their first names. Do not write personal notes to the marker. Do not colour in, draw smileys, use unnecessary value judgements, use etc, subheadings or bullets in essays.",
+      "question": "How should learners refer to historical figures?",
+      "options": [
+        "By proper names or surnames, not first names only",
+        "By first names only",
+        "By nicknames",
+        "By emojis"
+      ],
+      "answer": "By proper names or surnames, not first names only",
+      "explanation": "The guide warns not to call figures by first names only."
+    },
+    {
+      "id": 94,
+      "type": "mcq",
+      "category": "Essay Don’ts",
+      "skill": "Avoid errors",
+      "sourceId": "HINTS-DONTS",
+      "sourceType": "exam guidance",
+      "sourceText": "Do not use personal pronouns such as I. Do not call historical figures by their first names. Do not write personal notes to the marker. Do not colour in, draw smileys, use unnecessary value judgements, use etc, subheadings or bullets in essays.",
+      "question": "Which writing style should NOT be used in History essays according to the guide?",
+      "options": [
+        "Sub-headings and bullets",
+        "Structured paragraphs",
+        "Chronological order",
+        "Evidence linked to argument"
+      ],
+      "answer": "Sub-headings and bullets",
+      "explanation": "The guide says not to use sub-headings and bullets in essays."
+    },
+    {
+      "id": 95,
+      "type": "mcq",
+      "category": "Essay Question Types",
+      "skill": "Identify instruction",
+      "sourceId": "HINTS-QUESTIONTYPES",
+      "sourceType": "exam guidance",
+      "sourceText": "Essay questions may ask: Do you agree with the statement? Critically discuss. Explain to what extent. These require a stance, evidence, and assessment of the argument.",
+      "question": "A question beginning “Do you agree with the statement?” requires the candidate to...",
+      "options": [
+        "take a stance",
+        "copy sources only",
+        "draw a cartoon",
+        "avoid evidence"
+      ],
+      "answer": "take a stance",
+      "explanation": "The guide says candidates are asked to take a stance."
+    },
+    {
+      "id": 96,
+      "type": "mcq",
+      "category": "Essay Question Types",
+      "skill": "Identify instruction",
+      "sourceId": "HINTS-QUESTIONTYPES",
+      "sourceType": "exam guidance",
+      "sourceText": "Essay questions may ask: Do you agree with the statement? Critically discuss. Explain to what extent. These require a stance, evidence, and assessment of the argument.",
+      "question": "What does “Critically discuss” require?",
+      "options": [
+        "Evidence with positive and negative arguments that support or contradict an argument",
+        "A one-word answer",
+        "Only dates",
+        "A picture with labels"
+      ],
+      "answer": "Evidence with positive and negative arguments that support or contradict an argument",
+      "explanation": "Critical discussion weighs evidence on both sides."
+    },
+    {
+      "id": 97,
+      "type": "mcq",
+      "category": "Essay Question Types",
+      "skill": "Identify instruction",
+      "sourceId": "HINTS-QUESTIONTYPES",
+      "sourceType": "exam guidance",
+      "sourceText": "Essay questions may ask: Do you agree with the statement? Critically discuss. Explain to what extent. These require a stance, evidence, and assessment of the argument.",
+      "question": "What does “Explain to what extent” require?",
+      "options": [
+        "A thorough assessment of the evidence and degree to which something is true",
+        "Only a list of names",
+        "A yes/no answer only",
+        "A paragraph with no stance"
+      ],
+      "answer": "A thorough assessment of the evidence and degree to which something is true",
+      "explanation": "The guide says this asks for degree and assessment of evidence."
+    },
+    {
+      "id": 98,
+      "type": "truefalse",
+      "category": "Essay Don’ts",
+      "skill": "Check understanding",
+      "sourceId": "HINTS-DONTS",
+      "sourceType": "exam guidance",
+      "sourceText": "Do not use personal pronouns such as I. Do not call historical figures by their first names. Do not write personal notes to the marker. Do not colour in, draw smileys, use unnecessary value judgements, use etc, subheadings or bullets in essays.",
+      "question": "The guide says learners should not write personal notes to the marker.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "answer": "True",
+      "explanation": "Personal notes to the marker are listed as a don’t."
+    },
+    {
+      "id": 99,
+      "type": "fillblank",
+      "category": "Essay Frame",
+      "skill": "Recall key term",
+      "sourceId": "HINTS-FRAME",
+      "sourceType": "exam guidance",
+      "sourceText": "Essay writing frame: identify instruction words and terms, write a direct introduction, use paragraphs built on Point, Explanation, Evidence or Elaboration, and Link back to the line of argument.",
+      "question": "The recommended paragraph method is Point, Explain, Example and ________.",
+      "options": [],
+      "answer": "Link",
+      "explanation": "The frame ends each paragraph by linking back to the argument."
+    },
+    {
+      "id": 100,
+      "type": "fillblank",
+      "category": "Essay Structure",
+      "skill": "Recall key term",
+      "sourceId": "HINTS-ESSAY",
+      "sourceType": "exam guidance",
+      "sourceText": "Essay preparation: read the question carefully, underline the instruction verb, focus, direction and timeframe, use key words to plan, and write in introduction, body paragraphs and conclusion.",
+      "question": "A History essay should have an introduction, body and ________.",
+      "options": [],
+      "answer": "conclusion",
+      "explanation": "The guide identifies introduction, body and conclusion as the essay format."
+    }
+  ]
+}
+  </script>
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="quiz-engine.js"></script>
+</body>
+</html>
